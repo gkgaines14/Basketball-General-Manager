@@ -19,7 +19,7 @@ let GameTeam = class {
         this.teamName = team.teamName
         this.shortName = team.shortName
         this.roster = team.roster
-        this.inGame = [{PG:''},{'SG':''},{'SF':''},{'PF':''},{'C':''}]
+        this.inGame = [{'PG':''},{'SG':''},{'SF':''},{'PF':''},{'C':''}]
         this.onBench = []
         leagueTeams.push(this)
         this.hasPossession = 'no'

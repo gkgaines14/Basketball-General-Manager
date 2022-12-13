@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>BBall GM</title>
+</head>
+<body>
+
+    <main>
+        <div id="title-banner">
+            GM Basketball Simulator 2022
+        </div>
+        <div id="game-board">
+            <div id="gm-box">
+                <div id="gm-on-court" class="starters-box">
+                    <div class="boxscore-header">
+                        <p class="boxscore-label">On-Court</p>
+                        <div class="stat-line">
+                            <div class="stat">Pts</div>
+                            <div class="stat-dbl"> FG </div>
+                            <div class="stat-dbl"> 3P </div>
+                            <div class="stat">Reb</div>
+                            <div class="stat">Ast</div>
+                            <div class="stat">Stl</div>
+                            <div class="stat">Blk</div>
+                            <div class="stat">Fls</div>
+                        </div>
+                    </div>
+                    <div id="h-starters-list">
+                        <div id="h-pg-slot" class="boxscore-tile">
+                            <div id="h-pg-icon" class="pos-icon">PG</div>
+                            <div id="h-pg-name" class="name-icon">Point Guard</div>
+                            <div id="h-pg-stats" class="stat-line">
+                                <div id="h-pg-pts" class="stat">20</div>
+                                <div id="h-pg-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-pg-tps" class="stat-dbl">10-13</div>
+                                <div id="h-pg-reb" class="stat">16</div>
+                                <div id="h-pg-ast" class="stat">18</div>
+                                <div id="h-pg-stl" class="stat">2</div>
+                                <div id="h-pg-blk" class="stat">0</div>
+                                <div id="h-pg-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="h-sg-slot" class="boxscore-tile">
+                            <div id="h-sg-icon" class="pos-icon">SG</div>
+                            <div id="h-sg-name" class="name-icon">Shooting Guard</div>
+                            <div id="h-sg-stats" class="stat-line">
+                                <div id="h-sg-pts" class="stat">20</div>
+                                <div id="h-sg-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-sg-tps" class="stat-dbl">10-13</div>
+                                <div id="h-sg-rebs" class="stat">16</div>
+                                <div id="h-sg-asst" class="stat">18</div>
+                                <div id="h-sg-stl" class="stat">2</div>
+                                <div id="h-sg-blks" class="stat">0</div>
+                                <div id="h-sg-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="h-sf-slot" class="boxscore-tile">
+                            <div id="h-sf-icon" class="pos-icon">SF</div>
+                            <div id="h-sf-name" class="name-icon">Small Forward</div>
+                            <div id="h-sf-stats" class="stat-line">
+                                <div id="h-sf-pts" class="stat">20</div>
+                                <div id="h-sf-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-sf-tps" class="stat-dbl">10-13</div>
+                                <div id="h-sf-rebs" class="stat">16</div>
+                                <div id="h-sf-asst" class="stat">18</div>
+                                <div id="h-sf-stl" class="stat">2</div>
+                                <div id="h-sf-blks" class="stat">0</div>
+                                <div id="h-sf-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="h-pf-slot" class="boxscore-tile">
+                            <div id="h-pf-icon" class="pos-icon">PF</div>
+                            <div id="h-pf-name" class="name-icon">Power Forward</div>
+                            <div id="h-pf-stats" class="stat-line">
+                                <div id="h-pf-pts" class="stat">20</div>
+                                <div id="h-pf-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-pf-tps" class="stat-dbl">10-13</div>
+                                <div id="h-pf-rebs" class="stat">16</div>
+                                <div id="h-pf-asst" class="stat">18</div>
+                                <div id="h-pf-stl" class="stat">2</div>
+                                <div id="h-pf-blks" class="stat">0</div>
+                                <div id="h-pf-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="h-c-slot" class="boxscore-tile">
+                            <div id="h-c-icon" class="pos-icon">C</div>
+                            <div id="h-c-name" class="name-icon">Giannis Attentakunpo</div>
+                            <div id="h-c-stats" class="stat-line">
+                                <div id="h-c-pts" class="stat">20</div>
+                                <div id="h-c-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-c-tps" class="stat-dbl">10-13</div>
+                                <div id="h-c-rebs" class="stat">16</div>
+                                <div id="h-c-asst" class="stat">18</div>
+                                <div id="h-c-stl" class="stat">2</div>
+                                <div id="h-c-blks" class="stat">0</div>
+                                <div id="h-c-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="gm-bench" class="bench-box">
+                    <div class="boxscore-label">On-Bench</div>
+                    <div id="h-bench-list">
+                        <div id="bench-one" class="boxscore-tile">
+                            <div id="h-b-one-icon" class="pos-icon">C</div>
+                            <div id="h-b-one-name" class="name-icon">Bench One</div>
+                            <div id="h-b-one-stats" class="stat-line">
+                                <div id="h-b-one-pts" class="stat">20</div>
+                                <div id="h-b-one-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-one-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-one-rebs" class="stat">16</div>
+                                <div id="h-b-one-asst" class="stat">18</div>
+                                <div id="h-b-one-stl" class="stat">2</div>
+                                <div id="h-b-one-blks" class="stat">0</div>
+                                <div id="h-b-one-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-two" class="boxscore-tile">
+                            <div id="h-b-two-icon" class="pos-icon">C</div>
+                            <div id="h-b-two-name" class="name-icon">Bench Two</div>
+                            <div id="h-b-two-stats" class="stat-line">
+                                <div id="h-b-two-pts" class="stat">20</div>
+                                <div id="h-b-two-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-two-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-two-rebs" class="stat">16</div>
+                                <div id="h-b-two-asst" class="stat">18</div>
+                                <div id="h-b-two-stl" class="stat">2</div>
+                                <div id="h-b-two-blks" class="stat">0</div>
+                                <div id="h-b-two-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-three" class="boxscore-tile">
+                            <div id="h-b-three-icon" class="pos-icon">C</div>
+                            <div id="h-b-three-name" class="name-icon">Bench three</div>
+                            <div id="h-b-three-stats" class="stat-line">
+                                <div id="h-b-three-pts" class="stat">20</div>
+                                <div id="h-b-three-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-three-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-three-rebs" class="stat">16</div>
+                                <div id="h-b-three-asst" class="stat">18</div>
+                                <div id="h-b-three-stl" class="stat">2</div>
+                                <div id="h-b-three-blks" class="stat">0</div>
+                                <div id="h-b-three-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-four" class="boxscore-tile">
+                            <div id="h-b-four-icon" class="pos-icon">C</div>
+                            <div id="h-b-four-name" class="name-icon">Bench four</div>
+                            <div id="h-b-four-stats" class="stat-line">
+                                <div id="h-b-four-pts" class="stat">20</div>
+                                <div id="h-b-four-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-four-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-four-rebs" class="stat">16</div>
+                                <div id="h-b-four-asst" class="stat">18</div>
+                                <div id="h-b-four-stl" class="stat">2</div>
+                                <div id="h-b-four-blks" class="stat">0</div>
+                                <div id="h-b-four-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-five" class="boxscore-tile">
+                            <div id="h-b-five-icon" class="pos-icon">C</div>
+                            <div id="h-b-five-name" class="name-icon">Bench five</div>
+                            <div id="h-b-five-stats" class="stat-line">
+                                <div id="h-b-five-pts" class="stat">20</div>
+                                <div id="h-b-five-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-five-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-five-rebs" class="stat">16</div>
+                                <div id="h-b-five-asst" class="stat">18</div>
+                                <div id="h-b-five-stl" class="stat">2</div>
+                                <div id="h-b-five-blks" class="stat">0</div>
+                                <div id="h-b-five-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-six" class="boxscore-tile">
+                            <div id="h-b-six-icon" class="pos-icon">C</div>
+                            <div id="h-b-six-name" class="name-icon">Bench six</div>
+                            <div id="h-b-six-stats" class="stat-line">
+                                <div id="h-b-six-pts" class="stat">20</div>
+                                <div id="h-b-six-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-six-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-six-rebs" class="stat">16</div>
+                                <div id="h-b-six-asst" class="stat">18</div>
+                                <div id="h-b-six-stl" class="stat">2</div>
+                                <div id="h-b-six-blks" class="stat">0</div>
+                                <div id="h-b-six-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-seven" class="boxscore-tile">
+                            <div id="h-b-seven-icon" class="pos-icon">C</div>
+                            <div id="h-b-seven-name" class="name-icon">Bench seven</div>
+                            <div id="h-b-seven-stats" class="stat-line">
+                                <div id="h-b-seven-pts" class="stat">20</div>
+                                <div id="h-b-seven-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-seven-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-seven-rebs" class="stat">16</div>
+                                <div id="h-b-seven-asst" class="stat">18</div>
+                                <div id="h-b-seven-stl" class="stat">2</div>
+                                <div id="h-b-seven-blks" class="stat">0</div>
+                                <div id="h-b-seven-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-eight" class="boxscore-tile">
+                            <div id="h-b-eight-icon" class="pos-icon">C</div>
+                            <div id="h-b-eight-name" class="name-icon">Bench eight</div>
+                            <div id="h-b-eight-stats" class="stat-line">
+                                <div id="h-b-eight-pts" class="stat">20</div>
+                                <div id="h-b-eight-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-eight-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-eight-rebs" class="stat">16</div>
+                                <div id="h-b-eight-asst" class="stat">18</div>
+                                <div id="h-b-eight-stl" class="stat">2</div>
+                                <div id="h-b-eight-blks" class="stat">0</div>
+                                <div id="h-b-eight-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-nine" class="boxscore-tile">
+                            <div id="h-b-nine-icon" class="pos-icon">C</div>
+                            <div id="h-b-nine-name" class="name-icon">Bench nine</div>
+                            <div id="h-b-nine-stats" class="stat-line">
+                                <div id="h-b-nine-pts" class="stat">20</div>
+                                <div id="h-b-nine-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-nine-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-nine-rebs" class="stat">16</div>
+                                <div id="h-b-nine-asst" class="stat">18</div>
+                                <div id="h-b-nine-stl" class="stat">2</div>
+                                <div id="h-b-nine-blks" class="stat">0</div>
+                                <div id="h-b-nine-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <!-- <div class="divider"></div> -->
+            <div id="sim-box">
+                <div id="game-info">
+                    <div id="h-team-section" class="section-box">
+                        <div id="h-team-info" class="team-info-header">
+                            <div id="h-team-logo" class="logo-box"></div>
+                            <div class="team-info">
+                                <p class="city">Chicago</p>
+                                <p id="h-team" class="team-name">Bulls</p>
+                            </div>
+                        </div>
+                        <div id="team-stats">
+                            <div class="team-stats-tb">
+                                <div id="h-reb" class="team-stat-box-s">
+                                    <p>Reb:</p>
+                                    <p id="h-t-reb">40</p>
+                                </div>
+                                <div id="h-fgp" class="team-stat-box">
+                                    <p>FG%:</p>
+                                    <p id="h-t-fgp">0.45</p>
+                                </div>
+
+                            </div>
+                            <div class="team-stats-tb">
+                                <div id="h-reb" class="team-stat-box-s">
+                                    <p>Ast:</p>
+                                    <p id="h-t-ast">22</p>
+                                </div>
+                                <div id="h-tps" class="team-stat-box">
+                                    <p>3P%:</p>
+                                    <p id="h-t-tps">0.36</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div id="a-team-section" class="section-box">
+                        <div id="a-team-info" class="team-info-header">
+                            <div id="a-team-logo" class="logo-box"></div>
+                            <div class="team-info">
+                                <p class="city">New York</p>
+                                <p id="a-team" class="team-name">Knicks</p>
+                            </div>
+                        </div>
+                        <div id="team-stats">
+                            <div class="team-stats-tb">
+                                <div id="a-reb" class="team-stat-box-s">
+                                    <p>Reb:</p>
+                                    <p id="a-t-reb">37</p>
+                                </div>
+                                <div id="a-fgp" class="team-stat-box">
+                                    <p>FG%:</p>
+                                    <p id="a-t-fgp">0.38</p>
+                                </div>
+
+                            </div>
+                            <div class="team-stats-tb">
+                                <div id="a-reb" class="team-stat-box-s">
+                                    <p>Ast:</p>
+                                    <p id="a-t-ast">17</p>
+                                </div>
+                                <div id="a-tps" class="team-stat-box">
+                                    <p>3P%:</p>
+                                    <p id="a-t-tps">0.41</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="game-reset-box">
+                    <div id="h-score">88</div>
+                    <div id="game-clock"> 3rd Qtr - 08:46</div>
+                    <div id="h-score">72</div>
+                </div>
+                <div class="divider-h-dark"></div>
+                <div id="game-buttons">
+                    <div id="advance-button" class="button">Advance</div>
+                    <div id="sub-button" class="button">Substitutions</div>
+                    <div id="reset-button" class="button">Reset Game</div>
+                </div>
+                <h3>Game Log</h3>
+                <div class="divider-h-light"></div>
+                <div id="gamelog-box">
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                   <p class="boxscore-tile">Gamelog line</p>
+                </div>
+            </div>
+            <!-- <div class="divider"></div> -->
+            <div id="cpu-box">
+                <div id="cpu-on-court" class="starters-box">
+                    <div class="boxscore-header">
+                        <p class="boxscore-label">On-Court</p>
+                        <div class="stat-line">
+                            <div class="stat">Pts</div>
+                            <div class="stat-dbl"> FG </div>
+                            <div class="stat-dbl"> 3P </div>
+                            <div class="stat">Reb</div>
+                            <div class="stat">Ast</div>
+                            <div class="stat">Stl</div>
+                            <div class="stat">Blk</div>
+                            <div class="stat">Fls</div>
+                        </div>
+                    </div>
+                    <div id="a-starters-list">
+                        <div id="a-pg-slot" class="boxscore-tile">
+                            <div id="a-pg-icon" class="pos-icon">PG</div>
+                            <div id="a-pg-name" class="name-icon">Point Guard</div>
+                            <div id="a-pg-stats" class="stat-line">
+                                <div id="a-pg-pts" class="stat">20</div>
+                                <div id="a-pg-fgs" class="stat-dbl">15-26</div>
+                                <div id="a-pg-tps" class="stat-dbl">10-13</div>
+                                <div id="a-pg-reb" class="stat">16</div>
+                                <div id="a-pg-ast" class="stat">18</div>
+                                <div id="a-pg-stl" class="stat">2</div>
+                                <div id="a-pg-blk" class="stat">0</div>
+                                <div id="a-pg-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="a-sg-slot" class="boxscore-tile">
+                            <div id="a-sg-icon" class="pos-icon">SG</div>
+                            <div id="a-sg-name" class="name-icon">Shooting Guard</div>
+                            <div id="a-sg-stats" class="stat-line">
+                                <div id="a-sg-pts" class="stat">20</div>
+                                <div id="a-sg-fgs" class="stat-dbl">15-26</div>
+                                <div id="a-sg-tps" class="stat-dbl">10-13</div>
+                                <div id="a-sg-rebs" class="stat">16</div>
+                                <div id="a-sg-asst" class="stat">18</div>
+                                <div id="a-sg-stl" class="stat">2</div>
+                                <div id="a-sg-blks" class="stat">0</div>
+                                <div id="a-sg-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="a-sf-slot" class="boxscore-tile">
+                            <div id="a-sf-icon" class="pos-icon">SF</div>
+                            <div id="a-sf-name" class="name-icon">Small Forward</div>
+                            <div id="a-sf-stats" class="stat-line">
+                                <div id="a-sf-pts" class="stat">20</div>
+                                <div id="a-sf-fgs" class="stat-dbl">15-26</div>
+                                <div id="a-sf-tps" class="stat-dbl">10-13</div>
+                                <div id="a-sf-rebs" class="stat">16</div>
+                                <div id="a-sf-asst" class="stat">18</div>
+                                <div id="a-sf-stl" class="stat">2</div>
+                                <div id="a-sf-blks" class="stat">0</div>
+                                <div id="a-sf-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="h-pf-slot" class="boxscore-tile">
+                            <div id="h-pf-icon" class="pos-icon">PF</div>
+                            <div id="h-pf-name" class="name-icon">Power Forward</div>
+                            <div id="h-pf-stats" class="stat-line">
+                                <div id="h-pf-pts" class="stat">20</div>
+                                <div id="h-pf-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-pf-tps" class="stat-dbl">10-13</div>
+                                <div id="h-pf-rebs" class="stat">16</div>
+                                <div id="h-pf-asst" class="stat">18</div>
+                                <div id="h-pf-stl" class="stat">2</div>
+                                <div id="h-pf-blks" class="stat">0</div>
+                                <div id="h-pf-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="h-c-slot" class="boxscore-tile">
+                            <div id="h-c-icon" class="pos-icon">C</div>
+                            <div id="h-c-name" class="name-icon">Giannis Attentakunpo</div>
+                            <div id="h-c-stats" class="stat-line">
+                                <div id="h-c-pts" class="stat">20</div>
+                                <div id="h-c-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-c-tps" class="stat-dbl">10-13</div>
+                                <div id="h-c-rebs" class="stat">16</div>
+                                <div id="h-c-asst" class="stat">18</div>
+                                <div id="h-c-stl" class="stat">2</div>
+                                <div id="h-c-blks" class="stat">0</div>
+                                <div id="h-c-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="gm-bench" class="bench-box">
+                    <div class="boxscore-label">On-Bench</div>
+                    <div id="h-bench-list">
+                        <div id="bench-one" class="boxscore-tile">
+                            <div id="h-b-one-icon" class="pos-icon">C</div>
+                            <div id="h-b-one-name" class="name-icon">Bench One</div>
+                            <div id="h-b-one-stats" class="stat-line">
+                                <div id="h-b-one-pts" class="stat">20</div>
+                                <div id="h-b-one-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-one-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-one-rebs" class="stat">16</div>
+                                <div id="h-b-one-asst" class="stat">18</div>
+                                <div id="h-b-one-stl" class="stat">2</div>
+                                <div id="h-b-one-blks" class="stat">0</div>
+                                <div id="h-b-one-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-two" class="boxscore-tile">
+                            <div id="h-b-two-icon" class="pos-icon">C</div>
+                            <div id="h-b-two-name" class="name-icon">Bench Two</div>
+                            <div id="h-b-two-stats" class="stat-line">
+                                <div id="h-b-two-pts" class="stat">20</div>
+                                <div id="h-b-two-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-two-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-two-rebs" class="stat">16</div>
+                                <div id="h-b-two-asst" class="stat">18</div>
+                                <div id="h-b-two-stl" class="stat">2</div>
+                                <div id="h-b-two-blks" class="stat">0</div>
+                                <div id="h-b-two-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-three" class="boxscore-tile">
+                            <div id="h-b-three-icon" class="pos-icon">C</div>
+                            <div id="h-b-three-name" class="name-icon">Bench three</div>
+                            <div id="h-b-three-stats" class="stat-line">
+                                <div id="h-b-three-pts" class="stat">20</div>
+                                <div id="h-b-three-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-three-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-three-rebs" class="stat">16</div>
+                                <div id="h-b-three-asst" class="stat">18</div>
+                                <div id="h-b-three-stl" class="stat">2</div>
+                                <div id="h-b-three-blks" class="stat">0</div>
+                                <div id="h-b-three-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-four" class="boxscore-tile">
+                            <div id="h-b-four-icon" class="pos-icon">C</div>
+                            <div id="h-b-four-name" class="name-icon">Bench four</div>
+                            <div id="h-b-four-stats" class="stat-line">
+                                <div id="h-b-four-pts" class="stat">20</div>
+                                <div id="h-b-four-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-four-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-four-rebs" class="stat">16</div>
+                                <div id="h-b-four-asst" class="stat">18</div>
+                                <div id="h-b-four-stl" class="stat">2</div>
+                                <div id="h-b-four-blks" class="stat">0</div>
+                                <div id="h-b-four-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-five" class="boxscore-tile">
+                            <div id="h-b-five-icon" class="pos-icon">C</div>
+                            <div id="h-b-five-name" class="name-icon">Bench five</div>
+                            <div id="h-b-five-stats" class="stat-line">
+                                <div id="h-b-five-pts" class="stat">20</div>
+                                <div id="h-b-five-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-five-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-five-rebs" class="stat">16</div>
+                                <div id="h-b-five-asst" class="stat">18</div>
+                                <div id="h-b-five-stl" class="stat">2</div>
+                                <div id="h-b-five-blks" class="stat">0</div>
+                                <div id="h-b-five-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-six" class="boxscore-tile">
+                            <div id="h-b-six-icon" class="pos-icon">C</div>
+                            <div id="h-b-six-name" class="name-icon">Bench six</div>
+                            <div id="h-b-six-stats" class="stat-line">
+                                <div id="h-b-six-pts" class="stat">20</div>
+                                <div id="h-b-six-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-six-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-six-rebs" class="stat">16</div>
+                                <div id="h-b-six-asst" class="stat">18</div>
+                                <div id="h-b-six-stl" class="stat">2</div>
+                                <div id="h-b-six-blks" class="stat">0</div>
+                                <div id="h-b-six-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-seven" class="boxscore-tile">
+                            <div id="h-b-seven-icon" class="pos-icon">C</div>
+                            <div id="h-b-seven-name" class="name-icon">Bench seven</div>
+                            <div id="h-b-seven-stats" class="stat-line">
+                                <div id="h-b-seven-pts" class="stat">20</div>
+                                <div id="h-b-seven-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-seven-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-seven-rebs" class="stat">16</div>
+                                <div id="h-b-seven-asst" class="stat">18</div>
+                                <div id="h-b-seven-stl" class="stat">2</div>
+                                <div id="h-b-seven-blks" class="stat">0</div>
+                                <div id="h-b-seven-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-eight" class="boxscore-tile">
+                            <div id="h-b-eight-icon" class="pos-icon">C</div>
+                            <div id="h-b-eight-name" class="name-icon">Bench eight</div>
+                            <div id="h-b-eight-stats" class="stat-line">
+                                <div id="h-b-eight-pts" class="stat">20</div>
+                                <div id="h-b-eight-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-eight-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-eight-rebs" class="stat">16</div>
+                                <div id="h-b-eight-asst" class="stat">18</div>
+                                <div id="h-b-eight-stl" class="stat">2</div>
+                                <div id="h-b-eight-blks" class="stat">0</div>
+                                <div id="h-b-eight-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                        <div id="bench-nine" class="boxscore-tile">
+                            <div id="h-b-nine-icon" class="pos-icon">C</div>
+                            <div id="h-b-nine-name" class="name-icon">Bench nine</div>
+                            <div id="h-b-nine-stats" class="stat-line">
+                                <div id="h-b-nine-pts" class="stat">20</div>
+                                <div id="h-b-nine-fgs" class="stat-dbl">15-26</div>
+                                <div id="h-b-nine-tps" class="stat-dbl">10-13</div>
+                                <div id="h-b-nine-rebs" class="stat">16</div>
+                                <div id="h-b-nine-asst" class="stat">18</div>
+                                <div id="h-b-nine-stl" class="stat">2</div>
+                                <div id="h-b-nine-blks" class="stat">0</div>
+                                <div id="h-b-nine-fls" class="stat">2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- <script type="module" src="test.js"></script> -->
+
+
+    <script type="module" src="game_sim.js"></script>
+    <script type="module" src="gameplay_functions.js"></script>
+    <script type="module" src="game_data.js"></script>
+    <!-- <script type ="module" src="player_generator.js"></script> --> -->
+</body>
+</html>

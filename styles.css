@@ -1,0 +1,345 @@
+:root{
+    --wood-floor:rgb(222, 206, 154);
+    --header:rgb(149, 191, 223);
+    --pale-white:rgb(234, 237, 245);
+    --home-color:rgb(186, 24, 24);
+    --home-color-high:rgba(243, 144, 144, 0.657);
+    --away-color:rgb(19, 69, 204);
+    --away-color-high:rgb(174, 193, 245);
+    
+    --dark-red: rgb(91, 8, 15);
+    --prime-red:rgb(187, 7, 22, 0.927);
+    --blue-one:rgba(204, 215, 248, 0.886);
+    --blue-two: rgba(143, 167, 232, 0.581);
+    --blue-three:rgba(33, 54, 111, 0.791);
+    --blue-four:rgba(28, 42, 78, 0.938);
+    --highlight-blue:rgba(213, 228, 246, 0.657);
+    
+    
+}
+
+body{
+    background-color: var(--blue-one);
+    overflow: hidden;
+}
+body p{
+    margin: 0px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+#landing-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#title-banner{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+}
+
+
+#game-board{
+    background-color: var(--pale-white);
+    width: 1600px;
+    height: 800px;
+    border-radius: 20px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px 0px 20px;
+}
+
+
+#gm-box, #cpu-box{
+    width: 500px;
+    height:700px;
+    padding:12px 10px;
+    box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px;
+}
+
+#gm-box{
+    border-left: 2px solid var(--home-color);
+}
+
+#cpu-box{
+    border-right: 2px solid var(--away-color);
+}
+
+.starters-box{
+    height: 250px;
+    margin-bottom: 30px;
+}
+
+.bench-box{
+    height: 430px;
+    margin-top: 10px;
+}
+
+/* Sim Info and sim-box ----------------------------------*/
+#sim-box{
+    width: 540px;
+    height: 724px;
+    /* padding: 12px 0px; */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px;
+    /* box-shadow: 0 4px 2px -2px gray; */
+}
+
+#game-info{
+    display: flex;
+    justify-content:center ;
+    width: 100%;
+    height: 500px;
+    border-radius: 5px;
+    /* box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px; */
+}
+.section-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    height: 100%;
+}
+
+
+#h-team-section{
+    background-image: linear-gradient(to bottom,var(--home-color),var(--pale-white) 66%);
+    width: 256px;
+}
+
+#a-team-section{
+    background-image: linear-gradient(to bottom,var(--away-color),var(--pale-white) 66%);
+    width: 256px;
+}
+
+
+.team-info-header{
+    display: flex;
+}
+
+#h-team-logo{
+    background-image:url("images/bulls_logo.png");
+    background-repeat: no-repeat;
+}
+
+#a-team-logo{
+    background-image:url("images/knicks_logo.png");
+    /* background-size: cover ; */
+    background-repeat: no-repeat;
+}
+
+.logo-box{
+    /* background-color: blue; */
+    /* background-size: 100px; */
+    width: 110px;
+    height: 100px;
+    
+}
+
+.team-info{
+    padding: 0px 20px;
+}
+
+
+#h-team{
+    font-size: 3rem;
+    color: var(--home-color);
+    
+}
+#a-team{
+    font-size: 3rem;
+    color: var(--away-color);
+}
+.city{
+    font-size: 1.4rem;
+    margin: 2px;
+    color: var(--pale-white);
+}
+
+#team-stats{
+    display: flex;
+    flex-direction: column;
+  
+    margin: 20px 0px;
+    width: 100%;
+}
+
+.team-stats-tb{
+    display: flex;
+  
+    justify-content: space-around;
+    width: 240px;
+}
+
+.team-stat-box-s{
+    width: 80px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-stat-box{
+    width: 100px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+#game-reset-box{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100px;
+    margin: 20px 0px;
+    font-size: 2rem;
+}
+
+#game-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.button{
+    color: white;
+    background-color: var(--blue-three);
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;  
+}
+
+#gamelog-box{
+    width: 520px;
+    height: 680px;
+    padding: 0px 10px;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+/* Class styles */
+
+
+.header{
+    /* border: solid 2px black; */
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.divider{
+    border: 1px solid var(--blue-one);
+    height:100%;
+}
+
+.divider-h-dark{
+    border: 1px solid var(--blue-four);
+    width:100%;
+}
+
+.divider-h-light{
+    border: 1px solid rgb(191, 195, 201);
+    width:100%;
+}
+
+.boxscore-header{
+    display: flex;
+    align-items: center;
+    border-bottom: 1pt solid var(--blue-four);
+}
+
+.boxscore-label{
+    font-size: 1.4rem;
+    height: 30px;
+    width: 237px;
+    margin: 0px 0px 5px 10px;
+}
+
+.boxscore-tile{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-bottom:1px solid var(--blue-one);
+}
+
+.pos-icon{
+    width: 50px;
+    text-align: center;
+    /* margin: 2px; */
+}
+
+.name-icon{
+    width: 180px;
+}
+
+.stat-line{
+    display: flex;
+    margin-left: 5px;
+}
+
+.stat{
+    width:20px;
+    text-align: center;
+    padding: 0px 5px 0px 5px;
+}
+.stat-dbl{
+    width:43px;
+    text-align: center;
+    padding: 0px 6px 0px 6px;
+}
+
+h3{
+    text-align: left;
+    margin: 20px 0px 10px;
+}
+/* Active states */
+
+#gm-box .boxscore-tile:hover{
+    background-image: linear-gradient(to right, var(--home-color-high),rgb(250, 236, 236) 35%, white 70%);
+    border-left: 2px solid var(--home-color);
+    font-size: 1.1rem;
+}
+
+#cpu-box .boxscore-tile:hover{
+    background-image: linear-gradient(to right, var(--away-color-high),rgb(214, 228, 246) 35%, rgb(255, 255, 255) 70%);
+    border-left: 2px solid var(--away-color);
+    font-size: 1.1rem;
+}
+
+.button:hover{
+    color: var(--blue-four);
+    background-color: var(--blue-two);
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-shadow:rgb(92, 90, 90) 0px 3px 10px;
+    cursor: pointer;
+}
