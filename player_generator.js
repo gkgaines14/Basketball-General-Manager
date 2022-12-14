@@ -185,11 +185,15 @@ function createNewPlayer(count,years){
 
 //Defines the Team class
 export class Team {
-    constructor(city,teamName,shortName){
+    constructor(city,teamName,shortName,primaryColor,secondaryColor,highColor,logo){
         this.city = city
         this.teamName = teamName
         this.shortName = shortName
         this.roster = []
+        this.primaryColor = primaryColor
+        this.secondaryColor = secondaryColor
+        this.highColor = highColor
+        this.logo = logo
         leagueTeams.push(this)
     }
 }
@@ -199,7 +203,7 @@ export class Team {
 // let losAngelesLakers = new Team('Los Angeles','Lakers','LAL')
 let portlandTrailblazers = new Team('Portland','Trailblazers','POR')
 
-console.log(portlandTrailblazers)
+// console.log(portlandTrailblazers)
 
 // createNewPlayer(200,1)
 

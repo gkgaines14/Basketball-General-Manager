@@ -1,6 +1,6 @@
 export{gameLength,pos2}
 import{Team} from"./player_generator.js"
-export{chicagoBulls,newYorkKnicks}
+export{chicagoBulls,newYorkKnicks,sanAntonioSpurs}
 
 let gameLength = 2880
 let pos2 = 0
@@ -9,9 +9,10 @@ let teamOneScore = 0
 let teamTwoScore = 0
 
 
-
-let newYorkKnicks = new Team('New York','Knicks','NYK')
-let chicagoBulls = new Team('Chicago','Bulls','CHI')
+// constructor(city,teamName,shortName,primaryColor,secondaryColor,highColor,logo)
+let newYorkKnicks = new Team('New York','Knicks','NYK',"rgb(19, 69, 204)","","rgb(174, 193, 245)",'url("images/knicks_logo.png")');
+let chicagoBulls = new Team('Chicago','Bulls','CHI',"rgb(186, 24, 24)","","rgba(243, 144, 144, 0.657)",'url("images/bulls_logo.png")');
+let sanAntonioSpurs = new Team('San Antonio','Spurs','SAS','black','gray','rgb(180, 180, 180)',"url('images/spurs_logo.png')" )
 
 
 //Team One

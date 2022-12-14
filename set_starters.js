@@ -23,6 +23,9 @@ let roster = [
 function setStarters(){
  
     roster.sort((a, b)=> b.overall-a.overall)
+    console.log('')
+    console.log('Roster sorted by Overall rating:')
+    roster.forEach(item=>console.log(`${item.name}(${item.position}) - ${item.overall}`))
 
     //Set players into starting positions
     for(let j = 0;j<homeTeam_inGame.length;j++){
