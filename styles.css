@@ -4,13 +4,15 @@
     --pale-white:rgb(234, 237, 245);
     
     /* Home Team */
-    --home-color:rgb(186, 24, 24);
+    --home-p-color:rgb(186, 24, 24);
+    --home-s-color:rgb(9, 9, 9);
     --home-color-high:rgba(243, 144, 144, 0.657);
     --home-logo:url("images/test.png");
     
     /* Away Team */
-    --away-color:rgb(19, 69, 204);
-    --away-color-high:rgb(174, 193, 245);
+    --away-p-color:rgb(19, 69, 204);
+    --away-s-color:rgb(227, 138, 23);
+    --away-color-high:rgb(177, 212, 143);
     --away-logo:url("images/test.png");
     
 
@@ -85,11 +87,11 @@ main{
 }
 
 #gm-box{
-    border-left: 2px solid var(--home-color);
+    border-left: 2px solid var(--home-p-color);
 }
 
 #cpu-box{
-    border-right: 2px solid var(--away-color);
+    border-right: 2px solid var(--away-p-color);
 }
 
 .starters-box{
@@ -133,12 +135,12 @@ main{
 
 
 #h-team-section{
-    background-image: linear-gradient(to bottom,var(--home-color),var(--pale-white) 66%);
+    background-image: linear-gradient(to bottom,var(--home-p-color),var(--pale-white) 66%);
     width: 248px;
 }
 
 #a-team-section{
-    background-image: linear-gradient(to bottom,var(--away-color),var(--pale-white) 66%);
+    background-image: linear-gradient(to bottom,var(--away-p-color),var(--pale-white) 66%);
     width: 248px;
 }
 
@@ -181,12 +183,12 @@ main{
 
 #h-team-name{
     font-size: 2.1rem;
-    color: var(--home-color);
+    color: var(--home-p-color);
     
 }
 #a-team-name{
     font-size: 2.1rem;
-    color: var(--away-color);
+    color: var(--away-p-color);
 }
 
 .city{
@@ -353,13 +355,13 @@ h3{
 
 #gm-box .boxscore-tile:hover{
     background-image: linear-gradient(to right, var(--home-color-high), white 48%);
-    border-left: 2px solid var(--home-color);
+    border-left: 2px solid var(--home-p-color);
     /* font-size: 1.1rem; */
 }
 
 #cpu-box .boxscore-tile:hover{
     background-image: linear-gradient(to right, var(--away-color-high), white 48%);
-    border-left: 2px solid var(--away-color);
+    border-left: 2px solid var(--away-p-color);
     font-size: 1rem;
 }
 
