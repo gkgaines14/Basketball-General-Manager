@@ -1,15 +1,15 @@
 // import * as gamePlay from "./gameplay_functions.js" 
-import {chicagoBulls,newYorkKnicks,sanAntonioSpurs,milwaukeeBucks,somersetSpartans} from "./game_data.js"
+import {chicagoBulls,newYorkKnicks,sanAntonioSpurs,milwaukeeBucks,somersetSpartans,freeAgents} from "./game_data.js"
 
 
-let homeTeam = newYorkKnicks
-let awayTeam = somersetSpartans
-
+let homeTeam = chicagoBulls 
+let awayTeam = sanAntonioSpurs
+console.log(freeAgents)
 
 
 
 // Sets team data and styles
-let root=document.documentElement.style
+let root = document.documentElement.style;
 
 
 //Load home team
@@ -29,19 +29,3 @@ root.setProperty('--away-color-high',awayTeam.highColor);
 root.setProperty('--away-logo',awayTeam.logo);
 document.getElementById('a-city').innerHTML = awayTeam.city;
 document.getElementById('a-team-name').innerHTML = awayTeam.teamName;
-
-
-
-
-
-
-// root.setProperty('--home-color-high',chicagoBulls.colorHigh)
-// root.setProperty('--home-color',chicagoBulls.secondaryColor)
-// root.setProperty('--home-color',chicagoBulls.secondaryColor)
-// root.setProperty('--home-color',chicagoBulls.secondaryColor)
-// root.setProperty('--home-color',chicagoBulls.secondaryColor)
-
-
-
-
-// root.setProperty('--home-color',newYorkKnicks.secondaryColor)

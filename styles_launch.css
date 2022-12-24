@@ -1,0 +1,17 @@
+#roster-card{
+    display: flex;    
+}
+
+.bosscore-tile{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-bottom:1px solid var(--blue-one);
+    width: 100%;
+
+}
+
+#free-agent-list{
+    overflow:auto;
+    height: 600px;
+}

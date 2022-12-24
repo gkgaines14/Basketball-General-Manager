@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="styles_global.css">
+    <link rel="stylesheet" href="styles_launch.css">
+    <script src="https://kit.fontawesome.com/662beca40c.js" crossorigin="anonymous"></script>
+
+    <title>BBall GM</title>
+</head>
+<body>
+    <main id="landing-page">
+        <h1>Pro League GM: Basketball Simulator</h1>
+
+
+        <div id="roster-card">
+        
+            <div id="free-agents" class="roster-box">
+                <div class="card-header"> Free Agents</div>
+                <div id="free-agent-list"></div>
+
+            </div>
+
+
+            <div id="gm-roster" class="roster-box">
+                <div class="card-header"> Home Team</div>
+                
+                <div class="card-sub-header">Starters</div>
+
+                <div id="gm-pg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpg">
+                    <div class="position-box box-dark">PG</div>
+
+                </div>
+                <div id="gm-sg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsg">
+                    <div class="position-box box-dark">SG</div>
+
+                </div>
+                <div id="gm-sf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsf">
+                    <div class="position-box box-dark">SF</div>
+                </div>
+                <div id="gm-pf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpf">
+                    <div class="position-box box-dark">PF</div>
+
+                </div>
+                <div id="gm-c-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hc">
+                    <div class="position-box box-dark">C</div>
+                </div>
+                <div class="card-sub-header">Bench</div>
+
+                <div id="gm-b-one-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">6</div>
+                </div>
+                <div id="gm-b-two-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">7</div>
+                </div>
+                <div id="gm-b-three-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">8</div>
+                </div>
+                <div id="gm-b-four-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">9</div>
+                </div>
+                <div id="gm-b-five-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">10</div>
+                </div>
+                <div id="gm-b-six-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">11</div>
+                </div>
+                <div id="gm-b-seven-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">12</div>
+                </div>
+                <div id="gm-b-eight-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                    <div class="position-box box-dark">13</div>
+                </div>
+            </div>
+            <div id="cpu-roster" class="roster-box"></div>
+
+
+        </div>
+
+        <a href="sim_game_page.html" class="button"> Start Game</a>
+    </main>
+
+
+    <script type="module" src="launch_func.js"></script>
+
+    <!-- <script type="module" src="game_engine.js"></script> -->
+
+    <!-- <script type="module" src="game_sim.js"></script>
+    <script type="module" src="gameplay_functions.js"></script>
+    <script type="module" src="game_data.js"></script> -->
+    <!-- <script type ="module" src="player_generator.js"></script> -->
+</body>
+</html>

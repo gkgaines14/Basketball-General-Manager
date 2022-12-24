@@ -1,0 +1,137 @@
+:root{
+    --wood-floor:rgb(222, 206, 154);
+    --header:rgb(149, 191, 223);
+    --pale-white:rgb(239, 242, 245);
+    --background: rgb(215, 221, 232);
+
+    /* Home Team */
+    --home-p-color:rgb(186, 24, 24);
+    --home-s-color:rgb(9, 9, 9);
+    --home-color-high:rgba(243, 144, 144, 0.657);
+    --home-logo:url("images/test.png");
+    
+    /* Away Team */
+    --away-p-color:rgb(19, 69, 204);
+    --away-s-color:rgb(227, 138, 23);
+    --away-color-high:rgb(177, 212, 143);
+    --away-logo:url("images/test.png");
+    
+
+    --dark-red: rgb(91, 8, 15);
+    --prime-red:rgb(187, 7, 22, 0.927);
+    --blue-one:rgba(204, 215, 248, 0.886);
+    --blue-two: rgba(143, 167, 232, 0.581);
+    --blue-three:rgba(33, 54, 111, 0.791);
+    --blue-four:rgba(28, 42, 78, 0.938);
+    --highlight-blue:rgba(213, 228, 246, 0.657);
+
+    --gray:rgb(180, 180, 180);
+}
+
+body{
+    background-color: var(--background);
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 11pt;
+}
+
+
+.button{
+    color: white;
+    background-color: var(--blue-four);
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;  
+}
+
+.button:hover{
+    color: var(--blue-three);
+    background-color: rgb(170, 200, 246);
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow:rgb(92, 90, 90) 0px 3px 10px;
+    cursor: pointer;
+}
+
+
+/* Boxscore tiles------------------------------------------------------- */
+.position-tile{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-bottom:1px solid var(--blue-one);
+    width: 100%;
+
+}
+
+
+.position-box{
+    /* background-color:var(--blue-three); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 50px;
+    
+}
+
+.name-box{
+    /* background-color: rgb(245, 244, 244); */
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    cursor:move;
+}
+
+.name{
+    padding-left: 10px;
+}
+
+.box-dark{
+    background-color: var(--blue-three);
+    /* border: solid 1.5px var(--blue-two); */
+    color: white;
+    border-radius: 10px;
+}
+
+
+/* Roster box ------------------------------------------------------ */
+.roster-box{
+    background-color: var(--pale-white);
+    width: 540px;
+    height:700px;
+    padding:12px 10px;
+    box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px;
+}
+
+
+.card-header{
+    margin: 20px 0;
+    font-size: 1.5rem;
+
+}
+
+.card-sub-header{
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+
+/* Dragging elements */
+.dragging{
+    background-color: rgb(240, 133, 133);
+    opacity:.4;
+}
+
+.over{
+    border: 3px solid rgb(6, 78, 6);
+}
