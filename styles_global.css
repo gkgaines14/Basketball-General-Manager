@@ -35,7 +35,7 @@ body{
 *{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 11pt;
 }
 
@@ -89,11 +89,13 @@ body{
     padding-left: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     cursor:move;
 }
 
 .name{
     padding-left: 10px;
+    font-weight: 700px;
 }
 
 .box-dark{
@@ -101,6 +103,23 @@ body{
     /* border: solid 1.5px var(--blue-two); */
     color: white;
     border-radius: 10px;
+}
+
+
+.name-box-player{
+    display: flex;
+    align-items: center;
+    font-style: bold;
+}
+
+.name-box-ratings{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+
+.name-box-ratings p{
+    margin-right: 20px;
 }
 
 

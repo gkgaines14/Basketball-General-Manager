@@ -1,7 +1,7 @@
 //Export functions
 import{gameLength} from "./game_data.js"
 export{simPos,setStarters,makeSubs,reload}
-import{homeTeam,roadTeam,pos} from "./game_sim.js"
+import{homeTeam,roadTeam,pos} from "./app_game_sim.js"
 
 
 //Simulate a possession

@@ -10,7 +10,7 @@
 
     <title>BBall GM</title>
 </head>
-<body>
+<body id="launch-page">
     <main id="landing-page">
         <h1>Pro League GM: Basketball Simulator</h1>
 
@@ -29,48 +29,48 @@
                 
                 <div class="card-sub-header">Starters</div>
 
-                <div id="gm-pg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpg">
+                <div id="gm-pg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpg" data-arr="homeInGame">
                     <div class="position-box box-dark">PG</div>
 
                 </div>
-                <div id="gm-sg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsg">
+                <div id="gm-sg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsg" data-arr="homeInGame">
                     <div class="position-box box-dark">SG</div>
 
                 </div>
-                <div id="gm-sf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsf">
+                <div id="gm-sf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsf" data-arr="homeInGame">
                     <div class="position-box box-dark">SF</div>
                 </div>
-                <div id="gm-pf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpf">
+                <div id="gm-pf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpf" data-arr="homeInGame">
                     <div class="position-box box-dark">PF</div>
 
                 </div>
-                <div id="gm-c-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hc">
+                <div id="gm-c-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hc" data-arr="homeInGame">
                     <div class="position-box box-dark">C</div>
                 </div>
                 <div class="card-sub-header">Bench</div>
 
-                <div id="gm-b-one-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-one-slot" class="position-tile home-s-tile" data-pos="hb6" data-arr="homeOnBench">
                     <div class="position-box box-dark">6</div>
                 </div>
-                <div id="gm-b-two-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-two-slot" class="position-tile home-s-tile" data-pos="hb7" data-arr="homeOnBench">
                     <div class="position-box box-dark">7</div>
                 </div>
-                <div id="gm-b-three-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-three-slot" class="position-tile home-s-tile" data-pos="hb8" data-arr="homeOnBench">
                     <div class="position-box box-dark">8</div>
                 </div>
-                <div id="gm-b-four-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-four-slot" class="position-tile home-s-tile" data-pos="hb9" data-arr="homeOnBench">
                     <div class="position-box box-dark">9</div>
                 </div>
-                <div id="gm-b-five-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-five-slot" class="position-tile home-s-tile" data-pos="hb10" data-arr="homeOnBench">
                     <div class="position-box box-dark">10</div>
                 </div>
-                <div id="gm-b-six-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-six-slot" class="position-tile home-s-tile" data-pos="hb11" data-arr="homeOnBench">
                     <div class="position-box box-dark">11</div>
                 </div>
-                <div id="gm-b-seven-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-seven-slot" class="position-tile home-s-tile" data-pos="hb12" data-arr="homeOnBench">
                     <div class="position-box box-dark">12</div>
                 </div>
-                <div id="gm-b-eight-slot" class="position-tile home-s-tile" data-loc="homeOnCourt">
+                <div id="gm-b-eight-slot" class="position-tile home-s-tile" data-pos="hb13" data-arr="homeOnBench">
                     <div class="position-box box-dark">13</div>
                 </div>
             </div>
@@ -83,9 +83,9 @@
     </main>
 
 
-    <script type="module" src="launch_func.js"></script>
+    <!-- <script type="module" src="app_launch.js"></script> -->
 
-    <!-- <script type="module" src="game_engine.js"></script> -->
+    <script type="module" src="app_game_engine.js"></script>
 
     <!-- <script type="module" src="game_sim.js"></script>
     <script type="module" src="gameplay_functions.js"></script>
