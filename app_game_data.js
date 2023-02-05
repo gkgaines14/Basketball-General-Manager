@@ -1,7 +1,7 @@
-export{gameLength,pos2}
+export{gameLength,pos2,leagueTeamList}
 import{Team} from"./player_generator.js"
 // export{chicagoBulls,newYorkKnicks,sanAntonioSpurs,milwaukeeBucks,somersetSpartans,freeAgents,test}
-export{leagueTeamList}
+// export{leagueTeamList}
 
 let gameLength = 2880
 let pos2 = 0
@@ -10,13 +10,13 @@ let teamOneScore = 0
 let teamTwoScore = 0
 
 
-// constructor(city,teamName,shortName,primaryColor,secondaryColor,highColor,logo)
-let newYorkKnicks = new Team('New York','Knicks','NYK',"rgb(19, 69, 204)","rgb(227, 138, 23)","rgb(174, 193, 245)",'url("images/knicks_logo.png")');
-let chicagoBulls = new Team('Chicago','Bulls','CHI',"rgb(186, 24, 24)","black","rgba(243, 144, 144, 0.657)",'url("images/bulls_logo.png")');
-let sanAntonioSpurs = new Team('San Antonio','Spurs','SAS','black','gray','rgb(180, 180, 180)',"url('images/spurs_logo.png')" )
-let milwaukeeBucks = new Team('Milwaukee','Bucks','MIL','rgb(38,78,54)','rgb(223,210,175)','rgb(177, 212, 143)',"url('images/bucks_logo.png')" )
-let somersetSpartans = new Team('Somerset','Spartans','SOM','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)',"url('images/spartans_logo.png')" )
-let freeAgents = new Team('Free Agent','Players','FA','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)',)
+// constructor(tID,city,teamName,shortName,primaryColor,secondaryColor,highColor,logo)
+let newYorkKnicks = new Team('101','New York','Knicks','NYK',"rgb(19, 69, 204)","rgb(227, 138, 23)","rgb(174, 193, 245)",'url("images/knicks_logo.png")');
+let chicagoBulls = new Team('102','Chicago','Bulls','CHI',"rgb(186, 24, 24)","black","rgba(243, 144, 144, 0.657)",'url("images/bulls_logo.png")');
+let sanAntonioSpurs = new Team('103','San Antonio','Spurs','SAS','black','gray','rgb(180, 180, 180)',"url('images/spurs_logo.png')" )
+let milwaukeeBucks = new Team('104','Milwaukee','Bucks','MIL','rgb(38,78,54)','rgb(223,210,175)','rgb(177, 212, 143)',"url('images/bucks_logo.png')" )
+let somersetSpartans = new Team('105','Somerset','Spartans','SOM','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)',"url('images/spartans_logo.png')" )
+let freeAgents = new Team('100','Free Agent','Players','FA','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)',)
 
 
 let leagueTeamList = [

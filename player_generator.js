@@ -185,7 +185,8 @@ function createNewPlayer(count,years){
 
 //Defines the Team class
 export class Team {
-    constructor(city,teamName,shortName,primaryColor,secondaryColor,highColor,logo){
+    constructor(tID,city,teamName,shortName,primaryColor,secondaryColor,highColor,logo){
+        this.tID = tID
         this.city = city
         this.teamName = teamName
         this.shortName = shortName

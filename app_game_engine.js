@@ -5,7 +5,8 @@ import {leagueTeamList} from "./app_game_data.js"
 import {loadLandingPage} from "./app_launch.js"
 
 
-const freeAgentList= document.getElementById('free-agent-list');
+
+// const freeAgentList= document.getElementById('free-agent-list');
 
 
 // loadLandingPage()
@@ -33,8 +34,8 @@ const app = {
     },
 
     loadSimWindow: ()=>{
-        let homeTeam = leagueTeamList[3] 
-        let awayTeam = leagueTeamList[5]
+        let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"))
+        let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"))
 
         // Sets team data and styles
         let root = document.documentElement.style;

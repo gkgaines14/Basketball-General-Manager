@@ -18,66 +18,95 @@
         <div id="roster-card">
         
             <div id="free-agents" class="roster-box">
-                <div class="card-header"> Free Agents</div>
+                <div class="card-header">Free Agents</div>
                 <div id="free-agent-list"></div>
             </div>
 
             <div id="gm-roster" class="roster-box">
-                <div class="card-header"> Home Team</div>
+                <div class="card-banner">
+                    <div class="card-header"> Home Team</div>
+                    <div id="h-team-select-dropdown" class="dropdown">
+                        <div class="select">
+                            <span class="selected">Choose Home Team</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li data-tid="102" class="active">Chicago Bulls</li>
+                            <li data-tid="104">Milwaukee Bucks</li>
+                            <li data-tid="101">New York Knicks</li>
+                            <li data-tid="103">San Antonio Spurs</li>
+                            <li data-tid="105">Somerset Spartans</li>
+                        </ul>
+                    </div>
+                </div>
                 
                 <div class="card-sub-header">Starters</div>
 
                 <div id="gm-pg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpg" data-arr="homeInGame">
-                    <div class="position-box box-dark">PG</div>
+                    <div class="b-pos-icon">PG</div>
 
                 </div>
                 <div id="gm-sg-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsg" data-arr="homeInGame">
-                    <div class="position-box box-dark">SG</div>
+                    <div class="b-pos-icon">SG</div>
 
                 </div>
                 <div id="gm-sf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hsf" data-arr="homeInGame">
-                    <div class="position-box box-dark">SF</div>
+                    <div class="b-pos-icon">SF</div>
                 </div>
                 <div id="gm-pf-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hpf" data-arr="homeInGame">
-                    <div class="position-box box-dark">PF</div>
+                    <div class="b-pos-icon">PF</div>
 
                 </div>
                 <div id="gm-c-slot" class="position-tile home-s-tile" data-loc="homeOnCourt" data-pos="hc" data-arr="homeInGame">
-                    <div class="position-box box-dark">C</div>
+                    <div class="b-pos-icon">C</div>
                 </div>
                 <div class="card-sub-header">Bench</div>
 
                 <div id="gm-b-one-slot" class="position-tile home-s-tile" data-pos="hb6" data-arr="homeOnBench">
-                    <div class="position-box box-dark">6</div>
+                    <div class="b-pos-icon">6</div>
                 </div>
                 <div id="gm-b-two-slot" class="position-tile home-s-tile" data-pos="hb7" data-arr="homeOnBench">
-                    <div class="position-box box-dark">7</div>
+                    <div class="b-pos-icon">7</div>
                 </div>
                 <div id="gm-b-three-slot" class="position-tile home-s-tile" data-pos="hb8" data-arr="homeOnBench">
-                    <div class="position-box box-dark">8</div>
+                    <div class="b-pos-icon">8</div>
                 </div>
                 <div id="gm-b-four-slot" class="position-tile home-s-tile" data-pos="hb9" data-arr="homeOnBench">
-                    <div class="position-box box-dark">9</div>
+                    <div class="b-pos-icon">9</div>
                 </div>
                 <div id="gm-b-five-slot" class="position-tile home-s-tile" data-pos="hb10" data-arr="homeOnBench">
-                    <div class="position-box box-dark">10</div>
+                    <div class="b-pos-icon">10</div>
                 </div>
                 <div id="gm-b-six-slot" class="position-tile home-s-tile" data-pos="hb11" data-arr="homeOnBench">
-                    <div class="position-box box-dark">11</div>
+                    <div class="b-pos-icon">11</div>
                 </div>
                 <div id="gm-b-seven-slot" class="position-tile home-s-tile" data-pos="hb12" data-arr="homeOnBench">
-                    <div class="position-box box-dark">12</div>
+                    <div class="b-pos-icon">12</div>
                 </div>
                 <div id="gm-b-eight-slot" class="position-tile home-s-tile" data-pos="hb13" data-arr="homeOnBench">
-                    <div class="position-box box-dark">13</div>
+                    <div class="b-pos-icon">13</div>
                 </div>
             </div>
-            <div id="cpu-roster" class="roster-box"></div>
-
-
+            <div id="cpu-roster" class="roster-box">
+                <div class="card-banner">
+                    <div class="card-header"> Away Team</div>
+                    <div id="h-team-select-dropdown" class="dropdown">
+                        <div class="select">
+                            <span class="selected">Choose Home Team</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li data-tid="102">Chicago Bulls</li>
+                            <li data-tid="104" class="active">Milwaukee Bucks</li>
+                            <li data-tid="101">New York Knicks</li>
+                            <li data-tid="103">San Antonio Spurs</li>
+                            <li data-tid="105">Somerset Spartans</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <a href="sim_game_page.html" class="button"> Start Game</a>
+        <div id="confirm-btn" class="button">Confirm</div>
     </main>
 
 

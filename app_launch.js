@@ -6,6 +6,7 @@ import {leagueTeamList} from "./app_game_data.js";
 // loadLandingPage()
 
 
+
 function loadLandingPage(){
     const freeAgentList= document.getElementById('free-agent-list');
     let homeTeamRoster = [{
@@ -23,11 +24,15 @@ function loadLandingPage(){
         hb12:{},
         hb13:{}
     }];
-
+    
     setFreeAgents();
-
+    
     const draggables = document.querySelectorAll('.name-box');
     const containers = document.querySelectorAll('.position-tile');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const confirmButton = document.querySelector('#confirm-btn');
+    
+    // let hTeamSelected ="22"
 
 
     function setFreeAgents(){
@@ -99,8 +104,52 @@ function loadLandingPage(){
         });
     });
 
-}
+    
+    dropdowns.forEach(dropdown =>{
+        const select = dropdown.querySelector('.select');
+        const caret = dropdown.querySelector('.caret');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        const options = dropdown.querySelectorAll('.dropdown-menu li');
+        const selected = dropdown.querySelector('.selected');
 
+        select.addEventListener('click', ()=>{
+            select.classList.toggle('select-clicked');
+            caret.classList.toggle('caret-rotate');
+            menu.classList.toggle('dropdown-menu-open');
+        });
+
+        options.forEach(option =>{
+            option.addEventListener('click',()=>{
+                selected.innerText = option.innerText
+                // console.log(selected)
+                // option.innerText
+                select.classList.remove('selected-clicked');
+
+                caret.classList.remove('caret-rotate');
+
+                menu.classList.remove('dropdown-menu-open');
+
+                options.forEach(option=>{
+                    option.classList.remove('active');
+                });
+                option.classList.add('active');
+            });
+        });
+    });
+
+    confirmButton.addEventListener('click',()=>{
+        var gameTeams = document.querySelectorAll('.active');
+        sessionStorage.setItem("hTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[0].dataset.tid)));
+        sessionStorage.setItem("aTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)));
+        
+        // sessionStorage.setItem("hTeam",hTeam);
+        // sessionStorage.setItem("aTeam",aTeam);
+
+        window.location.href = "sim_game_page.html";
+
+    });
+    
+}
 
 
 

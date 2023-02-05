@@ -138,10 +138,11 @@ main{
 }
 
 .logo-box{
-    background-color: blue;
     /* background-size: 100px; */
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
     /* margin: 10px 10px 0px; */
     
 }
@@ -297,13 +298,15 @@ main{
     display: flex;
     align-items: center;
     border-bottom: 1pt solid var(--blue-four);
+    width: 100%;
 }
 
 .boxscore-label{
     font-size: 1.4rem;
     height: 30px;
-    width:45%;
-    margin: 0px 0px 5px 10px;
+    width:42%;
+    padding-left: 10px;
+    /* margin: 0px 0px 5px 10px; */
 }
 
 .boxscore-tile{
@@ -313,21 +316,17 @@ main{
     border-bottom:1px solid var(--blue-one);
 }
 
-.pos-icon{
-    width: 50px;
-    text-align: center;
-    /* margin: 2px; */
-}
+
 
 .name-icon{
-    width: 180px;
+    width: 34%;
 }
 
 .stat-line{
     display: flex;
     justify-content: space-between;
     margin-left: 5px;
-    width: 65%;
+    width: 58%;
 }
 
 .stat{
