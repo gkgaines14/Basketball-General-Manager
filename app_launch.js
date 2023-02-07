@@ -31,9 +31,8 @@ function loadLandingPage(){
     const containers = document.querySelectorAll('.position-tile');
     const dropdowns = document.querySelectorAll('.dropdown');
     const confirmButton = document.querySelector('#confirm-btn');
+    const gmRoster = document.querySelector('#gm-roster')
     
-    // let hTeamSelected ="22"
-
 
     function setFreeAgents(){
 
@@ -49,7 +48,7 @@ function loadLandingPage(){
         
             <div class="name-box-player">
             <i class="fas fa-grip-lines"></i>
-            <p class="name" data-loc="court">${item.name} (${item.position})</p>
+            <p class="name" data-loc="court">${item.firstName} ${item.lastName} (${item.position})</p>
             </div>
 
             <div class="name-box-ratings">
@@ -75,7 +74,7 @@ function loadLandingPage(){
     draggables.forEach(item=>{
         item.addEventListener('dragstart',()=>{
             item.classList.add('dragging');
-            console.log(item)
+            console.log('drag start',item.dataset.pid)
         })
 
         item.addEventListener('dragend',()=>{
@@ -95,11 +94,11 @@ function loadLandingPage(){
             const selected = document.querySelector('.dragging');
             item.appendChild(selected);
 
-            console.log(selected.dataset.pid)
-            // console.log(item.dataset.arr, item.dataset.pos)
+            // console.log(selected.dataset.pid)
+            // // console.log(item.dataset.arr, item.dataset.pos)
 
-            homeTeamRoster[0][item.dataset.pos] = "greg"
-            console.log(homeTeamRoster)
+            // homeTeamRoster[0][item.dataset.pos] = "greg"
+            // console.log(homeTeamRoster)
             
         });
     });
@@ -138,13 +137,33 @@ function loadLandingPage(){
     });
 
     confirmButton.addEventListener('click',()=>{
+        // Set Teams Selections
         var gameTeams = document.querySelectorAll('.active');
         sessionStorage.setItem("hTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[0].dataset.tid)));
         sessionStorage.setItem("aTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)));
-        
-        // sessionStorage.setItem("hTeam",hTeam);
-        // sessionStorage.setItem("aTeam",aTeam);
 
+        //Set Home Team Roster
+        
+        const gmArray = gmRoster.querySelectorAll('.home-s-tile')
+        gmArray.forEach(item=>{
+            if(item.lastElementChild.dataset.pid){
+                console.log(typeof item.lastElementChild.dataset.pid)
+                homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid))
+            }else{
+                homeTeamRoster[0][item.dataset.pos]=null
+            }
+        })
+
+        sessionStorage.setItem("hTeamRoster",JSON.stringify(homeTeamRoster));
+
+
+        //Set Home Team Roster
+
+        console.log(homeTeamRoster)
+
+
+
+        
         window.location.href = "sim_game_page.html";
 
     });

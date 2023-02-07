@@ -319,25 +319,56 @@ main{
 
 
 .name-icon{
-    width: 34%;
+    width: 30%;
 }
 
 .stat-line{
     display: flex;
     justify-content: space-between;
     margin-left: 5px;
-    width: 58%;
+    width: 65%;
 }
 
 .stat{
     width:30px;
     text-align: center;
-    padding: 0px 5px 0px 5px;
+    margin: 0px 5px 0px 5px;
+    /* font-size: .98rem; */
 }
 .stat-dbl{
     width:50px;
     text-align: center;
-    padding: 0px 6px 0px 6px;
+    /* padding: 0px 6px 0px 6px; */
+    /* font-size: .98rem; */
+
+}
+
+.stat-wide{
+    width:18px;
+    text-align: center;
+    /* margin: 0px 6px 0px 6px; */
+    /* font-size: .98rem; */
+
+}
+
+.stat-group{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 2px 0px 2px;
+}
+.stat-header{
+    width:20px;
+    text-align: center;
+    margin: 0px 6px 0px 6px;
+    /* font-size: .95rem; */
+
+}
+
+.dash{
+    width: 1px;
+    margin-right:1px;
 }
 
 
@@ -346,7 +377,6 @@ main{
 #gm-box .boxscore-tile:hover{
     background-image: linear-gradient(to right, var(--home-color-high), white 48%);
     border-left: 2px solid var(--home-p-color);
-    /* font-size: 1.1rem; */
 }
 
 #cpu-box .boxscore-tile:hover{
