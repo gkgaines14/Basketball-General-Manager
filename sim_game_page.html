@@ -489,23 +489,415 @@
                         <div class="divider-h-light"></div>
                         <div id="gamelog-list">
                             <p class="boxscore-tile">Gamelog line 1</p>
-                            <p class="boxscore-tile">Gamelog line 0</p>
+                            <p class="boxscore-tile">Gamelog line 2</p>
                             <p class="boxscore-tile">Gamelog line 3</p>
                             <p class="boxscore-tile">Gamelog line 4</p>
                             <p class="boxscore-tile">Gamelog line 5</p>
                             <p class="boxscore-tile">Gamelog line 6</p>
-                            <p class="boxscore-tile">Gamelog line 0</p>
+                            <p class="boxscore-tile">Gamelog line 7</p>
                             <p class="boxscore-tile">Gamelog line 8</p>
                             <p class="boxscore-tile">Gamelog line 9</p>
                             <p class="boxscore-tile">Gamelog line 10</p>
-                            <p class="boxscore-tile">Gamelog line 0</p>
-                            <p class="boxscore-tile">Gamelog line 10</p>
+                            <p class="boxscore-tile">Gamelog line 11</p>
+                            <p class="boxscore-tile">Gamelog line 12</p>
                             <p class="boxscore-tile">Gamelog line 13</p>
                         </div>
                     </div>
                 </div>
                 <!-- <div class="divider"></div> -->
                 <div id="cpu-box" class="roster-box">
+                    <div id="cpu-on-court" class="starters-box">
+                        <div class="boxscore-header away-header">
+                            <p class="boxscore-label">On-Court</p>
+                            <div class="stat-line">
+                                <div class="stat">Pts</div>
+                                <div class="stat-dbl"> FG </div>
+                                <div class="stat-dbl"> 3P </div>
+                                <div class="stat-dbl"> FT </div>
+                                <div class="stat">Reb</div>
+                                <div class="stat">Ast</div>
+                                <div class="stat">Stl</div>
+                                <div class="stat">Blk</div>
+                                <div class="stat">Fls</div>
+                                <div class="stat">Fat</div>
+                            </div>
+                        </div>
+                        <div id="h-starters-list">
+                            <div id="a-pg-slot" class="boxscore-tile away">
+                                <div id="a-pg-icon" class="b-pos-icon">PG</div>
+                                <div id="a-pg-name" class="name-icon">S. Gilgeous-Alexander</div>
+                                <div id="a-pg-stats" class="stat-line">
+                                    <div id="a-pg-pts" class="stat-box stat" data-stat-cat="points">0</div>
+                                    <div id="a-pg-fgs-g" class="stat-group">
+                                        <div id="a-pg-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-pg-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-pg-fgs-g" class="stat-group">
+                                        <div id="a-pg-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-pg-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-pg-fgs-g" class="stat-group">
+                                        <div id="a-pg-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-pg-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-pg-reb" class="stat-box stat"data-stat-cat="rebounds">0</div>
+                                    <div id="a-pg-ast" class="stat-box stat" data-stat-cat="assists">0</div>
+                                    <div id="a-pg-stl" class="stat-box stat"data-stat-cat="steals">0</div>
+                                    <div id="a-pg-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
+                                    <div id="a-pg-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
+                                    <div id="a-pg-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                            </div>
+                            <div id="a-sg-slot" class="boxscore-tile away">
+                                <div id="a-sg-icon" class="b-pos-icon">SG</div>
+                                <div id="a-sg-name" class="name-icon">D. Wade</div>
+                                <div id="a-sg-stats" class="stat-line">
+                                    <div id="a-sg-pts" class="stat-box stat" data-stat-cat="points">0</div>
+                                    <div id="a-sg-fgs-g" class="stat-group">
+                                        <div id="a-sg-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-sg-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-sg-fgs-g" class="stat-group">
+                                        <div id="a-sg-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-sg-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-sg-fgs-g" class="stat-group">
+                                        <div id="a-sg-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-sg-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-sg-reb" class="stat-box stat"data-stat-cat="rebounds">0</div>
+                                    <div id="a-sg-ast" class="stat-box stat" data-stat-cat="assists">0</div>
+                                    <div id="a-sg-stl" class="stat-box stat"data-stat-cat="steals">0</div>
+                                    <div id="a-sg-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
+                                    <div id="a-sg-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
+                                    <div id="a-sg-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                            </div>
+                            <div id="a-sf-slot" class="boxscore-tile away">
+                                <div id="a-sf-icon" class="b-pos-icon">SF</div>
+                                <div id="a-sf-name" class="name-icon">Small Forward</div>
+                                <div id="a-sf-stats" class="stat-line">
+                                    <div id="a-sf-pts" class="stat-box stat" data-stat-cat="points">0</div>
+                                    <div id="a-sf-fgs-g" class="stat-group">
+                                        <div id="a-sf-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-sf-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-sf-fgs-g" class="stat-group">
+                                        <div id="a-sf-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-sf-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-sf-fgs-g" class="stat-group">
+                                        <div id="a-sf-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-sf-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-sf-reb" class="stat-box stat"data-stat-cat="rebounds">0</div>
+                                    <div id="a-sf-ast" class="stat-box stat" data-stat-cat="assists">0</div>
+                                    <div id="a-sf-stl" class="stat-box stat"data-stat-cat="steals">0</div>
+                                    <div id="a-sf-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
+                                    <div id="a-sf-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
+                                    <div id="a-sf-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                            </div>
+                            <div id="a-pf-slot" class="boxscore-tile away">
+                                <div id="a-pf-icon" class="b-pos-icon">PF</div>
+                                <div id="a-pf-name" class="name-icon">L. Markkanen</div>
+                                <div id="a-pf-stats" class="stat-line">
+                                    <div id="a-pf-pts" class="stat-box stat" data-stat-cat="points">0</div>
+                                    <div id="a-pf-fgs-g" class="stat-group">
+                                        <div id="a-pf-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-pf-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-pf-fgs-g" class="stat-group">
+                                        <div id="a-pf-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-pf-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-pf-fgs-g" class="stat-group">
+                                        <div id="a-pf-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-pf-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-pf-reb" class="stat-box stat"data-stat-cat="rebounds">0</div>
+                                    <div id="a-pf-ast" class="stat-box stat" data-stat-cat="assists">0</div>
+                                    <div id="a-pf-stl" class="stat-box stat"data-stat-cat="steals">0</div>
+                                    <div id="a-pf-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
+                                    <div id="a-pf-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
+                                    <div id="a-pf-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                            </div>
+                            <div id="a-c-slot" class="boxscore-tile away">
+                                <div id="a-c-icon" class="b-pos-icon">C</div>
+                                <div id="a-c-name" class="name-icon">G. Antetokounmpo</div>
+                                <div id="a-c-stats" class="stat-line">
+                                    <div id="a-c-pts" class="stat-box stat" data-stat-cat="points">0</div>
+                                    <div id="a-c-fgs-g" class="stat-group">
+                                        <div id="a-c-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-c-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-c-fgs-g" class="stat-group">
+                                        <div id="a-c-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-c-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-c-fgs-g" class="stat-group">
+                                        <div id="a-c-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-c-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-c-reb" class="stat-box stat"data-stat-cat="rebounds">0</div>
+                                    <div id="a-c-ast" class="stat-box stat" data-stat-cat="assists">0</div>
+                                    <div id="a-c-stl" class="stat-box stat"data-stat-cat="steals">0</div>
+                                    <div id="a-c-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
+                                    <div id="a-c-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
+                                    <div id="a-c-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cpu-bench" class="bench-box">
+                        <div class="boxscore-label away-label-bench">On-Bench</div>
+                        <div id="a-bench-list">
+                            <div id="a-bench-one" class="boxscore-tile away">
+                                <div id="a-b-one-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-one-name" class="name-icon">Bench One</div>
+                                <div id="a-b-one-stats" class="stat-line">
+                                    <div id="a-b-one-pts" class="stat">0</div>
+                                    <div id="a-b-one-g" class="stat-group">
+                                        <div id="a-b-one-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-one-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-one-fgs-g" class="stat-group">
+                                        <div id="a-b-one-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-one-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-one-fgs-g" class="stat-group">
+                                        <div id="a-b-one-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-one-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-one-rebs" class="stat">0</div>
+                                    <div id="a-b-one-asst" class="stat">0</div>
+                                    <div id="a-b-one-stl" class="stat">0</div>
+                                    <div id="a-b-one-blks" class="stat">0</div>
+                                    <div id="a-b-one-fls" class="stat">0</div>
+                                    <div id="a-b-one-fat" class="stat">0</div>
+                                </div>
+                            </div>
+                            <div id="a-bench-two" class="boxscore-tile away">
+                                <div id="a-b-two-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-two-name" class="name-icon">Bench Two</div>
+                                <div id="a-b-two-stats" class="stat-line">
+                                    <div id="a-b-two-pts" class="stat">0</div>
+                                    <div id="a-b-two-g" class="stat-group">
+                                        <div id="a-b-two-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-two-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-two-fgs-g" class="stat-group">
+                                        <div id="a-b-two-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-two-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-two-fgs-g" class="stat-group">
+                                        <div id="a-b-two-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-two-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-two-rebs" class="stat">0</div>
+                                    <div id="a-b-two-asst" class="stat">0</div>
+                                    <div id="a-b-two-stl" class="stat">0</div>
+                                    <div id="a-b-two-blks" class="stat">0</div>
+                                    <div id="a-b-two-fls" class="stat">0</div>
+                                    <div id="a-b-two-fat" class="stat">0</div>
+
+                                </div>
+                            </div>
+                            <div id="a-bench-three" class="boxscore-tile away">
+                                <div id="a-b-three-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-three-name" class="name-icon">Bench three</div>
+                                <div id="a-b-three-stats" class="stat-line">
+                                    <div id="a-b-three-pts" class="stat">0</div>
+                                    <div id="a-b-three-g" class="stat-group">
+                                        <div id="a-b-three-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-three-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-three-fgs-g" class="stat-group">
+                                        <div id="a-b-three-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-three-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-three-fgs-g" class="stat-group">
+                                        <div id="a-b-three-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-three-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-three-rebs" class="stat">0</div>
+                                    <div id="a-b-three-asst" class="stat">0</div>
+                                    <div id="a-b-three-stl" class="stat">0</div>
+                                    <div id="a-b-three-blks" class="stat">0</div>
+                                    <div id="a-b-three-fls" class="stat">0</div>
+                                    <div id="a-b-three-fat" class="stat">0</div>
+                                </div>
+                            </div>
+                            <div id="a-bench-four" class="boxscore-tile away">
+                                <div id="a-b-four-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-four-name" class="name-icon">Bench four</div>
+                                <div id="a-b-four-stats" class="stat-line">
+                                    <div id="a-b-four-pts" class="stat">0</div>
+                                    <div id="a-b-four-g" class="stat-group">
+                                        <div id="a-b-four-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-four-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-four-fgs-g" class="stat-group">
+                                        <div id="a-b-four-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-four-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-four-fgs-g" class="stat-group">
+                                        <div id="a-b-four-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-four-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-four-rebs" class="stat">0</div>
+                                    <div id="a-b-four-asst" class="stat">0</div>
+                                    <div id="a-b-four-stl" class="stat">0</div>
+                                    <div id="a-b-four-blks" class="stat">0</div>
+                                    <div id="a-b-four-fls" class="stat">0</div>
+                                    <div id="a-b-four-fat" class="stat">0</div>
+                                </div>
+                            </div>
+                            <div id="a-bench-five" class="boxscore-tile away">
+                                <div id="a-b-five-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-five-name" class="name-icon">Bench five</div>
+                                <div id="a-b-five-stats" class="stat-line">
+                                    <div id="a-b-five-pts" class="stat">0</div>
+                                    <div id="a-b-five-g" class="stat-group">
+                                        <div id="a-b-five-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-five-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-five-fgs-g" class="stat-group">
+                                        <div id="a-b-five-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-five-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-five-fgs-g" class="stat-group">
+                                        <div id="a-b-five-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-five-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-five-rebs" class="stat">0</div>
+                                    <div id="a-b-five-asst" class="stat">0</div>
+                                    <div id="a-b-five-stl" class="stat">0</div>
+                                    <div id="a-b-five-blks" class="stat">0</div>
+                                    <div id="a-b-five-fls" class="stat">0</div>
+                                    <div id="a-b-five-fat" class="stat">0</div>
+
+                                </div>
+                            </div>
+                            <div id="a-bench-six" class="boxscore-tile away">
+                                <div id="a-b-six-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-six-name" class="name-icon">Bench six</div>
+                                <div id="a-b-six-stats" class="stat-line">
+                                    <div id="a-b-six-pts" class="stat">0</div>
+                                    <div id="a-b-six-g" class="stat-group">
+                                        <div id="a-b-six-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-six-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-six-fgs-g" class="stat-group">
+                                        <div id="a-b-six-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-six-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-six-fgs-g" class="stat-group">
+                                        <div id="a-b-six-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-six-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-six-rebs" class="stat">0</div>
+                                    <div id="a-b-six-asst" class="stat">0</div>
+                                    <div id="a-b-six-stl" class="stat">0</div>
+                                    <div id="a-b-six-blks" class="stat">0</div>
+                                    <div id="a-b-six-fls" class="stat">0</div>
+                                    <div id="a-b-six-fat" class="stat">0</div>
+                                </div>
+                            </div>
+                            <div id="a-bench-seven" class="boxscore-tile away">
+                                <div id="a-b-seven-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-seven-name" class="name-icon">Bench seven</div>
+                                <div id="a-b-seven-stats" class="stat-line">
+                                    <div id="a-b-seven-pts" class="stat">0</div>
+                                    <div id="a-b-seven-g" class="stat-group">
+                                        <div id="a-b-seven-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-seven-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-seven-fgs-g" class="stat-group">
+                                        <div id="a-b-seven-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-seven-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-seven-fgs-g" class="stat-group">
+                                        <div id="a-b-seven-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-seven-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-seven-rebs" class="stat">0</div>
+                                    <div id="a-b-seven-asst" class="stat">0</div>
+                                    <div id="a-b-seven-stl" class="stat">0</div>
+                                    <div id="a-b-seven-blks" class="stat">0</div>
+                                    <div id="a-b-seven-fls" class="stat">0</div>
+                                    <div id="a-b-seven-fat" class="stat">0</div>
+                                </div>
+                            </div>
+                            <div id="a-bench-eight" class="boxscore-tile away">
+                                <div id="a-b-eight-icon" class="b-pos-icon">B</div>
+                                <div id="a-b-eight-name" class="name-icon">Bench eight</div>
+                                <div id="a-b-eight-stats" class="stat-line">
+                                    <div id="a-b-eight-pts" class="stat">0</div>
+                                    <div id="a-b-eight-g" class="stat-group">
+                                        <div id="a-b-eight-fgs" class="stat-box stat-wide" data-stat-cat="FG">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-eight-fgs" class="stat-box stat-wide" data-stat-cat="FGA">0</div>
+                                    </div>
+                                    <div id="a-b-eight-fgs-g" class="stat-group">
+                                        <div id="a-b-eight-tps" class="stat-box stat-wide" data-stat-cat="TP">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-eight-tps" class="stat-box stat-wide" data-stat-cat="TPA">0</div>
+                                    </div>
+                                    <div id="a-b-eight-fgs-g" class="stat-group">
+                                        <div id="a-b-eight-fts" class="stat-box stat-wide" data-stat-cat="FT">0</div>
+                                        <div class="dash">-</div>
+                                        <div id="a-b-eight-fts" class="stat-box stat-wide" data-stat-cat="FTA">0</div>
+                                    </div>
+                                    <div id="a-b-eight-rebs" class="stat">0</div>
+                                    <div id="a-b-eight-asst" class="stat">0</div>
+                                    <div id="a-b-eight-stl" class="stat">0</div>
+                                    <div id="a-b-eight-blks" class="stat">0</div>
+                                    <div id="a-b-eight-fls" class="stat">0</div>
+                                    <div id="a-b-eight-fat" class="stat">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <!-- <div id="cpu-box" class="roster-box">
                     <div id="cpu-on-court" class="starters-box">
                         <div class="boxscore-header away-header">
                             <p class="boxscore-label">On-Court</p>
@@ -725,7 +1117,7 @@
                     </div>
                 </div>                
             
-                </div> 
+                </div>  -->
             </div>
             <div id="game-buttons">
                 <div class="button-container">

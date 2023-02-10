@@ -65,7 +65,7 @@ main{
 
 .starters-box{
     height: 250px;
-    margin: 0 0 30px 0;
+    margin: 0 0 50px 0;
 }
 
 .bench-box{
@@ -75,7 +75,7 @@ main{
 
 #h-bench-list,
 #a-bench-list{
-    padding-top: 10px;
+    /* padding-top: 10px; */
     border-top: solid 1px rgb(222, 222, 222);
 }
 
@@ -345,7 +345,7 @@ main{
 .boxscore-tile{
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 43px;
     border-bottom:1px solid var(--blue-one);
 }
 

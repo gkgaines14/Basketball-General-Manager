@@ -37,12 +37,9 @@ function loadLandingPage(){
     function setFreeAgents(){
 
         leagueTeamList[0].roster.forEach(item=>{
-            // console.log(item.name)
-            // console.log('h',homeTeam)
             const tile = document.createElement('div')
-            tile.classList.add('position-tile')
+            tile.classList.add('position-tile','filled')
             tile.dataset.arr="freeAgent"
-            // tile.setAttribute('draggable',"true")
             tile.innerHTML =`
             <div class="name-box" data-pid="${item.id}" draggable=true>
         
@@ -74,7 +71,9 @@ function loadLandingPage(){
     draggables.forEach(item=>{
         item.addEventListener('dragstart',()=>{
             item.classList.add('dragging');
-            console.log('drag start',item.dataset.pid)
+            // console.log('drag start',item.dataset.pid)
+            item.parentElement.classList.remove('filled')
+            item.parentElement.classList.add('empty')
         })
 
         item.addEventListener('dragend',()=>{
@@ -92,9 +91,23 @@ function loadLandingPage(){
         
         item.addEventListener('drop',()=>{
             const selected = document.querySelector('.dragging');
-            item.appendChild(selected);
+            
+            console.log(item)
+            
+            if(item.classList.contains('filled')){
+                console.log('filled')
+            }else{
+                item.appendChild(selected);
+                item.classList.remove('empty')
+                item.classList.add('filled')
+            }
 
-            // console.log(selected.dataset.pid)
+
+            // if(item.lastChild.className='name-box'){
+            //     console.log('no')
+            // }else{
+            // }
+            // console.log(item.lastChild.className=)
             // // console.log(item.dataset.arr, item.dataset.pos)
 
             // homeTeamRoster[0][item.dataset.pos] = "greg"
