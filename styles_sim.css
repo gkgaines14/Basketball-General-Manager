@@ -65,12 +65,18 @@ main{
 
 .starters-box{
     height: 250px;
-    margin-bottom: 30px;
+    margin: 0 0 30px 0;
 }
 
 .bench-box{
     height: 430px;
     margin-top: 10px;
+}
+
+#h-bench-list,
+#a-bench-list{
+    padding-top: 10px;
+    border-top: solid 1px rgb(222, 222, 222);
 }
 
 /* Sim Info and sim-box ----------------------------------*/
@@ -301,12 +307,39 @@ main{
     width: 100%;
 }
 
+.home-header{
+    border-top-left-radius:15px ;
+    background: var(--home-p-color);
+    color: white;
+}
+
+.away-header{
+    border-top-right-radius:15px ;
+    background: var(--away-p-color);
+    color: white;
+}
+
 .boxscore-label{
     font-size: 1.4rem;
-    height: 30px;
+    height: 40px;
     width:42%;
     padding-left: 10px;
-    /* margin: 0px 0px 5px 10px; */
+    display: flex;
+    align-items: center;
+}
+
+.home-label-bench{
+    border-top-right-radius:15px ;
+    background: var(--home-p-color);
+    color: white;
+    height: 35px;
+}
+
+.away-label-bench{
+    border-top-right-radius:15px ;
+    background: var(--away-p-color);
+    color: white;
+    height: 35px;
 }
 
 .boxscore-tile{

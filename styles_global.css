@@ -128,7 +128,7 @@ body{
     background-color: var(--pale-white);
     width: 575px;
     height:700px;
-    padding:12px 10px;
+    padding:0 10px 12px 10px;
     box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px;
 }
 

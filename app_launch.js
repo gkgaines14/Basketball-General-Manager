@@ -15,14 +15,14 @@ function loadLandingPage(){
         hsf:{},
         hpf:{},
         hc:{},
-        hb6:{},
-        hb7:{},
-        hb8:{},
-        hb9:{},
-        hb10:{},
-        hb11:{},
-        hb12:{},
-        hb13:{}
+        hBenchOne:{},
+        hBenchTwo:{},
+        hBenchThree:{},
+        hBenchFour:{},
+        hBenchFive:{},
+        hBenchSix:{},
+        hBenchSeven:{},
+        hBenchEight:{},
     }];
     
     setFreeAgents();
@@ -147,10 +147,10 @@ function loadLandingPage(){
         const gmArray = gmRoster.querySelectorAll('.home-s-tile')
         gmArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
-                console.log(typeof item.lastElementChild.dataset.pid)
-                homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid))
+                leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
+                homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
             }else{
-                homeTeamRoster[0][item.dataset.pos]=null
+                homeTeamRoster[0][item.dataset.pos]={id:101,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_longShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
@@ -162,7 +162,7 @@ function loadLandingPage(){
         console.log(homeTeamRoster)
 
 
-
+        // Validity Check
         
         window.location.href = "sim_game_page.html";
 

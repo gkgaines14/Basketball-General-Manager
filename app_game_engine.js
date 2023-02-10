@@ -28,6 +28,9 @@ const app = {
     },
 
     loadSimWindow: ()=>{
+
+        // let nums = [a,b,c,d,e,f]
+
         let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"))
         let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"))
         let homeRoster = JSON.parse(sessionStorage.getItem("hTeamRoster"))
@@ -37,30 +40,46 @@ const app = {
         const hsf = document.querySelector('#h-sf-name')
         const hpf = document.querySelector('#h-pf-name')
         const hc = document.querySelector('#h-c-name')
-        const hBenchOne = document.querySelector('#h-bench-one')
-        const hBenchTwo = document.querySelector('#h-bench-two')
-        const hBenchThree = document.querySelector('#h-bench-three')
-        const hBenchFour = document.querySelector('#h-bench-four')
-        const hBenchFive = document.querySelector('#h-bench-five')
-        const hBenchSix = document.querySelector('#h-bench-six')
-        const hBenchSeven = document.querySelector('#h-bench-seven')
-        const hBenchEight = document.querySelector('#h-bench-eight')
-        const hBenchNine = document.querySelector('#h-bench-nine')
+        const hBenchOne = document.querySelector('#h-b-one-name')
+        const hBenchTwo = document.querySelector('#h-b-two-name')
+        const hBenchThree = document.querySelector('#h-b-three-name')
+        const hBenchFour = document.querySelector('#h-b-four-name')
+        const hBenchFive = document.querySelector('#h-b-five-name')
+        const hBenchSix = document.querySelector('#h-b-six-name')
+        const hBenchSeven = document.querySelector('#h-b-seven-name')
+        const hBenchEight = document.querySelector('#h-b-eight-name')
+        const hBenchNine = document.querySelector('#h-b-nine-name')
+
+        const homePosList = [
+            [hpg,'hpg'],
+            [hsg,'hsg'],
+            [hsf,'hsf'],
+            [hpf,'hpf'],
+            [hc,'hc'],
+            [hBenchOne,'hBenchOne'],
+            [hBenchTwo,'hBenchTwo'],
+            [hBenchThree,'hBenchThree'],
+            [hBenchFour,'hBenchFour'],
+            [hBenchFive,'hBenchFive'],
+            [hBenchSix,'hBenchSix'],
+            [hBenchSeven,'hBenchSeven'],
+            [hBenchEight,'hBenchEight'],
+        ]
 
         const apg = document.querySelector('#a-pg-name')
         const asg = document.querySelector('#a-g-name')
         const asf = document.querySelector('#a-sf-name')
         const apf = document.querySelector('#a-pf-name')
         const ac = document.querySelector('#a-c-name')
-        const aBenchOne = document.querySelector('#a-bench-one')
-        const aBenchTwo = document.querySelector('#a-bench-two')
-        const aBenchThree = document.querySelector('#a-bench-three')
-        const aBenchFour = document.querySelector('#a-bench-four')
-        const aBenchFive = document.querySelector('#a-bench-five')
-        const aBenchSix = document.querySelector('#a-bench-six')
-        const aBenchSeven = document.querySelector('#a-bench-seven')
-        const aBenchEight = document.querySelector('#a-bench-eight')
-        const aBenchNine = document.querySelector('#a-bench-nine')
+        const aBenchOne = document.querySelector('#a-b-one-name')
+        const aBenchTwo = document.querySelector('#a-b-two-name')
+        const aBenchThree = document.querySelector('#a-b-three-name')
+        const aBenchFour = document.querySelector('#a-b-four-name')
+        const aBenchFive = document.querySelector('#a-b-five-name')
+        const aBenchSix = document.querySelector('#a-b-six-name')
+        const aBenchSeven = document.querySelector('#a-b-seven-name')
+        const aBenchEight = document.querySelector('#a-b-eight-name')
+        const aBenchNine = document.querySelector('#a-b-nine-name')
 
         // Sets team data and styles
         let root = document.documentElement.style;
@@ -102,52 +121,24 @@ const app = {
         postPlayerData();
 
         function postPlayerData(){
+            // Post Home Team Data
+            homePosList.forEach(item=>{
+                //Post Player Name
+                item[0].innerText = `${homeRoster[0][item[1]].firstName.charAt(0)}. ${homeRoster[0][item[1]].lastName}`;
+                // Post Player Stats
+                item[0].parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(stat => {
+                    stat.innerText = homeRoster[0][item[1]].boxscore[stat.dataset.statCat]
+                });
 
-            
-            let test = hpg.parentElement.lastElementChild.querySelectorAll('.stat-box');
-            
-            console.log(homeRoster[0].hsg.boxscore)
+                if(homeRoster[0][item[1]].lastName, homeRoster[0][item[1]].benchStatus==='bench'){
+                    item[0].parentElement.firstChild.nextElementSibling.innerText = homeRoster[0][item[1]].position
+                    console.log(homeRoster[0][item[1]].position)
+                    console.log(homeRoster[0][item[1]].lastName, homeRoster[0][item[1]].benchStatus)
+                };
 
-            test.forEach(item=>console.log(item.dataset.statCat))
-
-
-
-            console.log(homeRoster[0].hpg.boxscore.points)
-
-            // PG Data
-            hpg.innerText = `${homeRoster[0].hpg.firstName.charAt(0)}. ${homeRoster[0].hpg.lastName}`;
-            hpg.parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(item => {
-                item.innerText = homeRoster[0].hpg.boxscore[item.dataset.statCat]
             });
 
-            // SG Data
-            hsg.innerText = `${homeRoster[0].hsg.firstName.charAt(0)}. ${homeRoster[0].hsg.lastName}`;
-            hsg.parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(item => {
-                item.innerText = homeRoster[0].hsg.boxscore[item.dataset.statCat]
-            });
-
-            // SF Data
-            hsf.innerText = `${homeRoster[0].hsf.firstName.charAt(0)}. ${homeRoster[0].hsf.lastName}`;
-            hsf.parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(item => {
-                item.innerText = homeRoster[0].hsf.boxscore[item.dataset.statCat]
-            });
-
-            // PF Data
-            hpf.innerText = `${homeRoster[0].hpf.firstName.charAt(0)}. ${homeRoster[0].hpf.lastName}`;
-            hpf.parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(item => {
-                item.innerText = homeRoster[0].hpf.boxscore[item.dataset.statCat]
-            });
-
-            // C Data
-            hc.innerText = `${homeRoster[0].hc.firstName.charAt(0)}. ${homeRoster[0].hc.lastName}`;
-            hc.parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(item => {
-                item.innerText = homeRoster[0].hc.boxscore[item.dataset.statCat]
-            });
-            
-
-
-
-
+            // Post Away Team Data
         };
 
     }
