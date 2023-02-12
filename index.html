@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="styles_global.css">
     <link rel="stylesheet" href="styles_launch.css">
     <script src="https://kit.fontawesome.com/662beca40c.js" crossorigin="anonymous"></script>
@@ -17,15 +17,9 @@
 
 
         <div id="roster-card">
-        
-            <div id="free-agents" class="roster-box">
-                <div class="card-header">Free Agents</div>
-                <div id="free-agent-list"></div>
-            </div>
-
             <div id="gm-roster" class="roster-box">
                 <div class="card-banner">
-                    <div class="card-header"> Home Team</div>
+                    <div class="card-header">Home Team</div>
                     <div id="h-team-select-dropdown" class="dropdown">
                         <div class="select">
                             <span class="selected">Choose Home Team</span>
@@ -33,6 +27,9 @@
                         </div>
                         <ul class="dropdown-menu">
                             <li data-tid="102" class="active">Chicago Bulls</li>
+                            <li data-tid="108">Charlotte Bobcats</li>
+                            <li data-tid="107">Charlotte Hornets</li>
+                            <li data-tid="106">Matteson Mustangs</li>
                             <li data-tid="104">Milwaukee Bucks</li>
                             <li data-tid="101">New York Knicks</li>
                             <li data-tid="103">San Antonio Spurs</li>
@@ -88,9 +85,28 @@
                     <div class="b-pos-icon">13</div>
                 </div>
             </div>
+            <div id="free-agents" class="roster-box">
+                <div class="card-banner">
+                    <div class="card-header">Free Agents</div>
+                    <div id="h-team-select-dropdown" class="dropdown">
+                        <div class="select">
+                            <span class="selected">Filter</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li data-tid="102">Point Guard</li>
+                            <li data-tid="104">Shooting Guard</li>
+                            <li data-tid="101">Small Forward</li>
+                            <li data-tid="103">Power Forward</li>
+                            <li data-tid="105">Center</li>
+                        </ul>
+                    </div>
+                </div>                
+                <div id="free-agent-list"></div>
+            </div>
             <div id="cpu-roster" class="roster-box">
                 <div class="card-banner">
-                    <div class="card-header"> Away Team</div>
+                    <div class="card-header">Away Team</div>
                     <div id="a-team-select-dropdown" class="dropdown">
                         <div class="select">
                             <span class="selected">Choose Away Team</span>
@@ -99,6 +115,9 @@
                         <ul class="dropdown-menu">
                             <li data-tid="102">Chicago Bulls</li>
                             <li data-tid="104" class="active">Milwaukee Bucks</li>
+                            <li data-tid="108">Charlotte Bobcats</li>
+                            <li data-tid="107">Charlotte Hornets</li>
+                            <li data-tid="106">Matteson Mustangs</li>
                             <li data-tid="101">New York Knicks</li>
                             <li data-tid="103">San Antonio Spurs</li>
                             <li data-tid="105">Somerset Spartans</li>
@@ -107,48 +126,48 @@
                 </div>
                 <div class="card-sub-header">Starters</div>
 
-                <div id="cpu-pg-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="apg" data-bench-status="court">
+                <div id="cpu-pg-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="apg" data-bench-status="court">
                     <div class="b-pos-icon">PG</div>
 
                 </div>
-                <div id="cpu-sg-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="asg" data-bench-status="court">
+                <div id="cpu-sg-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="asg" data-bench-status="court">
                     <div class="b-pos-icon">SG</div>
 
                 </div>
-                <div id="cpu-sf-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="asf" data-bench-status="court">
+                <div id="cpu-sf-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="asf" data-bench-status="court">
                     <div class="b-pos-icon">SF</div>
                 </div>
-                <div id="cpu-pf-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="apf" data-bench-status="court">
+                <div id="cpu-pf-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="apf" data-bench-status="court">
                     <div class="b-pos-icon">PF</div>
 
                 </div>
-                <div id="cpu-c-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="ac" data-bench-status="court">
+                <div id="cpu-c-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="ac" data-bench-status="court">
                     <div class="b-pos-icon">C</div>
                 </div>
                 <div class="card-sub-header">Bench</div>
 
-                <div id="cpu-b-one-slot" class="position-tile home-s-tile empty" data-pos="aBenchOne" data-bench-status="bench">
+                <div id="cpu-b-one-slot" class="position-tile away-s-tile empty" data-pos="aBenchOne" data-bench-status="bench">
                     <div class="b-pos-icon">6</div>
                 </div>
-                <div id="cpu-b-two-slot" class="position-tile home-s-tile empty" data-pos="aBenchTwo" data-bench-status="bench">
+                <div id="cpu-b-two-slot" class="position-tile away-s-tile empty" data-pos="aBenchTwo" data-bench-status="bench">
                     <div class="b-pos-icon">7</div>
                 </div>
-                <div id="cpu-b-three-slot" class="position-tile home-s-tile empty" data-pos="aBenchThree" data-bench-status="bench">
+                <div id="cpu-b-three-slot" class="position-tile away-s-tile empty" data-pos="aBenchThree" data-bench-status="bench">
                     <div class="b-pos-icon">8</div>
                 </div>
-                <div id="cpu-b-four-slot" class="position-tile home-s-tile empty" data-pos="aBenchFour" data-bench-status="bench">
+                <div id="cpu-b-four-slot" class="position-tile away-s-tile empty" data-pos="aBenchFour" data-bench-status="bench">
                     <div class="b-pos-icon">9</div>
                 </div>
-                <div id="cpu-b-five-slot" class="position-tile home-s-tile empty" data-pos="aBenchFive" data-bench-status="bench">
+                <div id="cpu-b-five-slot" class="position-tile away-s-tile empty" data-pos="aBenchFive" data-bench-status="bench">
                     <div class="b-pos-icon">10</div>
                 </div>
-                <div id="cpu-b-six-slot" class="position-tile home-s-tile empty" data-pos="aBenchSix" data-bench-status="bench">
+                <div id="cpu-b-six-slot" class="position-tile away-s-tile empty" data-pos="aBenchSix" data-bench-status="bench">
                     <div class="b-pos-icon">11</div>
                 </div>
-                <div id="cpu-b-seven-slot" class="position-tile home-s-tile empty" data-pos="aBenchSeven" data-bench-status="bench">
+                <div id="cpu-b-seven-slot" class="position-tile away-s-tile empty" data-pos="aBenchSeven" data-bench-status="bench">
                     <div class="b-pos-icon">12</div>
                 </div>
-                <div id="cpu-b-eight-slot" class="position-tile home-s-tile empty" data-pos="aBenchEight" data-bench-status="bench">
+                <div id="cpu-b-eight-slot" class="position-tile away-s-tile empty" data-pos="aBenchEight" data-bench-status="bench">
                     <div class="b-pos-icon">13</div>
                 </div>
             </div>

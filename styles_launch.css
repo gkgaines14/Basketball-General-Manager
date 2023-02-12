@@ -5,10 +5,10 @@
 }
 
 
-
 #roster-card{
     display: flex;    
 }
+
 
 .boxscore-tile{
     display: flex;
@@ -16,10 +16,11 @@
     height: 40px;
     border-bottom:1px solid var(--blue-one);
     width: 100%;
-
 }
+
 
 #free-agent-list{
     overflow:auto;
     height: 600px;
 }
+

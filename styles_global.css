@@ -1,9 +1,7 @@
 :root{
     --wood-floor:rgb(222, 206, 154);
     --header:rgb(149, 191, 223);
-    --pale-white:rgb(239, 242, 245);
-    --background: rgb(215, 221, 232);
-
+    
     /* Home Team */
     --home-p-color:rgb(186, 24, 24);
     --home-s-color:rgb(9, 9, 9);
@@ -16,6 +14,17 @@
     --away-color-high:rgb(177, 212, 143);
     --away-logo:url("images/test.png");
     
+    
+    
+    /* System Colors */
+    --primary:gray;
+    --secondary:gray;
+    --highlight:gray;
+    --light-gray:rgb(209, 209, 209);
+    --dark-gray:rgb(68, 68, 68);;
+
+    --pale-white:rgb(239, 242, 245);
+    --background: rgb(215, 221, 232);
 
     --dark-red: rgb(91, 8, 15);
     --prime-red:rgb(187, 7, 22, 0.927);
@@ -26,6 +35,13 @@
     --highlight-blue:rgba(213, 228, 246, 0.657);
 
     --gray:rgb(180, 180, 180);
+
+
+    --test: rgb(0, 21, 64);
+    --test: rgb(27, 65, 100);
+    --test2: rgb(67, 57, 124);
+
+
 }
 
 body{
@@ -34,9 +50,9 @@ body{
 
 *{
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 11pt;
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-weight: 400; */
+    /* font-size: 11pt; */
 }
 
 
@@ -128,8 +144,8 @@ body{
     background-color: var(--pale-white);
     width: 575px;
     height:700px;
-    padding:0 10px 12px 10px;
-    box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px;
+    /* padding:0 10px 12px 10px; */
+    box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
 }
 
 .card-banner{
@@ -146,7 +162,8 @@ body{
 }
 
 .card-sub-header{
-    margin: 10px 0;
+    /* margin: 0 0 10px 10px; */
+    margin:10px;
     font-size: 1.2rem;
 }
 

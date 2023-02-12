@@ -4,8 +4,6 @@ body{
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 11pt;
-
-
 }
 
 body p{
@@ -56,11 +54,12 @@ main{
 
 
 #gm-box{
-    border-left: 2px solid var(--home-p-color);
+    /* border-left: 2px solid var(--home-s-color); */
+    border-top-left-radius: 15px;
 }
 
 #cpu-box{
-    border-right: 2px solid var(--away-p-color);
+    /* border-right: 2px solid var(--away-s-color); */
 }
 
 .starters-box{
@@ -76,7 +75,7 @@ main{
 #h-bench-list,
 #a-bench-list{
     /* padding-top: 10px; */
-    border-top: solid 1px rgb(222, 222, 222);
+    border-top: solid 1px var(--light-gray);
 }
 
 /* Sim Info and sim-box ----------------------------------*/
@@ -89,7 +88,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px;
+    box-shadow:rgb(92, 90, 90) 0px 4px 4px -2px;
     /* box-shadow: 0 4px 2px -2px gray; */
 }
 
@@ -114,11 +113,13 @@ main{
 
 #h-team-section{
     background-image: linear-gradient(to bottom,var(--home-p-color),var(--pale-white) 66%);
+    border-left: 2px solid var(--home-s-color);
     /* width: 260px; */
 }
 
 #a-team-section{
     background-image: linear-gradient(to bottom,var(--away-p-color),var(--pale-white) 66%);
+    border-right: 2px solid var(--away-s-color);
     /* width: 260px; */
 }
 
@@ -164,12 +165,12 @@ main{
 
 
 #h-team-name{
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     color: var(--home-p-color);
     
 }
 #a-team-name{
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     color: var(--away-p-color);
 }
 
@@ -215,13 +216,15 @@ main{
 
 
 #game-reset-box{
-    background-color: rgba(213, 220, 236, 0.741);
-    color: var(--blue-four);
+    background-color:var(--dark-gray);
+    /* background-color: rgba(213, 220, 236, 0.741); */
+    color: white;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
     height: 10%;
     /* margin: 20px 0px 0px; */
+    font-family: 'Orbitron', sans-serif;;
     font-size: 2rem;
     align-items: center;
 }
@@ -303,7 +306,7 @@ main{
 .boxscore-header{
     display: flex;
     align-items: center;
-    border-bottom: 1pt solid var(--blue-four);
+    /* border-bottom: 1pt solid var(--blue-four); */
     width: 100%;
 }
 
@@ -311,12 +314,14 @@ main{
     border-top-left-radius:15px ;
     background: var(--home-p-color);
     color: white;
+    border-bottom: 2px solid var(--home-s-color);
 }
 
 .away-header{
     border-top-right-radius:15px ;
     background: var(--away-p-color);
     color: white;
+    border-bottom: 2px solid var(--away-s-color);
 }
 
 .boxscore-label{
@@ -330,24 +335,34 @@ main{
 
 .home-label-bench{
     border-top-right-radius:15px ;
-    background: var(--home-p-color);
-    color: white;
+    background:var(--light-gray);
+    /* background:rgb(159, 159, 159); */
+    color: var(--dark-gray);
+    /* color: white; */
     height: 35px;
+    width: 170px;
 }
 
 .away-label-bench{
     border-top-right-radius:15px ;
-    background: var(--away-p-color);
-    color: white;
+    background:var(--light-gray);
+    /* background:rgb(159, 159, 159); */
+    color: var(--dark-gray);
+    /* color: white; */
     height: 35px;
+    width: 170px;
 }
+
 
 .boxscore-tile{
     display: flex;
     align-items: center;
     height: 43px;
-    border-bottom:1px solid var(--blue-one);
+    border-bottom:1px solid var(--light-gray);
+    padding-left: 5px;
+
 }
+
 
 
 
@@ -410,11 +425,16 @@ main{
 #gm-box .boxscore-tile:hover{
     background-image: linear-gradient(to right, var(--home-color-high), white 48%);
     border-left: 2px solid var(--home-p-color);
+    border-top: solid 1px var(--home-color-high);
+    border-bottom: solid 1px var(--home-color-high);
 }
 
 #cpu-box .boxscore-tile:hover{
     background-image: linear-gradient(to right, var(--away-color-high), white 48%);
     border-left: 2px solid var(--away-p-color);
     font-size: 1rem;
+    border-top: solid 1px var(--away-color-high);
+    border-bottom: solid 1px var(--away-color-high);
+
 }
 
