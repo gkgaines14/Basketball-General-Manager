@@ -20,7 +20,9 @@
     --primary:gray;
     --secondary:gray;
     --highlight:gray;
+    
     --light-gray:rgb(209, 209, 209);
+    --mid-gray:rgb(121, 121, 121);
     --dark-gray:rgb(68, 68, 68);;
 
     --pale-white:rgb(239, 242, 245);
@@ -37,9 +39,9 @@
     --gray:rgb(180, 180, 180);
 
 
-    --test: rgb(0, 21, 64);
-    --test: rgb(27, 65, 100);
-    --test2: rgb(67, 57, 124);
+    --test: rgb(0, 0, 0);
+    --test1: rgb(27, 65, 100);
+    --test2: rgb(249, 160, 27);
 
 
 }
@@ -55,6 +57,14 @@ body{
     /* font-size: 11pt; */
 }
 
+
+.font-h-color{
+    color:var(--home-p-color)
+}
+
+.font-a-color{
+    color:var(--away-p-color)
+}
 
 .button{
     color: white;

@@ -29,7 +29,7 @@
                                 <div class="stat">Stl</div>
                                 <div class="stat">Blk</div>
                                 <div class="stat">Fls</div>
-                                <div class="stat">Fat</div>
+                                <!-- <div class="stat">Fat</div> -->
                             </div>
                         </div>
                         <div id="h-starters-list">
@@ -220,6 +220,9 @@
                                     <div id="h-b-one-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-one-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="h-bench-two" class="boxscore-tile home">
                                 <div id="h-b-two-icon" class="b-pos-icon">B</div>
@@ -247,7 +250,9 @@
                                     <div id="h-b-two-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="h-b-two-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-two-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
-
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="h-bench-three" class="boxscore-tile home">
@@ -277,6 +282,9 @@
                                     <div id="h-b-three-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-three-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="h-bench-four" class="boxscore-tile home">
                                 <div id="h-b-four-icon" class="b-pos-icon">B</div>
@@ -305,6 +313,9 @@
                                     <div id="h-b-four-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-four-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="h-bench-five" class="boxscore-tile home">
                                 <div id="h-b-five-icon" class="b-pos-icon">B</div>
@@ -332,7 +343,9 @@
                                     <div id="h-b-five-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="h-b-five-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-five-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
-
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="h-bench-six" class="boxscore-tile home">
@@ -362,6 +375,9 @@
                                     <div id="h-b-six-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-six-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="h-bench-seven" class="boxscore-tile home">
                                 <div id="h-b-seven-icon" class="b-pos-icon">B</div>
@@ -389,6 +405,9 @@
                                     <div id="h-b-seven-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="h-b-seven-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-seven-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="h-bench-eight" class="boxscore-tile home">
@@ -418,6 +437,9 @@
                                     <div id="h-b-eight-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="h-b-eight-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                         </div>
                     </div>                
@@ -429,29 +451,28 @@
                                 <div id="h-team-logo" class="logo-box"></div>
                                 <div class="team-info">
                                     <p id="h-city" class="city">home city</p>
-                                    <p id="h-team-name" class="team-name">Blazzers</p>
+                                    <p id="h-team-name" class="team-name">Home Team</p>
                                 </div>
                             </div>
                             <div class="team-stats">
-                                <div class="team-stats-tb">
-                                    <div id="h-reb" class="team-stat-box-s">
-                                        <p>Reb:</p>
-                                        <p id="h-t-reb">40</p>
+                                <div class="team-stats-row">
+                                    <div class="team-stat-box">
+                                        <div class="font-h-color">Reb:</div>
+                                        <div id="h-t-reb">43</div>
                                     </div>
-                                    <div id="h-fgp" class="team-stat-box">
-                                        <p>FG%:</p>
-                                        <p id="h-t-fgp">0.45</p>
+                                    <div class="team-stat-box">
+                                        <div class="font-h-color">FG:</div>
+                                        <div id="h-t-fgp">45%</div>
                                     </div>
-
                                 </div>
-                                <div class="team-stats-tb">
-                                    <div id="h-reb" class="team-stat-box-s">
-                                        <p>Ast:</p>
-                                        <p id="h-t-ast">00</p>
+                                <div class="team-stats-row">
+                                    <div class="team-stat-box">
+                                        <div class="font-h-color">Ast:</div>
+                                        <div id="h-t-reb">22</div>
                                     </div>
-                                    <div id="h-tps" class="team-stat-box">
-                                        <p>3P%:</p>
-                                        <p id="h-t-tps">0.36</p>
+                                    <div class="team-stat-box">
+                                        <div class="font-h-color">3P:</div>
+                                        <div id="h-t-tps">38%</div>
                                     </div>
                                 </div>
                             </div>
@@ -466,25 +487,24 @@
                                 </div>
                             </div>
                             <div class="team-stats">
-                                <div class="team-stats-tb">
-                                    <div id="a-reb" class="team-stat-box-s">
-                                        <p>Reb:</p>
-                                        <p id="a-t-reb">30</p>
+                                <div class="team-stats-row">
+                                    <div class="team-stat-box">
+                                        <div class="font-a-color">Reb:</div>
+                                        <div id="a-t-reb">43</div>
                                     </div>
-                                    <div id="a-fgp" class="team-stat-box">
-                                        <p>FG%:</p>
-                                        <p id="a-t-fgp">0.38</p>
+                                    <div class="team-stat-box">
+                                        <div class="font-a-color">FG:</div>
+                                        <div id="a-t-fgp">45%</div>
                                     </div>
-
                                 </div>
-                                <div class="team-stats-tb">
-                                    <div id="a-reb" class="team-stat-box-s">
-                                        <p>Ast:</p>
-                                        <p id="a-t-ast">10</p>
+                                <div class="team-stats-row">
+                                    <div class="team-stat-box">
+                                        <div class="font-a-color">Ast:</div>
+                                        <div id="a-t-reb">22</div>
                                     </div>
-                                    <div id="a-tps" class="team-stat-box">
-                                        <p>3P%:</p>
-                                        <p id="a-t-tps">0.41</p>
+                                    <div class="team-stat-box">
+                                        <div class="font-a-color">3P:</div>
+                                        <div id="a-t-tps">38%</div>
                                     </div>
                                 </div>
                             </div>
@@ -506,19 +526,19 @@
                         </div>
                         <div class="divider-h-light"></div>
                         <div id="gamelog-list">
-                            <p class="boxscore-tile">Gamelog line 1</p>
-                            <p class="boxscore-tile">Gamelog line 2</p>
-                            <p class="boxscore-tile">Gamelog line 3</p>
-                            <p class="boxscore-tile">Gamelog line 4</p>
-                            <p class="boxscore-tile">Gamelog line 5</p>
-                            <p class="boxscore-tile">Gamelog line 6</p>
-                            <p class="boxscore-tile">Gamelog line 7</p>
-                            <p class="boxscore-tile">Gamelog line 8</p>
-                            <p class="boxscore-tile">Gamelog line 9</p>
-                            <p class="boxscore-tile">Gamelog line 10</p>
-                            <p class="boxscore-tile">Gamelog line 11</p>
-                            <p class="boxscore-tile">Gamelog line 12</p>
-                            <p class="boxscore-tile">Gamelog line 13</p>
+                            <p class="gamelog-tile">Gamelog line 1</p>
+                            <p class="gamelog-tile">Gamelog line 2</p>
+                            <p class="gamelog-tile">Gamelog line 3</p>
+                            <p class="gamelog-tile">Gamelog line 4</p>
+                            <p class="gamelog-tile">Gamelog line 5</p>
+                            <p class="gamelog-tile">Gamelog line 6</p>
+                            <p class="gamelog-tile">Gamelog line 7</p>
+                            <p class="gamelog-tile">Gamelog line 8</p>
+                            <p class="gamelog-tile">Gamelog line 9</p>
+                            <p class="gamelog-tile">Gamelog line 10</p>
+                            <p class="gamelog-tile">Gamelog line 11</p>
+                            <p class="gamelog-tile">Gamelog line 12</p>
+                            <p class="gamelog-tile">Gamelog line 13</p>
                         </div>
                     </div>
                 </div>
@@ -536,7 +556,6 @@
                                 <div class="stat">Stl</div>
                                 <div class="stat">Blk</div>
                                 <div class="stat">Fls</div>
-                                <div class="stat">Fat</div>
                             </div>
                         </div>
                         <div id="h-starters-list">
@@ -567,6 +586,9 @@
                                     <div id="a-pg-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-pg-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-sg-slot" class="boxscore-tile away">
                                 <div id="a-sg-icon" class="b-pos-icon">SG</div>
@@ -594,6 +616,9 @@
                                     <div id="a-sg-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="a-sg-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-sg-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="a-sf-slot" class="boxscore-tile away">
@@ -623,6 +648,9 @@
                                     <div id="a-sf-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-sf-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-pf-slot" class="boxscore-tile away">
                                 <div id="a-pf-icon" class="b-pos-icon">PF</div>
@@ -651,6 +679,9 @@
                                     <div id="a-pf-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-pf-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-c-slot" class="boxscore-tile away">
                                 <div id="a-c-icon" class="b-pos-icon">C</div>
@@ -678,6 +709,9 @@
                                     <div id="a-c-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="a-c-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-c-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                         </div>
@@ -712,6 +746,9 @@
                                     <div id="a-b-one-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-one-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-bench-two" class="boxscore-tile away">
                                 <div id="a-b-two-icon" class="b-pos-icon">B</div>
@@ -739,7 +776,9 @@
                                     <div id="a-b-two-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="a-b-two-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-two-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
-
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="a-bench-three" class="boxscore-tile away">
@@ -769,6 +808,9 @@
                                     <div id="a-b-three-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-three-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-bench-four" class="boxscore-tile away">
                                 <div id="a-b-four-icon" class="b-pos-icon">B</div>
@@ -797,6 +839,9 @@
                                     <div id="a-b-four-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-four-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-bench-five" class="boxscore-tile away">
                                 <div id="a-b-five-icon" class="b-pos-icon">B</div>
@@ -824,7 +869,9 @@
                                     <div id="a-b-five-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="a-b-five-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-five-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
-
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="a-bench-six" class="boxscore-tile away">
@@ -854,6 +901,9 @@
                                     <div id="a-b-six-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-six-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                             <div id="a-bench-seven" class="boxscore-tile away">
                                 <div id="a-b-seven-icon" class="b-pos-icon">B</div>
@@ -881,6 +931,9 @@
                                     <div id="a-b-seven-blk" class="stat-box stat" data-stat-cat="blocks">0</div>
                                     <div id="a-b-seven-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-seven-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
+                                </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
                                 </div>
                             </div>
                             <div id="a-bench-eight" class="boxscore-tile away">
@@ -910,6 +963,9 @@
                                     <div id="a-b-eight-fls" class="stat-box stat" data-stat-cat="fouls">0</div>
                                     <div id="a-b-eight-fat" class="stat-box stat" data-stat-cat="fatigue">0</div>
                                 </div>
+                                <div class="fatigue-grid">
+                                    <div id="h-pg-fat-bar" class="fat-bar"></div>
+                                </div>
                             </div>
                         </div>
                     </div>                
@@ -922,7 +978,7 @@
                 <div class="button-container">
                     <div id="sim-buttons">
                         <div id="advance-button" class="button">Advance</div>
-                        <div id="sub-button" class="button">Substitutions</div>
+                        <div id="timeout-button" class="button">Timeout</div>
                         <div id="reset-button" class="button">Reset Game</div>
                     </div>
                 </div>
