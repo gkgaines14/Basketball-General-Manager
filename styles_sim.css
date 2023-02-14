@@ -229,6 +229,16 @@ main{
     align-items: center;
 }
 
+#game-clock{
+    font-size: 1.3rem;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:200px;
+
+}
+
 #sim-buttons{
     display: flex;
     justify-content: space-evenly;
@@ -357,10 +367,10 @@ main{
 .boxscore-tile{
     display: flex;
     align-items: center;
-    height: 43px;
+    height: 45px;
     border-bottom:1px solid var(--light-gray);
     padding-left: 5px;
-
+    position: relative;
 }
 
 
@@ -417,6 +427,52 @@ main{
 .dash{
     width: 1px;
     margin-right:1px;
+}
+
+.fatigue-grid{
+    position:absolute;
+    /* right: 50px; */
+    background-color: var(--light-gray);
+    border: 1px solid black;
+    height: 40px;
+    width: 8px;
+    /* margin-left:50px; */
+    z-index: 2;
+    display:none;
+    bottom: 2px;
+    right: 5px;
+}
+
+.fat-bar{
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(81, 148, 81);
+    width: 6px;
+    z-index: 3;
+}
+
+
+/* Coaching Menu Screen------------------------------------------------------------------------------------------- */
+
+#coach-screen{
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+#coach-card{
+    background-color: red;
+    width: 1500px;
+    
+}
+
+#sub-roster{
+    background-color: green;
 }
 
 

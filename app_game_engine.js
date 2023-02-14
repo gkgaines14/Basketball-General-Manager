@@ -122,11 +122,27 @@ const app = {
                 }else if(tile.classList.contains('away')){
                     tile.firstChild.nextElementSibling.className = 'a-pos-icon';
                 }
+                // Fatigue Bar
+                tile.lastElementChild.style.display = 'block';
+                tile.lastElementChild.firstElementChild.style.height=`${(tile.childNodes[5].lastElementChild.innerText)*.38}px`;
+                if(tile.childNodes[5].lastElementChild.innerText<59){
+                    tile.lastElementChild.firstElementChild.style.backgroundColor='red';
+                }
+                // shift stats left
+                // tile.childNodes[1].style.marginLeft= '20px'
+                tile.childNodes[5].style.marginRight= '20px'
+                // tile.childNodes[3].style.marginLeft= '10px'
             })
+
             tile.addEventListener('mouseout',()=>{
                 if(tile.classList.contains('away')||tile.classList.contains('home')){
-                    tile.firstChild.nextElementSibling.className = 'b-pos-icon'
+                    tile.firstChild.nextElementSibling.className = 'b-pos-icon';
                 }
+                tile.lastElementChild.style.display = 'none';
+
+                // Reset Position and Name
+                tile.childNodes[5].style.marginRight= '0px'
+                // tile.childNodes[3].style.marginBottom= '0px'
             });
         });
 
@@ -139,7 +155,7 @@ const app = {
                 //Post Player Name
                 item[0].innerText = `${homeRoster[0][item[1]].firstName.charAt(0)}. ${homeRoster[0][item[1]].lastName}`;
                 // Post Player Stats
-                item[0].parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(stat => {
+                item[0].nextElementSibling.querySelectorAll('.stat-box').forEach(stat => {
                     stat.innerText = homeRoster[0][item[1]].boxscore[stat.dataset.statCat];
                 });
 
@@ -153,7 +169,7 @@ const app = {
                 //Post Player Name
                 item[0].innerText = `${awayRoster[0][item[1]].firstName.charAt(0)}. ${awayRoster[0][item[1]].lastName}`;
                 // Post Player Stats
-                item[0].parentElement.lastElementChild.querySelectorAll('.stat-box').forEach(stat => {
+                item[0].nextElementSibling.querySelectorAll('.stat-box').forEach(stat => {
                     stat.innerText = awayRoster[0][item[1]].boxscore[stat.dataset.statCat];
                 });
 
