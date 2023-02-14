@@ -124,14 +124,13 @@ const app = {
                 }
                 // Fatigue Bar
                 tile.lastElementChild.style.display = 'block';
-                tile.lastElementChild.firstElementChild.style.height=`${(tile.childNodes[5].lastElementChild.innerText)*.38}px`;
-                if(tile.childNodes[5].lastElementChild.innerText<59){
+                tile.lastElementChild.firstElementChild.style.height=`${(tile.childNodes[5].lastElementChild.innerText)*.20}px`;
+                if(tile.childNodes[5].lastElementChild.innerText<75 && tile.childNodes[5].lastElementChild.innerText>49){
+                    tile.lastElementChild.firstElementChild.style.backgroundColor='orange';
+                }else if(tile.childNodes[5].lastElementChild.innerText<50){
                     tile.lastElementChild.firstElementChild.style.backgroundColor='red';
+
                 }
-                // shift stats left
-                // tile.childNodes[1].style.marginLeft= '20px'
-                tile.childNodes[5].style.marginRight= '20px'
-                // tile.childNodes[3].style.marginLeft= '10px'
             })
 
             tile.addEventListener('mouseout',()=>{
@@ -140,9 +139,6 @@ const app = {
                 }
                 tile.lastElementChild.style.display = 'none';
 
-                // Reset Position and Name
-                tile.childNodes[5].style.marginRight= '0px'
-                // tile.childNodes[3].style.marginBottom= '0px'
             });
         });
 
