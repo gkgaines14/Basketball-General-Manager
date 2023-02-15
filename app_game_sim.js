@@ -1,5 +1,5 @@
 import * as gamePlay from "./gameplay_functions.js" 
-import{gameLength,pos2} from "./game_data.js"
+// import{gameLength,pos2} from "./game_data.js"
 import {chicagoBulls,newYorkKnicks} from "./game_data.js"
 import {leagueTeams} from "./player_generator.js"
 export{homeTeam,roadTeam,pos}
