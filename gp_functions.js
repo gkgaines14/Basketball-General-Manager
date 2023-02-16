@@ -194,7 +194,7 @@ function loadLandingPage(){
     
 }
 
-// Run Simulation
+// Load Simulation Page and Simulate a Game
 function launchSim(){
 
     let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"));
