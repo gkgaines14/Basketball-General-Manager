@@ -6,8 +6,8 @@ export{testSim}
 
 
 function testSim(home,away){
-    console.log(home)
-    console.log(away)
+    // console.log(home)
+    // console.log(away)
 
 }
 

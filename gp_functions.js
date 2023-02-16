@@ -6,35 +6,35 @@ import {testSim} from "./gameplay_functions.js"
 function loadLandingPage(){
     const freeAgentList= document.getElementById('free-agent-list');
     let homeTeamRoster = [{
-        hpg:{},
-        hsg:{},
-        hsf:{},
-        hpf:{},
-        hc:{},
-        hBenchOne:{},
-        hBenchTwo:{},
-        hBenchThree:{},
-        hBenchFour:{},
-        hBenchFive:{},
-        hBenchSix:{},
-        hBenchSeven:{},
-        hBenchEight:{},
+        pg:{},
+        sg:{},
+        sf:{},
+        pf:{},
+        c:{},
+        BenchOne:{},
+        BenchTwo:{},
+        BenchThree:{},
+        BenchFour:{},
+        BenchFive:{},
+        BenchSix:{},
+        BenchSeven:{},
+        BenchEight:{},
     }];
 
     let awayTeamRoster = [{
-        apg:{},
-        asg:{},
-        asf:{},
-        apf:{},
-        ac:{},
-        aBenchOne:{},
-        aBenchTwo:{},
-        aBenchThree:{},
-        aBenchFour:{},
-        aBenchFive:{},
-        aBenchSix:{},
-        aBenchSeven:{},
-        aBenchEight:{},
+        pg:{},
+        sg:{},
+        sf:{},
+        pf:{},
+        c:{},
+        BenchOne:{},
+        BenchTwo:{},
+        BenchThree:{},
+        BenchFour:{},
+        BenchFive:{},
+        BenchSix:{},
+        BenchSeven:{},
+        BenchEight:{},
     }];
     
     setFreeAgents();
@@ -58,7 +58,7 @@ function loadLandingPage(){
         
             <div class="name-box-player">
             <i class="fas fa-grip-lines"></i>
-            <p class="name" data-loc="court">${item.firstName} ${item.lastName} (${item.position})</p>
+            <p class="name">${item.firstName} ${item.lastName} (${item.position})</p>
             </div>
 
             <div class="name-box-ratings">
@@ -100,8 +100,6 @@ function loadLandingPage(){
         
         item.addEventListener('drop',()=>{
             const selected = document.querySelector('.dragging');
-            
-            console.log(item)
             
             if(item.classList.contains('filled')){
                 console.log('filled')
@@ -150,11 +148,11 @@ function loadLandingPage(){
     confirmButton.addEventListener('click',()=>{
         // Set Teams Selections
         var gameTeams = document.querySelectorAll('.active');
-        sessionStorage.setItem("hTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[0].dataset.tid)));
-        sessionStorage.setItem("aTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)));
+        let hTeam = leagueTeamList.find(item=>item.tID===gameTeams[0].dataset.tid)
+        let aTeam = leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)
+        // sessionStorage.setItem("aTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)));
 
         //Set Home Team Roster
-        
         const gmArray = gmRoster.querySelectorAll('.home-s-tile')
         gmArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
@@ -165,14 +163,15 @@ function loadLandingPage(){
             }
         })
 
-        sessionStorage.setItem("hTeamRoster",JSON.stringify(homeTeamRoster));
+        hTeam.roster = homeTeamRoster
+        console.log(hTeam)
+
+        sessionStorage.setItem("hTeam",JSON.stringify(hTeam));
 
 
         //Set Away Team Roster
 
         const cpuArray = cpuRoster.querySelectorAll('.away-s-tile')
-        console.log(cpuArray)
-        console.log(gmArray)
 
         cpuArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
@@ -183,7 +182,8 @@ function loadLandingPage(){
             }
         })
 
-        sessionStorage.setItem("aTeamRoster",JSON.stringify(awayTeamRoster));
+        aTeam.roster = awayTeamRoster
+        sessionStorage.setItem("aTeam",JSON.stringify(aTeam));
 
 
         // Validity Check
@@ -199,8 +199,8 @@ function launchSim(){
 
     let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"));
     let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"));
-    let homeRoster = JSON.parse(sessionStorage.getItem("hTeamRoster"));
-    let awayRoster = JSON.parse(sessionStorage.getItem("aTeamRoster"));
+    // let homeRoster = JSON.parse(sessionStorage.getItem("hTeamRoster"));
+    // let awayRoster = JSON.parse(sessionStorage.getItem("aTeamRoster"));
 
     const hpg = document.querySelector('#h-pg-name');
     const hsg = document.querySelector('#h-sg-name');
@@ -217,19 +217,19 @@ function launchSim(){
     const hBenchEight = document.querySelector('#h-b-eight-name');
 
     const homePosList = [
-        [hpg,'hpg'],
-        [hsg,'hsg'],
-        [hsf,'hsf'],
-        [hpf,'hpf'],
-        [hc,'hc'],
-        [hBenchOne,'hBenchOne'],
-        [hBenchTwo,'hBenchTwo'],
-        [hBenchThree,'hBenchThree'],
-        [hBenchFour,'hBenchFour'],
-        [hBenchFive,'hBenchFive'],
-        [hBenchSix,'hBenchSix'],
-        [hBenchSeven,'hBenchSeven'],
-        [hBenchEight,'hBenchEight'],
+        [hpg,'pg'],
+        [hsg,'sg'],
+        [hsf,'sf'],
+        [hpf,'pf'],
+        [hc,'c'],
+        [hBenchOne,'BenchOne'],
+        [hBenchTwo,'BenchTwo'],
+        [hBenchThree,'BenchThree'],
+        [hBenchFour,'BenchFour'],
+        [hBenchFive,'BenchFive'],
+        [hBenchSix,'BenchSix'],
+        [hBenchSeven,'BenchSeven'],
+        [hBenchEight,'BenchEight'],
     ];
 
     const apg = document.querySelector('#a-pg-name');
@@ -247,19 +247,19 @@ function launchSim(){
     const aBenchEight = document.querySelector('#a-b-eight-name');
     
     const awayPosList = [
-        [apg,'apg'],
-        [asg,'asg'],
-        [asf,'asf'],
-        [apf,'apf'],
-        [ac,'ac'],
-        [aBenchOne,'aBenchOne'],
-        [aBenchTwo,'aBenchTwo'],
-        [aBenchThree,'aBenchThree'],
-        [aBenchFour,'aBenchFour'],
-        [aBenchFive,'aBenchFive'],
-        [aBenchSix,'aBenchSix'],
-        [aBenchSeven,'aBenchSeven'],
-        [aBenchEight,'aBenchEight'],
+        [apg,'pg'],
+        [asg,'sg'],
+        [asf,'sf'],
+        [apf,'pf'],
+        [ac,'c'],
+        [aBenchOne,'BenchOne'],
+        [aBenchTwo,'BenchTwo'],
+        [aBenchThree,'BenchThree'],
+        [aBenchFour,'BenchFour'],
+        [aBenchFive,'BenchFive'],
+        [aBenchSix,'BenchSix'],
+        [aBenchSeven,'BenchSeven'],
+        [aBenchEight,'BenchEight'],
     ];
 
 
@@ -318,28 +318,30 @@ function launchSim(){
         // Post Home Team Data
         homePosList.forEach(item=>{
             //Post Player Name
-            item[0].innerText = `${homeRoster[0][item[1]].firstName.charAt(0)}. ${homeRoster[0][item[1]].lastName}`;
+            console.log(item[1])
+            console.log(homeTeam.roster[0][item[1]])
+            item[0].innerText = `${homeTeam.roster[0][item[1]].firstName.charAt(0)}. ${homeTeam.roster[0][item[1]].lastName}`;
             // Post Player Stats
             item[0].nextElementSibling.querySelectorAll('.stat-box').forEach(stat => {
-                stat.innerText = homeRoster[0][item[1]].boxscore[stat.dataset.statCat];
+                stat.innerText = homeTeam.roster[0][item[1]].boxscore[stat.dataset.statCat];
             });
 
-            if(homeRoster[0][item[1]].lastName, homeRoster[0][item[1]].benchStatus==='bench'){
-                item[0].parentElement.firstChild.nextElementSibling.innerText = homeRoster[0][item[1]].position
+            if(homeTeam.roster[0][item[1]].lastName, homeTeam.roster[0][item[1]].benchStatus==='bench'){
+                item[0].parentElement.firstChild.nextElementSibling.innerText = homeTeam.roster[0][item[1]].position
             };
         });
-
+        
         // Post Away Team Data
         awayPosList.forEach(item=>{
             //Post Player Name
-            item[0].innerText = `${awayRoster[0][item[1]].firstName.charAt(0)}. ${awayRoster[0][item[1]].lastName}`;
+            item[0].innerText = `${awayTeam.roster[0][item[1]].firstName.charAt(0)}. ${awayTeam.roster[0][item[1]].lastName}`;
             // Post Player Stats
             item[0].nextElementSibling.querySelectorAll('.stat-box').forEach(stat => {
-                stat.innerText = awayRoster[0][item[1]].boxscore[stat.dataset.statCat];
+                stat.innerText = awayTeam.roster[0][item[1]].boxscore[stat.dataset.statCat];
             });
 
-            if(awayRoster[0][item[1]].lastName, awayRoster[0][item[1]].benchStatus==='bench'){
-                item[0].parentElement.firstChild.nextElementSibling.innerText = awayRoster[0][item[1]].position;
+            if(awayTeam.roster[0][item[1]].lastName, awayTeam.roster[0][item[1]].benchStatus==='bench'){
+                item[0].parentElement.firstChild.nextElementSibling.innerText = awayTeam.roster[0][item[1]].position;
             };
         });
 
@@ -348,8 +350,8 @@ function launchSim(){
 
 
 testSim(homeTeam,awayTeam)
-console.log(homeTeam)
-console.log(awayTeam)
+// console.log(homeTeam)
+// console.log(awayTeam)
 }
 
 
