@@ -199,8 +199,6 @@ function launchSim(){
 
     let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"));
     let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"));
-    // let homeRoster = JSON.parse(sessionStorage.getItem("hTeamRoster"));
-    // let awayRoster = JSON.parse(sessionStorage.getItem("aTeamRoster"));
 
     const hpg = document.querySelector('#h-pg-name');
     const hsg = document.querySelector('#h-sg-name');
@@ -318,8 +316,6 @@ function launchSim(){
         // Post Home Team Data
         homePosList.forEach(item=>{
             //Post Player Name
-            console.log(item[1])
-            console.log(homeTeam.roster[0][item[1]])
             item[0].innerText = `${homeTeam.roster[0][item[1]].firstName.charAt(0)}. ${homeTeam.roster[0][item[1]].lastName}`;
             // Post Player Stats
             item[0].nextElementSibling.querySelectorAll('.stat-box').forEach(stat => {
@@ -350,8 +346,8 @@ function launchSim(){
 
 
 testSim(homeTeam,awayTeam)
-// console.log(homeTeam)
-// console.log(awayTeam)
+    console.log(homeTeam.roster);
+    console.log(awayTeam.roster);
 }
 
 
