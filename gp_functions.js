@@ -196,7 +196,8 @@ function loadLandingPage(){
 
 // Load Simulation Page and Simulate a Game
 function launchSim(){
-
+// Load UI Elements -----------------------------------------------------------------------------------------------------------------
+    
     let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"));
     let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"));
 
@@ -343,13 +344,390 @@ function launchSim(){
 
     };
 
+    // Runs the simulation ------------------------------------------------------------------------------------------------------------------------    
+    simPos(homeTeam,awayTeam,15);
+
+    //Simulate possession(s)
+    function simPos(homeTeam,roadTeam,posCount){
+        // add score property to teams
+        homeTeam.score = 0;
+        roadTeam.score = 0;
+        
+        console.log(homeTeam.score);
+        console.log(awayTeam.roster[0]);
+
+        let offense,defense;
+        let score = 0;
+        
+        let shooter,defRebounder,offRebounder, assister, stealer, defender = ''
+        let shotSelection = ''
+        let shotOutcome = ''
+        let assistOutcome = ''
+        let shotDescription = ''
+        let defenseDescription =''
+        let defensiveOutcome = ''
+        let possessionOutcome = ''
+        let pointValue = 0
 
 
-testSim(homeTeam,awayTeam)
-    console.log(homeTeam.roster);
-    console.log(awayTeam.roster);
+        //Set offensive and defensive teams
+        if(homeTeam.hasPossession ==='yes'){
+            // offTeam = homeTeam
+            offense = homeTeam
+            // offense = homeTeam.inGame
+            score = homeTeam.score
+            defense = roadTeam
+            // defense = roadTeam.inGame
+
+        }else{
+            // offTeam = roadTeam
+            offense = roadTeam
+            // offense = roadTeam.inGame
+            score = roadTeam.score
+            defense = homeTeam
+            // defense = homeTeam.inGame
+
+        }
+
+        //Sets the percentage likelihood for each player to make the specified (attribute) play
+        function setPriority(team,attribute){
+            let playerAttRatings = [team.roster[0].pg[attribute],team.roster[0].sg[attribute],team.roster[0].sf[attribute],team.roster[0].pf[attribute],team.roster[0].c[attribute]]
+
+            let weightedRatings = playerAttRatings.map(item=>{
+                if(item>=85){
+                    return item*6
+                }else if(item>=80){
+                    return item*5
+                }else if(item>=74){
+                    return item*4
+                }else if(item>=67){
+                    return item*3
+                }else if(item>=60){
+                    return item*2
+                }else{
+                    return item
+                }
+            })
+
+            let weightedPercent = weightedRatings.map(item=>(item/weightedRatings.reduce((a,b)=>a+b)))
+
+            let pgPriority = weightedPercent[0]
+            let sgPriority = weightedPercent[1]
+            let sfPriority = weightedPercent[2]
+            let pfPriority = weightedPercent[3]
+            let cPriority = weightedPercent[4]
+
+            let distributionArray = [[pgPriority,team.roster[0].pg],[sgPriority,team.roster[0].sg],[sfPriority,team.roster[0].sf],[pfPriority,team.roster[0].pf],[cPriority,team.roster[0].c]].sort((a, b)=> b[0]-a[0])
+
+                
+
+            //Display percentage breakdown for back-end observation
+            distributionArray.forEach(item=>console.log(attribute,(item[1].lastName),'-',((item[0])*100).toFixed(1),'%'))
+            console.log('')
+
+
+            //Selects a player for the attribute based on the weighted distribution
+            let rand = Math.random()
+            if(rand<distributionArray[4][0]){
+                return distributionArray[4][1]
+            }
+            rand-=distributionArray[4][0]
+
+            if(rand<distributionArray[3][0]){
+                return distributionArray[3][1]
+            }
+            rand-=distributionArray[3][0]
+
+            if(rand<distributionArray[2][0]){
+                return distributionArray[2][1]
+            }
+            rand-=distributionArray[2][0]
+
+            if(rand<distributionArray[1][0]){
+                return distributionArray[1][1]
+            }else{
+                return distributionArray[0][1]
+            }
+            
+        }
+
+        //Assigns the player to shoot, assist, defensive rebound, offensive rebound and steal on each possession
+        assister = setPriority(offense,'pRat_passing') 
+        shooter = setPriority(offense,'pRat_offOverall')
+        offRebounder = setPriority(offense,'pRat_offRebound')
+        defRebounder = setPriority(defense,'pRat_defRebound')
+        stealer = setPriority(defense,'pRat_steal')
+        
+        console.log(assister)
+        console.log(shooter.boxscore.FG)
+        console.log(offRebounder)
+        console.log(defRebounder)
+        console.log(stealer)
+
+
+        //Defines the shot function
+        function takeShot(off_shooter,shot_selection){
+            //Sets the output language for the possesion result
+            function madeShotPhrase(){
+                switch(Math.floor(Math.random()*(7)+1)){
+                case 1: return 'knocks down'
+                break
+                case 2: return 'hits'
+                break
+                case 3: return 'connects on'
+                break
+                case 4: return 'drills'
+                break
+                case 5: return 'floats in'
+                break
+                case 6: return 'with a high-arching rainbow... He connects on'
+                break
+                case 7: return 'drains'
+                break
+                default: 'hits'
+                }
+            }
+            function shotTypePhrase(x){
+                switch(x){
+                    case 'pRat_closeShot':
+                        switch(Math.floor(Math.random()*(3)+1)){
+                            case 1: return 'a jump hook'
+                            break
+                            case 2: return 'the shot after driving the lane and finishing with a lay-up'
+                            break
+                            case 3: return 'an easy bucket at the rim'
+                            break
+                            default:'4th option'
+                        }
+                    break
+                    case 'pRat_midShot':
+                        switch(Math.floor(Math.random()*(3)+1)){
+                            case 1: return 'a jumper from the wing'
+                            break
+                            case 2: return 'a mid-range shot'
+                            break
+                            case 3: return 'a well-contested, fall-away jumper'
+                            break
+                            default:'a 20-footer'
+                        }
+                    break
+                    case 'pRat_longShot': switch(Math.floor(Math.random()*(3)+1)){
+                        case 1: return 'a jumper from beyond the arc'
+                        break
+                        case 2: return 'a 40-footer from the logo'
+                        break
+                        case 3: return 'a three-pointer'
+                        break
+                        default:'4th option'
+                    }
+                    
+                    default: 'xxx'
+                    }
+                
+            }
+
+            let defAttribute = 0
+            let defMultiplier = 0
+        
+            //Set Defender
+            switch(off_shooter.positionName){
+            case 'Point Guard': defender =  defense.roster[0].pg
+            break
+            case 'Shooting Guard': defender = defense.roster[0].sg
+            break
+            case 'Small Forward': defender = defense.roster[0].sf
+            break
+            case 'Power Forward': defender = defense.roster[0].pf
+            break
+            default: defender = defense.roster[0].c
+            }
+        
+            //Set defensive attribute
+            switch(shot_selection){
+                case 'pRat_closeShot': defAttribute = defender.pRat_intDef
+                break
+                case 'pRat_midShot': defAttribute = defender.pRat_perDef
+                break
+                default: defAttribute = defender.pRat_perDef
+            }
+        
+            //Set defensive Multiplier
+            if(defAttribute>=90){
+                defMultiplier = (defAttribute/10)*5.5
+            }else if(defAttribute>=80){
+                defMultiplier = (defAttribute/10)*4.8
+            }else if(defAttribute>=70){
+                defMultiplier = (defAttribute/10)*3.5
+            }else if(defAttribute>=60){
+                defMultiplier = (defAttribute/10)*2
+            }else{
+                defMultiplier = (defAttribute/10)*1
+            }
+            
+            //Take the shot
+                
+                let rand = Math.floor(Math.random()*(100-1)+1)
+        
+                if (off_shooter[shot_selection]>=(rand+defMultiplier)){
+                    shotDescription = (`${off_shooter.lastName} ${madeShotPhrase()} ${shotTypePhrase(shot_selection)}`)
+                    off_shooter.boxscore.FG++
+                    off_shooter.boxscore.FGA++
+
+                    if(shot_selection==='pRat_longShot'){
+                        off_shooter.boxscore.TP++
+                        off_shooter.boxscore.TPA++
+                    }
+
+                    return 'Make'
+                
+                }else{
+                    shotDescription = (`Missed shot by ${off_shooter.name}`)
+                    off_shooter.boxscore.FGA++
+
+                    if(shot_selection==='pRat_longShot'){
+                        off_shooter.boxscore.TPA++
+                    }
+                    return 'Miss'
+                }
+            
+        
+            
+        }
+
+
+
+
+
+
+
+
+
+
+        //player selects a shot
+        switch(Math.floor(Math.random()*(3)+1)){
+            case 1: shotSelection =  'pRat_closeShot';pointValue = 2
+            break
+            case 2: shotSelection = 'pRat_midShot';pointValue = 2
+            break
+            default: shotSelection = 'pRat_longShot';pointValue = 3
+        }
+
+        //Take the shot or defense gets a steal
+        if(Math.random()<=.09){
+            
+            //add turnover stat and acrue
+            stealer.boxScore.steals++
+
+            console.log(`Pos ${pos}: STEAL!!! The ball is stolen by ${stealer.name}.`)
+            console.log('')
+        }else{
+            
+            shotOutcome = takeShot(shooter,shotSelection)
+
+            //shot outcome triggers
+            if(shotOutcome === 'Make'){
+                shooter.boxscore.points += pointValue
+                offense.score+=pointValue
+                
+                
+
+                //Teammate to assist
+                if(Math.random()>.4){
+
+                    if(shooter.position===assister.position){
+                        assistOutcome = ''
+                    }else{
+                        assister.boxScore.assists += 1
+                        assistOutcome = ` (Assisted by ${assister.name})`
+
+                    }
+
+                }else{
+                    assistOutcome = ''
+                }
+
+                //Check for foul and shoot freethrow
+                if(Math.random()<.3){
+                    shotDescription = `Foul called on ${defender.name}...${shooter.name} finishes the shot with a chance for the And-One!`
+                    freeThrows('andOne',shooter,shotSelection)
+
+                    offense.score+=pointValue
+                    defender.boxScore.fouls++
+
+                    if(defender.boxScore.fouls===6){
+                        defender.inactive = 'y'
+                        shotDescription+=` ${defender.name} has fouled out of the game.`
+                        //run subs---------------------------------------------------------------------------------------------------------------
+                    }
+                }
+
+            }else{
+                
+                //defense selects a player to block
+                switch(Math.floor(Math.random()*(5)+1)){
+                    case 1: defender =  defense.roster[0].PG
+                    break
+                    case 2: defender = defense.roster[1].SG
+                    break
+                    case 3: defender = defense.roster[2].SF
+                    break
+                    case 4: defender = defense.roster[3].PF
+                    break
+                    default: defender = defense.roster[4].C
+                }
+        //defensive outcome------------------------------------------------------------
+                if(Math.floor(Math.random()>.9)){
+                    console.log('blocked shot!!!!!!!!!!')
+                    // defensiveOutcome = 'blocked shot'; defender.boxScore.blocks+=1
+                    
+                }else{
+                    if(Math.random()>.78){
+                        // console.log('offensive rebound',offRebounder)
+                        defensiveOutcome = ` ${offRebounder.name} gets the offensive rebound and the ${offense.teamName} reset the offense.`
+                        offRebounder.boxScore.rebounds+=1                           
+                        
+                        //change possession
+                        if(homeTeam.hasPossession ==='yes'){
+                            homeTeam.hasPossession = 'no'
+                            roadTeam.hasPossession = 'yes'
+                        }else{
+                            homeTeam.hasPossession = 'yes'
+                            roadTeam.hasPossession = 'no'
+                        }
+
+                    }else{
+                        // console.log('defensive rebound',defRebounder)
+                        defensiveOutcome = `Rebounded by ${defRebounder.name}.`
+                        defRebounder.boxScore.rebounds+=1
+                    }
+                    
+
+                }
+                assistOutcome = ''
+
+                
+
+            }
+            
+            //Post the shot outcome
+            console.log(`Pos ${posCount}: ${shotDescription}${assistOutcome}. ${defensiveOutcome}`)
+
+            console.log('')
+        }
+        //change possession
+        if(homeTeam.hasPossession ==='yes'){
+            homeTeam.hasPossession = 'no'
+            roadTeam.hasPossession = 'yes'
+        }else{
+            homeTeam.hasPossession = 'yes'
+            roadTeam.hasPossession = 'no'
+        }
+        
+
+        postPlayerData()
+    }
+    
 }
-
 
 
 

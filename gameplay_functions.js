@@ -14,6 +14,10 @@ function testSim(home,away){
 
 //Simulate a possession
 function simPos(home,road,posCount){
+
+    console.log(homeTeam.roster[0].pg);
+    console.log(awayTeam.roster[0].pg);
+
     let offense,defense,offTeam
     let score = 0
     
