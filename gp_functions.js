@@ -374,18 +374,19 @@ function launchSim(){
             return catSum
         }
 
+        // Post home team total stats
         hScore.innerText = sumTeamStats(homeTeam,homePosList,'points')
         hReb.innerText= sumTeamStats(homeTeam,homePosList,'rebounds')
         hAst.innerText= sumTeamStats(homeTeam,homePosList,'assists',hAst)
         hFG.innerText=`${Math.round((sumTeamStats(homeTeam,homePosList,'FG'))/(sumTeamStats(homeTeam,homePosList,'FGA'))*100)}%`
         hTPS.innerText=`${Math.round((sumTeamStats(homeTeam,homePosList,'TP'))/(sumTeamStats(homeTeam,homePosList,'TPA'))*100)}%`
-        // sumTeamStats(homeTeam,homePosList,'FG',hFG)
-        // sumTeamStats(homeTeam,homePosList,'TP',hTPS)
-        let test = homeTeam.roster[0]
-        // hScore.innerHTML = 9
-        console.log(hScore.innerText)
-        console.log(test)
 
+        // Post away team total stats
+        aScore.innerText = sumTeamStats(awayTeam,awayPosList,'points')
+        aReb.innerText= sumTeamStats(awayTeam,awayPosList,'rebounds')
+        aAst.innerText= sumTeamStats(awayTeam,awayPosList,'assists',hAst)
+        aFG.innerText=`${Math.round((sumTeamStats(awayTeam,awayPosList,'FG'))/(sumTeamStats(awayTeam,awayPosList,'FGA'))*100)}%`
+        aTPS.innerText=`${Math.round((sumTeamStats(awayTeam,awayPosList,'TP'))/(sumTeamStats(awayTeam,awayPosList,'TPA'))*100)}%`
     };
 
     // Simulate an entire game by number of possessions
