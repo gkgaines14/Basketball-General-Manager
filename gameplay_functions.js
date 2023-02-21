@@ -2,7 +2,7 @@
 // import{gameLength} from "./game_data.js"
 // export{simPos,setStarters,makeSubs,reload,testSim}
 // import{homeTeam,roadTeam,pos} from "./app_game_sim.js"
-export{testSim}
+export{testSim,freeThrows}
 
 
 function testSim(home,away){
@@ -155,22 +155,22 @@ function simPos(home,road,posCount){
     
             if (off_shooter[shot_selection]>=(rand+defMultiplier)){
                  shotDescription = (`${off_shooter.name} ${madeShotPhrase()} ${shotTypePhrase(shot_selection)}`)
-                 off_shooter.boxScore.FG++
-                 off_shooter.boxScore.FGA++
+                 off_shooter.boxscore.FG++
+                 off_shooter.boxscore.FGA++
 
                  if(shot_selection==='pRat_longShot'){
-                    off_shooter.boxScore.TP++
-                    off_shooter.boxScore.TPA++
+                    off_shooter.boxscore.TP++
+                    off_shooter.boxscore.TPA++
                  }
 
                  return 'Make'
               
             }else{
                 shotDescription = (`Missed shot by ${off_shooter.name}`)
-                off_shooter.boxScore.FGA++
+                off_shooter.boxscore.FGA++
 
                 if(shot_selection==='pRat_longShot'){
-                    off_shooter.boxScore.TPA++
+                    off_shooter.boxscore.TPA++
                  }
                 return 'Miss'
             }
@@ -268,7 +268,7 @@ function simPos(home,road,posCount){
     if(Math.random()<=.09){
         
         //add turnover stat and acrue
-        stealer.boxScore.steals++
+        stealer.boxscore.steals++
 
         console.log(`Pos ${pos}: STEAL!!! The ball is stolen by ${stealer.name}.`)
         console.log('')
@@ -278,7 +278,7 @@ function simPos(home,road,posCount){
 
         //shot outcome triggers
         if(shotOutcome === 'Make'){
-            shooter.boxScore.points += pointValue
+            shooter.boxscore.points += pointValue
             offTeam.score+=pointValue
             
             
@@ -289,7 +289,7 @@ function simPos(home,road,posCount){
                 if(shooter.position===assister.position){
                     assistOutcome = ''
                 }else{
-                    assister.boxScore.assists += 1
+                    assister.boxscore.assists += 1
                     assistOutcome = ` (Assisted by ${assister.name})`
 
                 }
@@ -304,9 +304,9 @@ function simPos(home,road,posCount){
                 freeThrows('andOne',shooter,shotSelection)
 
                 offTeam.score+=pointValue
-                defender.boxScore.fouls++
+                defender.boxscore.fouls++
 
-                if(defender.boxScore.fouls===6){
+                if(defender.boxscore.fouls===6){
                     defender.inactive = 'y'
                     shotDescription+=` ${defender.name} has fouled out of the game.`
                     //run subs---------------------------------------------------------------------------------------------------------------
@@ -330,13 +330,13 @@ function simPos(home,road,posCount){
     //defensive outcome------------------------------------------------------------
             if(Math.floor(Math.random()>.9)){
                 console.log('blocked shot!!!!!!!!!!')
-                // defensiveOutcome = 'blocked shot'; defender.boxScore.blocks+=1
+                // defensiveOutcome = 'blocked shot'; defender.boxscore.blocks+=1
                 
             }else{
                 if(Math.random()>.78){
                     // console.log('offensive rebound',offRebounder)
                     defensiveOutcome = ` ${offRebounder.name} gets the offensive rebound and the ${offTeam.teamName} reset the offense.`
-                    offRebounder.boxScore.rebounds+=1                           
+                    offRebounder.boxscore.rebounds+=1                           
                     
                     //change possession
                     if(home.hasPossession ==='yes'){
@@ -350,7 +350,7 @@ function simPos(home,road,posCount){
                 }else{
                     // console.log('defensive rebound',defRebounder)
                     defensiveOutcome = `Rebounded by ${defRebounder.name}.`
-                    defRebounder.boxScore.rebounds+=1
+                    defRebounder.boxscore.rebounds+=1
                 }
                 
 
@@ -452,21 +452,21 @@ function makeSubs(){
 //Runs 100 possesions
 function reload(){
 
-    offTeam.map(item=>item.boxScore.points=0)
-    offTeam.map(item=>item.boxScore.assists=0)
-    offTeam.map(item=>item.boxScore.rebounds=0)
-    offTeam.map(item=>item.boxScore.steals=0)
-    offTeam.map(item=>item.boxScore.blocks=0)
-    offTeam.map(item=>item.boxScore.FG=0)
-    offTeam.map(item=>item.boxScore.FGA=0)
+    offTeam.map(item=>item.boxscore.points=0)
+    offTeam.map(item=>item.boxscore.assists=0)
+    offTeam.map(item=>item.boxscore.rebounds=0)
+    offTeam.map(item=>item.boxscore.steals=0)
+    offTeam.map(item=>item.boxscore.blocks=0)
+    offTeam.map(item=>item.boxscore.FG=0)
+    offTeam.map(item=>item.boxscore.FGA=0)
 
-    defTeam.map(item=>item.boxScore.points=0)
-    defTeam.map(item=>item.boxScore.assists=0)
-    defTeam.map(item=>item.boxScore.rebounds=0)
-    defTeam.map(item=>item.boxScore.steals=0)
-    defTeam.map(item=>item.boxScore.blocks=0)
-    defTeam.map(item=>item.boxScore.FG=0)
-    defTeam.map(item=>item.boxScore.FGA=0)
+    defTeam.map(item=>item.boxscore.points=0)
+    defTeam.map(item=>item.boxscore.assists=0)
+    defTeam.map(item=>item.boxscore.rebounds=0)
+    defTeam.map(item=>item.boxscore.steals=0)
+    defTeam.map(item=>item.boxscore.blocks=0)
+    defTeam.map(item=>item.boxscore.FG=0)
+    defTeam.map(item=>item.boxscore.FGA=0)
 
     pos=0
     
@@ -491,14 +491,14 @@ function freeThrows(foulType,shooter,shotSelection,offTeam){
         while(i<=count){
             let x = Math.floor((Math.random()*100))
             if(x<shooter.pRat_freeThrow){
-                console.log(`${shooter.name} makes the freethrow.`,x)
+                console.log(`${shooter.lastName} makes the freethrow.`,x)
                 
-                shooter.boxScore.points += 1
-                shooter.boxScore.FT+=1
-                shooter.boxScore.FTA+=1
+                shooter.boxscore.points += 1
+                shooter.boxscore.FT+=1
+                shooter.boxscore.FTA+=1
             }else{
-                console.log(`${shooter.name} misses the freethrow.`,x)
-                shooter.boxScore.FTA+=1
+                console.log(`${shooter.lastName} misses the freethrow.`,x)
+                shooter.boxscore.FTA+=1
             }
             i++
         }
