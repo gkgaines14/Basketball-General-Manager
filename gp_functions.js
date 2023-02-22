@@ -329,7 +329,7 @@ function launchSim(){
 
     // Run the simulation ------------------------------------------------------------------------------------------------------------------------    
     advanceButton.addEventListener('click', ()=>{
-        simGame(homeTeam,awayTeam,50)
+        simGame(homeTeam,awayTeam,200)
         });
 
 
@@ -407,7 +407,7 @@ function launchSim(){
         let offense,defense;
         let score = 0;
         
-        let shooter,defRebounder,offRebounder, assister, stealer, defender = ''
+        let shooter,defRebounder,offRebounder, assister, stealer, defender;
         let shotSelection = ''
         let shotOutcome = ''
         let assistOutcome = ''
@@ -483,43 +483,48 @@ function launchSim(){
             let defMultiplier = 0
         
             //Set Defender
-            switch(shooter.positionName){
-            case 'Point Guard': defender =  defense.roster[0].pg
-            break
-            case 'Shooting Guard': defender = defense.roster[0].sg
-            break
-            case 'Small Forward': defender = defense.roster[0].sf
-            break
-            case 'Power Forward': defender = defense.roster[0].pf
-            break
-            default: defender = defense.roster[0].c
+            let setDefender = function(){
+                let dPlayer
+                let posArr = ['pg','sg','sf','pf','c']
+                posArr.forEach(item=>{
+                    if(offense.roster[0][item].id===shooter.id){
+                        dPlayer = defense.roster[0][item]
+                    }
+                })
+                return dPlayer
             }
+            
+            defender = setDefender()
         
             //Set defensive attribute
             switch(shot_selection){
-                case 'pRat_closeShot': defAttribute = defender.pRat_intDef
+                case 'pRat_closeShot': defAttribute = defender.pRat_intDef;
                 break
-                case 'pRat_midShot': defAttribute = defender.pRat_perDef
+                case 'pRat_midShot': defAttribute = defender.pRat_perDef;
                 break
-                default: defAttribute = defender.pRat_perDef
+                default: defAttribute = defender.pRat_perDef;
             }
         
             //Set defensive Multiplier
             if(defAttribute>=90){
-                defMultiplier = (defAttribute/10)*5.5
+                defMultiplier = (defAttribute/10)*6.5
             }else if(defAttribute>=80){
-                defMultiplier = (defAttribute/10)*4.8
+                defMultiplier = (defAttribute/10)*5.8
             }else if(defAttribute>=70){
-                defMultiplier = (defAttribute/10)*3.5
+                defMultiplier = (defAttribute/10)*4.5
             }else if(defAttribute>=60){
-                defMultiplier = (defAttribute/10)*2
+                defMultiplier = (defAttribute/10)*3
             }else{
-                defMultiplier = (defAttribute/10)*1
+                defMultiplier = (defAttribute/10)*2
             }
             
             //Take the shot
                 
                 let rand = Math.floor(Math.random()*(100-1)+1)
+                console.log(shotSelection,'-',shooter[shotSelection])
+                console.log('def att- ',defAttribute)
+                console.log('def mult- ',defMultiplier)
+                console.log('rand- ',rand)
         
                 if (shooter[shot_selection]>=(rand+defMultiplier)){
                     shotDescription = (`${shooter.lastName} ${madeShotPhrase()} ${shotTypePhrase(shot_selection)}`)
@@ -625,14 +630,12 @@ function launchSim(){
         defRebounder = setPriority(defense,'pRat_defRebound');
         stealer = setPriority(defense,'pRat_steal');
         
-        console.log(assister)
-        console.log(shooter)
-        console.log(offRebounder)
-        console.log(defRebounder)
-        console.log(stealer)
-        console.log(offense)
-        // console.log(offense.roster.filter(item=>item==='pg'))
-        console.log(offense.roster.filter(({pg})=>pg))
+        // console.log('Offense - ',offense.teamName)
+        // console.log('Assister - ',assister)
+        // console.log('Shooter - ',shooter)
+        // console.log('Off Reb - ',offRebounder)
+        // console.log('Def Reb - ',defRebounder)
+        // console.log('Steal - ',stealer)
 
 
         //3. Sets the shot selection
@@ -689,6 +692,7 @@ function launchSim(){
                     if(defender.boxscore.fouls===6){
                         defender.inactive = 'y'
                         shotDescription+=` ${defender.lastName} has fouled out of the game.`
+                        //create functino to remove inactive player
                         //run subs---------------------------------------------------------------------------------------------------------------
                     }
                 }
