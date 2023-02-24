@@ -3,9 +3,9 @@
     --header:rgb(149, 191, 223);
     
     /* Home Team */
-    --home-p-color:rgb(186, 24, 24);
-    --home-s-color:rgb(9, 9, 9);
-    --home-color-high:rgba(243, 144, 144, 0.657);
+    --home-p-color:rgba(143, 167, 232, 0.581);
+    --home-s-color:black;
+    --home-color-high:black;
     --home-logo:url("images/test.png");
     
     /* Away Team */
@@ -15,15 +15,16 @@
     --away-logo:url("images/test.png");
     
     
-    
     /* System Colors */
     --primary:gray;
     --secondary:gray;
     --highlight:gray;
     
-    --light-gray:rgb(209, 209, 209);
-    --mid-gray:rgb(121, 121, 121);
-    --dark-gray:rgb(68, 68, 68);;
+    --gray-one: rgb(237, 237, 237);
+    --gray-two:rgb(209, 209, 209);
+    --gray-three:rgb(121, 121, 121);
+    --gray-four:rgb(68, 68, 68);
+    --gray-five:#2c313d;
 
     --pale-white:rgb(239, 242, 245);
     /* --background: rgb(72, 6, 102); */
@@ -69,7 +70,7 @@ body{
 
 .button{
     color: white;
-    background-color: var(--dark-gray);
+    background-color: var(--gray-five);
     width: 150px;
     height: 45px;
     display: flex;
@@ -79,8 +80,8 @@ body{
 }
 
 .button:hover{
-    color: var(--dark-gray);
-    background-color: var(--light-gray);
+    color: var(--gray-four);
+    background-color: var(--gray-one);
     font-size: 1.1rem;
     font-weight: 700;
     box-shadow:rgb(92, 90, 90) 0px 3px 10px;
@@ -186,6 +187,16 @@ body{
     font-size: 1.2rem;
 }
 
+.logo-box{
+    /* background-color: turquoise; */
+    /* background-size: 100px; */
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    /* margin: 10px 10px 0px; */
+}
+
 
 /* Dragging elements -------------------------------------*/
 .dragging{
@@ -241,18 +252,18 @@ body{
 /* Dropdown boxes------------------------------------------------- */
 
 .dropdown{
-    min-width: 15em;
+    min-width: 220px;
     position: relative;
-    margin: 1em;
+    margin: 10px;
 }
 
 .select{
-    background: #2a2f3b;
+    background: #2b303b;
     color:#fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--blue-three);
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
@@ -267,7 +278,7 @@ body{
 }
 
 .select:hover{
-    background: var(--blue-two)
+    background: rgb(168, 168, 181)
 }
 
 .caret{
@@ -287,7 +298,7 @@ body{
     list-style: none;
     padding: 0.2em 0.5em;
     background: #323741;
-    border: 1px #363a43 solid;
+    border: 1px solid #363a43;
     box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
     border-radius: 0.5em;
     color: #9fa5b5;
@@ -295,7 +306,6 @@ body{
     top: 2em;
     width: 100%;
     opacity: 0;
-    /* display: none; */
     transition: 0.2s;
     z-index: 1;
 }

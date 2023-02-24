@@ -516,4 +516,150 @@ function freeThrows(foulType,shooter,shotSelection,offTeam){
     }
 }
 
+//Function that creates new players based on number of years of experience
+function createNewPlayer(count,years){
+    
+    function calcOverall(x){
+        return Math.round((x.speed+x.closeShot+x.midshot)/3)
+    }
+    
+    function generateCollege(){
+        return collegeNamePool[Math.floor(Math.random()*(collegeNamePool.length-1)+0)]
+    }
+    function generatePosition(){
+        switch(Math.floor(Math.random()*(5)+1)){
+        case 1: return 'Point Guard'
+        break;
+        case 2: return 'Shooting Guard'
+        break;
+        case 3: return 'Small Forward'
+        break;
+        case 4: return 'Power Forward'
+        break;
+        default: return 'Center'
+        }
+        
+    }
+    function generateRace(){
+    if(Math.floor(Math.random()*(100-1)+0)<30){
+        return 'White'
+        }else{
+            return 'Black'
+        }
+    }
+    function generateFirstName(race){
+        if(race==='White'){
+            return firstNamePool_Gen[Math.floor(Math.random()*(firstNamePool_Gen.length-1)+0)]
+        }else{
+            return firstNamePool_Black.concat(firstNamePool_Gen)[Math.floor(Math.random()*((firstNamePool_Black.length+firstNamePool_Gen.length)-1)+0)]
+
+        }
+    }
+    function generateLastName(){
+    
+        return lastNamePool[Math.floor(Math.random()*(lastNamePool.length-1)+0)]
+    }
+    function generateInches(position){
+        let inches = 0
+        let height = ''
+        
+        switch(position){
+            case 'Point Guard':return Math.floor(Math.random()*(77-71)+71)
+            break;
+            case 'Shooting Guard':return Math.floor(Math.random()*(80-75)+75)
+            break;
+            case 'Small Forward':return Math.floor(Math.random()*(81-77)+77)
+            break;
+            case 'Power Forward':return Math.floor(Math.random()*(83-79)+79)
+            break;
+            case 'Center':return Math.floor(Math.random()*(89-81)+81)
+            break;
+        }
+        
+    }
+    function generateExp(expLevel){
+        if(expLevel===0){
+            return 0
+        }else{
+            return Math.floor(Math.random()*(15-1)+1)
+        }
+    }
+    function generateAge(exp){
+        if(exp===0){
+            return Math.floor(Math.random()*(23-19)+19)
+        }else{
+            return (Math.floor(Math.random()*(23-19)+19))+exp
+        }
+    }
+
+    let Player = class {
+        constructor(levelOfExp){
+            this.pID=playerIdNumber++
+            this.race=generateRace()
+            this.position=generatePosition()
+            this.firstName=generateFirstName(this.race)
+            this.lastName=generateLastName()
+            this.inches = generateInches(this.position)
+            this.height= (Math.floor(this.inches/12)).toString()+"'"+(this.inches%12).toString()+'"'
+            this.yearsOfExp = generateExp(levelOfExp)
+            this.age= generateAge(this.yearsOfExp)
+            this.jerseyNumber= Math.floor(Math.random()*(56)).toString()
+            this.college= generateCollege()
+            this.potential = Math.floor(Math.random()*(11)+1).toString()
+            this.peakAge = Math.floor(Math.random()*(34-29)+29)
+            this.retirementAge= this.peakAge +Math.floor(Math.random()*(8-3)+3)
+            this.team = freeAgency
+            createdPlayerPool.push(this)
+            freeAgency.roster.push(this)
+
+            this.speed = 95
+            this.closeShot = 89
+            this.midshot = 83
+            this.overall = calcOverall(this)
+        }
+    } 
+
+    Player.prototype.describe= function(){
+        console.log("")
+        console.log('Player ID - ',this.pID)
+        console.log('------------------')
+        console.log('Name:',this.firstName,this.lastName)
+        console.log('Race:',this.race)
+        console.log('Age: ',this.age)
+        console.log('Height: ',this.height)
+        console.log('College: ',this.college)
+        console.log('Position: ',this.position)
+        console.log('Jersey Number: ',this.jerseyNumber)
+        console.log('Experience: ',(this.yearsOfExp===0)?'Rookie':this.yearsOfExp)
+        console.log('Potential: ',this.potential)
+        console.log('Peak at Age: ',this.peakAge)
+        console.log('Retirement at Age: ',this.retirementAge)
+        console.log('Team: ',this.team.teamName)
+    }
+    Player.prototype.signToTeam= function(team){
+        team.roster.push(this)
+        this.team = team
+    }
+    Player.prototype.cutFromTeam= function(){
+        createdPlayerPool.push(this)
+        oldTeam.roster.splice()
+    }
+
+    Player.prototype.trade= function(oldTeam,newTeam){
+        oldTeam.roster.splice(oldTeam.roster.indexOf(this),1)
+        newTeam.roster.push(this)
+        this.team = newTeam
+    }
+    
+    Player.prototype.developPlayer= function(attribute,val){
+        this[attribute] += val
+        this.overall = calcOverall(this)
+    }
+
+    for(let i=0;i<count;i++){
+        let x = new Player(years)
+    }
+
+
+}
 

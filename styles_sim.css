@@ -54,12 +54,12 @@ main{
 
 
 #gm-box{
-    /* border-left: 2px solid var(--home-s-color); */
     border-top-left-radius: 15px;
 }
 
 #cpu-box{
-    /* border-right: 2px solid var(--away-s-color); */
+    border-top-right-radius: 15px;
+
 }
 
 .starters-box{
@@ -74,8 +74,7 @@ main{
 
 #h-bench-list,
 #a-bench-list{
-    /* padding-top: 10px; */
-    border-top: solid 1px var(--light-gray);
+    border-top: solid 1px var(--gray-two);
 }
 
 /* Sim Info and sim-box ----------------------------------*/
@@ -83,29 +82,23 @@ main{
     width: 460px;
     height: 700px;
     margin: 0px 5px;
-    /* padding: 12px 0px; */
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow:rgb(92, 90, 90) 0px 4px 4px -2px;
-    /* box-shadow: 0 4px 2px -2px gray; */
 }
 
 #game-info{
     display: flex;
-    /* justify-content:space-between ; */
     width: 100%;
     height: 30%;
     border-radius: 5px;
-    /* box-shadow:rgb(92, 90, 90) 0px 5px 8px -2px; */
     position: relative;
 }
 .section-box{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* padding: 10px; */
     height: 100%;
     width: 50%;
     position: relative;
@@ -145,15 +138,12 @@ main{
     background-repeat: no-repeat;
 }
 
-.logo-box{
-    /* background-size: 100px; */
+/* .logo-box{
     width: 90px;
     height: 90px;
     display: flex;
     align-items: center;
-    /* margin: 10px 10px 0px; */
-    
-}
+} */
 
 .team-info{
     /* padding: 0px 20px; */
@@ -186,7 +176,7 @@ main{
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
-    color: var(--dark-gray);
+    color: var(--gray-four);
     width: 100%;
     padding: 0 10px;
 }
@@ -251,7 +241,7 @@ main{
 
 
 #game-reset-box{
-    background-color:var(--dark-gray);
+    background-color:var(--gray-four);
     /* background-color: rgba(213, 220, 236, 0.741); */
     color: white;
     display: flex;
@@ -384,9 +374,9 @@ main{
 
 .home-label-bench{
     border-top-right-radius:15px ;
-    background:var(--light-gray);
+    background:var(--gray-two);
     /* background:rgb(159, 159, 159); */
-    color: var(--dark-gray);
+    color: var(--gray-four);
     /* color: white; */
     height: 35px;
     width: 170px;
@@ -394,9 +384,9 @@ main{
 
 .away-label-bench{
     border-top-right-radius:15px ;
-    background:var(--light-gray);
+    background:var(--gray-two);
     /* background:rgb(159, 159, 159); */
-    color: var(--dark-gray);
+    color: var(--gray-four);
     /* color: white; */
     height: 35px;
     width: 170px;
@@ -407,7 +397,7 @@ main{
     display: flex;
     align-items: center;
     height: 45px;
-    border-bottom:1px solid var(--light-gray);
+    border-bottom:1px solid var(--gray-two);
     padding-left: 5px;
     position: relative;
 }
@@ -416,7 +406,7 @@ main{
     display: flex;
     align-items: center;
     height: 45px;
-    border-bottom:1px solid var(--light-gray);
+    border-bottom:1px solid var(--gray-two);
     padding-left: 5px;
     position: relative;
 }
@@ -481,8 +471,8 @@ main{
 
 .fatigue-grid{
     position:absolute;
-    background-color: var(--light-gray);
-    border: 1px solid var(--mid-gray);
+    background-color: var(--gray-two);
+    border: 1px solid var(--gray-three);
     /* box-shadow:rgba(107, 107, 107, 0.38) 0px 2px 2px 1px; */
     height: 22px;
     width: 8px;

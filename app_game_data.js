@@ -1,7 +1,19 @@
-export{gameLength,pos2,leagueTeamList}
-import{Team} from"./player_generator.js"
-// export{chicagoBulls,newYorkKnicks,sanAntonioSpurs,milwaukeeBucks,somersetSpartans,freeAgents,test}
-// export{leagueTeamList}
+export{firstNamePool_Black,firstNamePool_Gen,lastNamePool,collegeNamePool,createdPlayerPool,gameLength,pos2,leagueTeamList}
+// import{Team} from"./player_generator.js"
+
+// Variables for createPLayer function 
+const firstNamePool_Black = ["Andre","Anfernee","Braylan","Braylen","Camron","D'Angelo","Dajuan","Damari","Damarion","Damonte","Dasean","Dashawn","Dayshawn","Deangelo","Deante","Deanthony","Dejuan","Demari","Demario","Demarion","Deonta","Deontay","Deonte","Dequan","Derrell","Derrion","Desean","Devonta","Dontez","Dujuan","Jahmir","Jermaine","Jamar","JaMarcus","Jamari","Jamario","Jamarius","Jamell","Jamere","Jamichael","Jaquan","Jarell","Jarrell","Javaris","Javeon","Javion","Javon","Javontae","Javonte","Jaylon","Jayquan","Jayvion","Jerel","Jerell","Johnell","Journey","Kadarius","Kamarion","Kendarius","Keondre","Keontae","Keshaun","Keshawn","Keshon","Keyshawn","Khiry","Khyree","Lamarion","Latrell","Maleek","Malique","Marcellus","Marshawn","Rashod","Reginald","Seven","Shamar","Shaquan","Shedrick","Sincere","Syncere","Taquan","TaShaun","Tashawn","Taurean","Tayshaun","Tayshawn","Tayvon","Terell","Terrion","Travion","Tre","Tremaine","Treveon","Trevion","Tyquan","Tyree","Tyrek","Tyrell","Tysean","Tyshaun"]
+const firstNamePool_Gen = ["Aaron","Adam","Alan","Albert","Alexander","Andrew","Anthony","Arthur","Austin","Benjamin","Billy","Bobby","Brandon","Brian","Bruce","Bryan","Carl","Charles","Christian","Christopher","Daniel","David","Dennis","Donald","Douglas","Dylan","Edward","Elijah","Eric","Ethan","Eugene","Frank","Gabriel","Gary","George","Gerald","Greg","Harold","Henry","Jack","Jacob","James","Jason","Jeffrey","Jeremy","Jerry","Jesse","Joe","John","Johnny","Jonathan","Jordan","Jose","Joseph","Joshua","Juan","Justin","Keith","Kenneth","Kevin","Kyle","Larry","Lawrence","Logan","Louis","Mark","Matthew","Michael","Nathan","Nicholas","Noah","Patrick","Paul","Peter","Philip","Ralph","Randy","Raymond","Richard","Robert","Roger","Ronald","Roy","Russell","Ryan","Samuel","Scott","Sean","Stephen","Steven","Terry","Thomas","Timothy","Tyler","Vincent","Walter","Wayne","William","Willie","Zachary"]
+const lastNamePool = ["Adams","Allen","Alvarez","Anderson","Bailey","Baker","Bennet","Booker","Brooks","Brown","Campbell","Carter","Clark","Collins","Cook","Cooper","Cox","Davis","Diaz","Edwards","Evans","Flores","Foster","Gaines","Gomez","Gonzales","Gray","Green","Hall","Harris","Hernandez","Hill","Howard","Hughes","Jackson","James","Jimenez","Johnson","Jones","Kelly","Kim","Kincaid","King","Kyles","Lee","Lewis","Long","Lopez","Martin","Mendoza","Miller","Mitchell","Moore","Morales","Morgan","Morris","Murphy","Myers","Nelson","Parker","Paul","Peterson","Phillips","Price","Ramos","Reed","Reyes","Richardson","Roberts","Robinson","Rodriguez","Rogers","Ross","Ruiz","Sanchez","Sanders","Scott","Smith","Stewart","Taylor","Thomas","Thompson","Torres","Turner","Walker","Ward","Watson","White","Williams","Williams","Williams","Williams","Williams","Williams","Wilson","Wood","Wright","Young"]
+const collegeNamePool = ["Alabama","Arizona","Arizona","Arizona","Arizona","Arizona","Arizona State","Arizona State","Arizona State","Arizona State","Arkansas","Army","Auburn","Baylor","Boston College","Bryant","BYU","Cal State Fullerton","California","Clemson","Clemson","Clemson","Clemson","Connecticut","Connecticut","Connecticut","Creighton","Duke","Duke","Duke","Duke","Duke","Duke","Duke","Duke","Duke","Duke","Duke","FIU","Florida","Florida","Florida State","Fresno State","Georgia","Georgia Tech","Gonzaga","Gonzaga","Gonzaga","Gonzaga","Gonzaga","Gonzaga","Gonzaga","Houston","Illinois","Illinois","Illinois","Illinois","Illinois","Illinois","Illinois-Chicago","Indiana","Indiana","Indiana","Indiana","Indiana","Indiana State","Iowa","Kansas","Kansas","Kansas","Kansas","Kentucky","Kentucky","Kentucky","Kentucky","Kentucky","Long Beach State","Louisiana","Louisiana Tech","Louisville","Louisville","Louisville","Louisville","LSU","LSU","LSU","LSU","Maryland","Maryland","Maryland","Maryland","Mercer","Miami","Miami","Miami","Miami","Michigan","Michigan","Michigan","Michigan","Michigan","Michigan","Michigan","Minnesota","Mississippi State","Missouri","NC State","NC State","Nebraska","New Mexico","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","North Carolina","Ohio State","Ohio State","Ohio State","Ohio State","Ohio State","Ohio State","Ohio State","Ohio State","Ohio State","Ohio State","Oklahoma","Oklahoma State","Ole Miss","Oral Roberts","Oregon","Oregon","Oregon","Oregon","Oregon","Oregon","Oregon","Oregon State","Pepperdine","Rice","Rice","Saint Louis","Saint Louis","San Diego State","San Diego State","South Alabama","South Carolina","South Florida","Southeastern Louisiana","Southern California","Southern Miss","St. John’s","St. John’s","St. John’s","St. John’s","Stanford","Stanford","TCU","Tennessee","Tennessee Tech","Texas","Texas A&M","Texas A&M","Texas A&M","Texas A&M","Texas A&M","Texas A&M","Texas Tech","Troy","Tulane","Tulane","UC Irvine","UC Irvine","UC Irvine","UC Irvine","USC","USC","USC","USC","USC","USC","USC","UCLA","UCLA","UCLA","UCLA","UCLA","UCLA","UCLA","UCLA","UMass","UMass","UMass","UMass","UMass","UMass","UMass","UNC Wilmington","Virginia","Virginia","Virginia","Virginia","Virginia","Virginia"]
+const createdPlayerPool =[]
+const leagueTeams =[]
+let playerIdNumber=10001
+
+
+
+
+
 
 let gameLength = 2880
 let pos2 = 0
@@ -10,7 +22,24 @@ let teamOneScore = 0
 let teamTwoScore = 0
 
 
-// constructor(tID,city,teamName,shortName,primaryColor,secondaryColor,highColor,logo)
+//Defines the Team class
+export class Team {
+    constructor(tID,city,teamName,shortName,primaryColor,secondaryColor,highColor,logo){
+        this.tID = tID
+        this.city = city
+        this.teamName = teamName
+        this.shortName = shortName
+        this.roster = []
+        this.primaryColor = primaryColor
+        this.secondaryColor = secondaryColor
+        this.highColor = highColor
+        this.logo = logo
+        leagueTeams.push(this)
+    }
+}
+
+
+// Pre-loaded teams --constructor(tID,city,teamName,shortName,primaryColor,secondaryColor,highColor,logo)
 let freeAgents = new Team('100','Free Agent','Players','FA','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)');
 let newYorkKnicks = new Team('101','New York','Knicks','NYK',"rgb(19, 69, 204)","rgb(227, 138, 23)","rgb(174, 193, 245)",'url("images/knicks_logo.png")');
 let chicagoBulls = new Team('102','Chicago','Bulls','CHI',"rgb(186, 24, 24)","black","rgba(243, 144, 144, 0.657)",'url("images/bulls_logo.png")');

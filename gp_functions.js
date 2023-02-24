@@ -1,6 +1,6 @@
-export {loadLandingPage,launchSim}
+export {loadLandingPage,launchSim,loadPlayerGenerator}
 import {leagueTeamList} from "./app_game_data.js";
-import {testSim,freeThrows} from "./gameplay_functions.js"
+import {freeThrows} from "./gameplay_functions.js"
 
 // Launch Landing Page
 function loadLandingPage(){
@@ -43,6 +43,7 @@ function loadLandingPage(){
     const containers = document.querySelectorAll('.position-tile');
     const dropdowns = document.querySelectorAll('.dropdown');
     const confirmButton = document.querySelector('#confirm-btn');
+    const playerGenButton = document.querySelector('#player-gen-btn');
     const gmRoster = document.querySelector('#gm-roster')
     const cpuRoster = document.querySelector('#cpu-roster')
     
@@ -192,7 +193,11 @@ function loadLandingPage(){
 
     });
     
-}
+    playerGenButton.addEventListener('click',()=>{
+        window.location.href = "player_generator.html"
+    })
+
+};
 
 // Load Simulation Page and Simulate a Game
 function launchSim(){
@@ -763,7 +768,68 @@ function launchSim(){
         postPlayerData()
     }
     
-}
+};
+
+// Load Player Generator page
+function loadPlayerGenerator(){
+    console.log('hi player gen');
+
+    const submitButton = document.querySelector('#submit-btn');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const teamName = document.querySelector('#team-name');
+    const city = document.querySelector('#city');
+
+    dropdowns.forEach(dropdown =>{
+        const select = dropdown.querySelector('.select');
+        const caret = dropdown.querySelector('.caret');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        const options = dropdown.querySelectorAll('.dropdown-menu li');
+        const selected = dropdown.querySelector('.selected');
+
+        select.addEventListener('click', ()=>{
+            select.classList.toggle('select-clicked');
+            caret.classList.toggle('caret-rotate');
+            menu.classList.toggle('dropdown-menu-open');
+        });
+
+        options.forEach(option =>{
+            option.addEventListener('click',()=>{
+                selected.innerText = option.innerText
+                // console.log(selected)
+                // option.innerText
+                select.classList.remove('selected-clicked');
+
+                caret.classList.remove('caret-rotate');
+
+                menu.classList.remove('dropdown-menu-open');
+
+                options.forEach(option=>{
+                    option.classList.remove('active');
+                });
+                option.classList.add('active');
+            });
+        });
+    });
 
 
+    submitButton.addEventListener('click',()=>{
+        // console.log(document.querySelectorAll('.active')[0].dataset.tid)
+        // console.log(document.querySelectorAll('.active')[0].innerText)
+        // console.log(leagueTeamList[0].tID)
+        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[0].dataset.tid)
+        console.log(team)
+        let root = document.documentElement.style;
+        
+        root.setProperty('--home-p-color',team.primaryColor);
+        root.setProperty('--home-s-color',team.secondaryColor);
+        root.setProperty('--home-color-high',team.highColor);
+        root.setProperty('--home-logo',team.logo);
+
+        city.innerText = team.city
+        teamName.innerText = team.teamName
+
+
+
+    })
+};
 

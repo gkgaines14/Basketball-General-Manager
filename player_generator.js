@@ -1,4 +1,4 @@
-export {leagueTeams}
+// export {leagueTeams}
 
 
 
@@ -11,8 +11,8 @@ const leagueTeams =[]
 let playerIdNumber=10001
 let team = []
 
-function generateRookies(){
-}
+// function generateRookies(){
+// }
 
 //Function that creates batches of new players 
 function createNewPlayer(count,years){
@@ -202,7 +202,7 @@ export class Team {
 // let chicagoBulls = new Team('Chicago','Bulls','CHI')
 // let newYorkKnicks = new Team('New York','Knicks','NYK')
 // let losAngelesLakers = new Team('Los Angeles','Lakers','LAL')
-let portlandTrailblazers = new Team('Portland','Trailblazers','POR')
+// let portlandTrailblazers = new Team('Portland','Trailblazers','POR')
 
 // console.log(portlandTrailblazers)
 
