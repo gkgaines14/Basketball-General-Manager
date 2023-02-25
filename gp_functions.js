@@ -266,12 +266,14 @@ function launchSim(){
         [aBenchEight,'BenchEight'],
     ];
 
+    const hLogo = document.querySelector('#h-logo-box')
     const hScore = document.querySelector('#h-score');
     const hReb = document.querySelector('#h-t-reb');
     const hAst = document.querySelector('#h-t-ast');
     const hFG = document.querySelector('#h-t-fgp');
     const hTPS = document.querySelector('#h-t-tps');
 
+    const aLogo = document.querySelector('#a-logo-box')
     const aScore = document.querySelector('#a-score');
     const aReb = document.querySelector('#a-t-reb');
     const aAst = document.querySelector('#a-t-ast');
@@ -288,17 +290,18 @@ function launchSim(){
     root.setProperty('--home-p-color',homeTeam.primaryColor);
     root.setProperty('--home-s-color',homeTeam.secondaryColor);
     root.setProperty('--home-color-high',homeTeam.highColor);
-    root.setProperty('--home-logo',homeTeam.logo);
     document.getElementById('h-city').innerHTML = homeTeam.city;
     document.getElementById('h-team-name').innerHTML = homeTeam.teamName;
+    hLogo.src = homeTeam.logo;
+
 
     // Load away team
     root.setProperty('--away-p-color',awayTeam.primaryColor);
     root.setProperty('--away-s-color',awayTeam.secondaryColor);
     root.setProperty('--away-color-high',awayTeam.highColor);
-    root.setProperty('--away-logo',awayTeam.logo);
     document.getElementById('a-city').innerHTML = awayTeam.city;
     document.getElementById('a-team-name').innerHTML = awayTeam.teamName;
+    aLogo.src = awayTeam.logo
 
     // Mouseover for position icon
     const boxscoreTiles = document.querySelectorAll('.boxscore-tile');
@@ -772,12 +775,26 @@ function launchSim(){
 
 // Load Player Generator page
 function loadPlayerGenerator(){
+
     console.log('hi player gen');
+
 
     const submitButton = document.querySelector('#submit-btn');
     const dropdowns = document.querySelectorAll('.dropdown');
     const teamName = document.querySelector('#team-name');
     const city = document.querySelector('#city');
+    let logo = document.querySelector('#logo');
+    let root = document.documentElement.style;
+
+    root.setProperty('--home-p-color',leagueTeamList[0].primaryColor);
+    root.setProperty('--home-s-color',leagueTeamList[0].secondaryColor);
+    root.setProperty('--home-color-high',leagueTeamList[0].highColor);
+    root.setProperty('--home-logo',leagueTeamList[0].logo);
+
+    // city.innerText = leagueTeamList[0].city
+    // teamName.innerText = leagueTeamList[0].teamName
+
+    console.log(leagueTeamList[0])
 
     dropdowns.forEach(dropdown =>{
         const select = dropdown.querySelector('.select');
@@ -816,9 +833,10 @@ function loadPlayerGenerator(){
         // console.log(document.querySelectorAll('.active')[0].dataset.tid)
         // console.log(document.querySelectorAll('.active')[0].innerText)
         // console.log(leagueTeamList[0].tID)
-        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[0].dataset.tid)
+        let race = document.querySelectorAll('.active')[0].dataset.race;
+        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[1].dataset.tid);
+        console.log(race)
         console.log(team)
-        let root = document.documentElement.style;
         
         root.setProperty('--home-p-color',team.primaryColor);
         root.setProperty('--home-s-color',team.secondaryColor);
@@ -827,6 +845,7 @@ function loadPlayerGenerator(){
 
         city.innerText = team.city
         teamName.innerText = team.teamName
+        logo.src = team.logo 
 
 
 

@@ -11,8 +11,16 @@
 </head>
 <body id="player-generator">
     <div id="input-card">
-        <div>
-            <div id="submit-btn" class="button">Submit</div>
+        
+        <div id="race-select-dropdown" class="dropdown">
+            <div class="select">
+                <span class="selected">Choose a Race</span>
+                <div class="caret"></div>
+            </div>
+            <ul class="dropdown-menu">
+                <li data-race="black" class="active">Black</li>
+                <li data-race="white">White</li>
+            </ul>
         </div>
         <div id="a-team-select-dropdown" class="dropdown">
             <div class="select">
@@ -20,7 +28,8 @@
                 <div class="caret"></div>
             </div>
             <ul class="dropdown-menu">
-                <li data-tid="110" class="active">Boston Celtics</li>
+                <li data-tid="100" class="active">Free Agents</li>
+                <li data-tid="110">Boston Celtics</li>
                 <li data-tid="102">Chicago Bulls</li>
                 <li data-tid="108">Charlotte Bobcats</li>
                 <li data-tid="107">Charlotte Hornets</li>
@@ -32,7 +41,9 @@
                 <li data-tid="105">Somerset Spartans</li>
             </ul>
         </div>
-        
+        <div>
+            <div id="submit-btn" class="button">Submit</div>
+        </div>
         
     </div>
 </div>
@@ -48,7 +59,9 @@
                     <div id="city" class="city"></div>
                     <div id="team-name" class="team-name"></div>
                 </div>
-                <div id="team-logo" class="logo-box"></div>
+                <!-- <div id="team-logo" class="logo-box"> -->
+                    <img id="logo" src="images\FA_logo.png">
+                <!-- </div> -->
             </div>
         </div>
         <div id="player-data">
@@ -67,37 +80,37 @@
                     <div id="scout-data">
                         <div class="sd-box">
                             <div class="sd-item">
-                                <div>College: </div>
+                                <div class="bold">College: </div>
                                 <div id="college">Umass</div>
                             </div>
                             <div class="sd-item">
-                                <div>Height: </div>
+                                <div class="bold">Height: </div>
                                 <div id="height">6'5"</div>
                             </div>
                             <div class="sd-item">
-                                <div>Jersey #: </div>
+                                <div class="bold">Jersey #: </div>
                                 <div id="jersey-num">14</div>
                             </div>
                             <div class="sd-item">
-                                <div>Potential: </div>
+                                <div class="bold">Potential: </div>
                                 <div id="height">6</div>
                             </div>
                         </div>
                         <div class="sd-box">
                             <div class="sd-item">
-                                <div>Age: </div>
+                                <div class="bold">Age: </div>
                                 <div id="age">26</div>
                             </div>
                             <div class="sd-item">
-                                <div>Years of Exp: </div>
+                                <div class="bold">Years of Exp: </div>
                                 <div id="height">5</div>
                             </div>
                             <div class="sd-item">
-                                <div>Peak Age: </div>
+                                <div class="bold">Peak Age: </div>
                                 <div id="jersey-num">29</div>
                             </div>
                             <div class="sd-item">
-                                <div>Retirement Age: </div>
+                                <div class="bold">Retirement Age: </div>
                                 <div id="height">34</div>
                             </div>
                         </div>
@@ -114,40 +127,83 @@
                 </div>
             </div>
             <div id="player-attributes">
-                <div id="att-label" class="card-header label">Player Attibutes</div>
+                <div id="header-box">
+                    <div id="att-label" class="card-header label">Player Attibutes</div>
+                    <div id="ovr-box">
+                        <div class="label">Ovr: </div>
+                        <div id="ovr-rating">84</div>
+                    </div>
+                </div>
                 <div id="attributes" class="scrollbar1">
-                    <p>- Attribute 1</p>
-                    <p>- Attribute 2</p>
-                    <p>- Attribute 3</p>
-                    <p>- Attribute 4</p>
-                    <p>- Attribute 5</p>
-                    <p>- Attribute 6</p>
-                    <p>- Attribute 7</p>
-                    <p>- Attribute 8</p>
-                    <p>- Attribute 9</p>
-                    <p>- Attribute 10</p>
-                    <p>- Attribute 11</p>
-                    <p>- Attribute 12</p>
-                    <p>- Attribute 13</p>
-                    <p>- Attribute 14</p>
-                    <p>- Attribute 15</p>
-                    <p>- Attribute 16</p>
-                    <p>- Attribute 17</p>
-                    <p>- Attribute 18</p>
-                    <p>- Attribute 19</p>
-                    <p>- Attribute 20</p>
-                    <p>- Attribute 21</p>
-                    <p>- Attribute 22</p>
-                    <p>- Attribute 23</p>
-                    <p>- Attribute 24</p>
-                    <p>- Attribute 25</p>
-                    <p>- Attribute 26</p>
-                    <p>- Attribute 27</p>
-                    <p>- Attribute 28</p>
-                    <p>- Attribute 29</p>
-                    <p>- Attribute 30</p>
-                    <p>- Attribute 31</p>
-                    <p>- Attribute 32</p>
+                    <div class="att-box">
+                        <div>- Attribute 1</div>
+                        <div id="att-one-rat">77</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 2</div>
+                        <div id="att-one-rat">84</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 3</div>
+                        <div id="att-one-rat">90</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 4</div>
+                        <div id="att-one-rat">88</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 5</div>
+                        <div id="att-one-rat">77</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 6</div>
+                        <div id="att-one-rat">73</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 7</div>
+                        <div id="att-one-rat">67</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 8</div>
+                        <div id="att-one-rat">79</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 9</div>
+                        <div id="att-one-rat">89</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 10</div>
+                        <div id="att-one-rat">73</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 11</div>
+                        <div id="att-one-rat">75</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 12</div>
+                        <div id="att-one-rat">72</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 13</div>
+                        <div id="att-one-rat">94</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 14</div>
+                        <div id="att-one-rat">96</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 15</div>
+                        <div id="att-one-rat">80</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 16</div>
+                        <div id="att-one-rat">69</div>
+                    </div>
+                    <div class="att-box">
+                        <div>- Attribute 17</div>
+                        <div id="att-one-rat">70</div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

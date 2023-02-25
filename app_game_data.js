@@ -40,17 +40,17 @@ export class Team {
 
 
 // Pre-loaded teams --constructor(tID,city,teamName,shortName,primaryColor,secondaryColor,highColor,logo)
-let freeAgents = new Team('100','Free Agent','Players','FA','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)');
-let newYorkKnicks = new Team('101','New York','Knicks','NYK',"rgb(19, 69, 204)","rgb(227, 138, 23)","rgb(174, 193, 245)",'url("images/knicks_logo.png")');
-let chicagoBulls = new Team('102','Chicago','Bulls','CHI',"rgb(186, 24, 24)","black","rgba(243, 144, 144, 0.657)",'url("images/bulls_logo.png")');
-let sanAntonioSpurs = new Team('103','San Antonio','Spurs','SAS','black','gray','rgb(180, 180, 180)',"url('images/spurs_logo.png')" );
-let milwaukeeBucks = new Team('104','Milwaukee','Bucks','MIL','rgb(38,78,54)','rgb(223,210,175)','rgb(177, 212, 143)',"url('images/bucks_logo.png')" );
-let somersetSpartans = new Team('105','Somerset','Spartans','SOM','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)',"url('images/spartans_logo.png')" );
-let mattesonMustangs = new Team('106','Matteson','Mustangs','MAT','rgb(0, 21, 64)','rgb(133, 186, 228)','rgb(133, 186, 228)',"url('images/mustangs_logo.png')" );
-let charlotteHornets = new Team('107','Charlotte','Hornets','CHA','rgb(0, 120, 140)','rgb(29, 17, 96)','rgb(166, 205, 213)',"url('images/hornets_logo.png')" );
-let charlotteBobcats = new Team('108','Charlotte','Bobcats','CHB','rgb(240, 91, 33)','rgb(27, 65, 100)','rgb(250, 188, 164)',"url('images/bobcats_logo.png')" );
-let phoenixSuns = new Team('109','Phoenix','Suns','PHO','rgb(29, 17, 96)','rgb(249, 160, 27)','rgb(138, 134, 173)',"url('images/suns_logo.png')" );
-let bostonCeltics = new Team('110','Boston','Celtics','BOS','rgb(0, 131, 72)','rgb(0, 0, 0)','rgb(142, 197, 175)',"url('images/celtics_logo.png')" );
+let freeAgents = new Team('100','Free Agent','Players','FA','rgba(143, 167, 232, 0.581)','rgb(0, 46, 255)','rgb(110, 121, 168)','images/FA_logo.png');
+let newYorkKnicks = new Team('101','New York','Knicks','NYK',"rgb(19, 69, 204)","rgb(227, 138, 23)","rgb(174, 193, 245)",'images/knicks_logo.png');
+let chicagoBulls = new Team('102','Chicago','Bulls','CHI',"rgb(186, 24, 24)","black","rgba(243, 144, 144, 0.657)",'images/bulls_logo.png');
+let sanAntonioSpurs = new Team('103','San Antonio','Spurs','SAS','black','gray','rgb(180, 180, 180)','images/spurs_logo.png');
+let milwaukeeBucks = new Team('104','Milwaukee','Bucks','MIL','rgb(38,78,54)','rgb(223,210,175)','rgb(177, 212, 143)','images/bucks_logo.png');
+let somersetSpartans = new Team('105','Somerset','Spartans','SOM','rgb(103,19,11)','rgb(237,192,56)','rgb(204, 78, 67)','images/spartans_logo.png');
+let mattesonMustangs = new Team('106','Matteson','Mustangs','MAT','rgb(0, 21, 64)','rgb(133, 186, 228)','rgb(133, 186, 228)','images/mustangs_logo.png');
+let charlotteHornets = new Team('107','Charlotte','Hornets','CHA','rgb(0, 120, 140)','rgb(29, 17, 96)','rgb(166, 205, 213)','images/hornets_logo.png');
+let charlotteBobcats = new Team('108','Charlotte','Bobcats','CHB','rgb(240, 91, 33)','rgb(27, 65, 100)','rgb(250, 188, 164)','images/bobcats_logo.png');
+let phoenixSuns = new Team('109','Phoenix','Suns','PHO','rgb(29, 17, 96)','rgb(249, 160, 27)','rgb(138, 134, 173)','images/suns_logo.png');
+let bostonCeltics = new Team('110','Boston','Celtics','BOS','rgb(0, 131, 72)','rgb(0, 0, 0)','rgb(142, 197, 175)','images/celtics_logo.png');
 
 
 let leagueTeamList = [
