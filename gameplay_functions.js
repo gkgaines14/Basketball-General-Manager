@@ -1,16 +1,8 @@
 //Export functions
-// import{gameLength} from "./game_data.js"
-// export{simPos,setStarters,makeSubs,reload,testSim}
-// import{homeTeam,roadTeam,pos} from "./app_game_sim.js"
-export{testSim,freeThrows,createNewPlayer}
+import{firstNamePool_Black,firstNamePool_Gen,lastNamePool_Black,lastNamePool_White,collegeNamePool,createdPlayerPool, leagueTeamList} from "./app_game_data.js"
+export{freeThrows,createNewPlayer}
 
-
-function testSim(home,away){
-    // console.log(home)
-    // console.log(away)
-
-}
-
+let playerIdNumber=10001
 
 //Simulate a possession
 function simPos(home,road,posCount){
@@ -548,20 +540,21 @@ function createNewPlayer(race){
     //     }
     // }
     function generateFirstName(race){
-        if(race==='White'){
+        if(race==='white'){
             return firstNamePool_Gen[Math.floor(Math.random()*(firstNamePool_Gen.length-1)+0)]
         }else{
             return firstNamePool_Black.concat(firstNamePool_Gen)[Math.floor(Math.random()*((firstNamePool_Black.length+firstNamePool_Gen.length)-1)+0)]
 
         }
     }
-    function generateLastName(){
-    
-        return lastNamePool[Math.floor(Math.random()*(lastNamePool.length-1)+0)]
+    function generateLastName(race){
+        if(race==='white'){
+            return lastNamePool_White[Math.floor(Math.random()*(lastNamePool_White.length-1)+0)]
+        }else{
+            return lastNamePool_Black[Math.floor(Math.random()*(lastNamePool_Black.length-1)+0)]
+        }
     }
     function generateInches(position){
-        let inches = 0
-        let height = ''
         
         switch(position){
             case 'Point Guard':return Math.floor(Math.random()*(77-71)+71)
@@ -577,13 +570,16 @@ function createNewPlayer(race){
         }
         
     }
-    function generateExp(expLevel){
-        if(expLevel===0){
-            return 0
-        }else{
+    function generateExp(){
             return Math.floor(Math.random()*(15-1)+1)
-        }race
     }
+    // function generateExp(expLevel){
+    //     if(expLevel===0){
+    //         return 0
+    //     }else{
+    //         return Math.floor(Math.random()*(15-1)+1)
+    //     }
+    // }
     function generateAge(exp){
         if(exp===0){
             return Math.floor(Math.random()*(23-19)+19)
@@ -592,24 +588,50 @@ function createNewPlayer(race){
         }
     }
 
+    function generateBack(x){
+        console.log(x)
+        if(x===6){
+            let backRand = Math.floor(Math.random()*(3)+1)
+            console.log('front was a 6')
+            switch(backRand){
+            case 1: return 'images/player_avatars/back_1.png'
+            break;
+            case 2: return 'images/player_avatars/back_2.png'
+            break;
+            default: return 'images/player_avatars/back_3.png'
+            }
+        }else{
+            return 'images/player_avatars/back_1.png'
+        }
+    }
+
     let Player = class {
-        constructor(){
+        constructor(race){
             this.pID=playerIdNumber++
             this.race = race
             // this.race=generateRace()
-            this.position=generatePosition()
-            this.firstName=generateFirstName(this.race)
-            this.lastName=generateLastName()
-            this.inches = generateInches(this.position)
-            this.height= (Math.floor(this.inches/12)).toString()+"'"+(this.inches%12).toString()+'"'
-            this.yearsOfExp = generateExp(levelOfExp)
-            this.age= generateAge(this.yearsOfExp)
-            this.jerseyNumber= Math.floor(Math.random()*(56)).toString()
-            this.college= generateCollege()
-            this.potential = Math.floor(Math.random()*(11)+1).toString()
-            this.peakAge = Math.floor(Math.random()*(34-29)+29)
-            this.retirementAge= this.peakAge +Math.floor(Math.random()*(8-3)+3)
-            this.team = freeAgency
+            this.position=generatePosition();
+            this.firstName=generateFirstName(this.race);
+            this.lastName=generateLastName(this.race);
+            this.inches = generateInches(this.position);
+            this.height= (Math.floor(this.inches/12)).toString()+"'"+(this.inches%12).toString()+'"';
+            this.yearsOfExp = generateExp();
+            this.age= generateAge(this.yearsOfExp);
+            this.jerseyNumber= Math.floor(Math.random()*(56)).toString();
+            this.college= generateCollege();
+            this.potential = Math.floor(Math.random()*(11)+1).toString();
+            this.peakAge = Math.floor(Math.random()*(34-29)+29);
+            this.retirementAge= this.peakAge +Math.floor(Math.random()*(8-3)+3);
+            this.team = leagueTeamList[0];
+            this.avFrontNum = Math.floor(Math.random()*(6)+1);
+            this.avFront = `images/player_avatars/front_${this.avFrontNum}.png`;
+            this.avBack = generateBack(this.avFrontNum);
+            this.avBeard = `images/player_avatars/beard_${Math.floor(Math.random()*(12)+1)}.png`;
+            this.avEyebrows = `images/player_avatars/eyebrows_${Math.floor(Math.random()*(3)+1)}.png`;
+
+
+
+
             // createdPlayerPool.push(this)
             // freeAgency.roster.push(this)
 
@@ -658,10 +680,10 @@ function createNewPlayer(race){
     }
 
     // for(let i=0;i<count;i++){
-    //     let x = new Player(years)
+    let x = new Player(race)
     // }
 
-    // return Player.this
+    return x
 
 }
 

@@ -870,12 +870,65 @@ function loadPlayerGenerator(){
         root.setProperty('--home-color-high',team.highColor);
         root.setProperty('--home-logo',team.logo);
 
-        city.innerText = team.city
-        teamName.innerText = team.teamName
-        logo.src = team.logo 
+        city.innerText = team.city;
+        teamName.innerText = team.teamName;
+        logo.src = team.logo;
 
-        let playerOne = createNewPlayer(race)
-        console.log(playerOne)
+        let playerOne = createNewPlayer(race);
+        // console.log(playerOne);
 
+        dataManager(playerOne);
     })
+
+
+    function dataManager(player){
+        console.log(player)
+        console.log(player.avFront)
+        console.log(player.avBack)
+
+        const name = document.querySelector('#name')
+        const position = document.querySelector('#position')
+
+        const back= document.querySelector('#back')
+        const head = document.querySelector('#head')
+        const outline = document.querySelector('#outline')
+        const eyebrows = document.querySelector('#eyebrows')
+        const front = document.querySelector('#front') 
+        const beard = document.querySelector('#beard') 
+
+        const college = document.querySelector('#college')
+        const height = document.querySelector('#height')
+        const jerseyNum = document.querySelector('#jersey-num')
+        const potential = document.querySelector('#potential')
+        const age = document.querySelector('#age')
+        const exp = document.querySelector('#exp')
+        const peakAge = document.querySelector('#peak-age')
+        const retireAge = document.querySelector('#retire-age')
+        const ovrRating = document.querySelector('#ovr-rating')
+
+        name.innerText = `${player.firstName} ${player.lastName}`
+        position.innerText = player.position
+
+
+
+        back.src = player.avBack
+        // head.src = player.head
+        // outline.src = player.outline
+        eyebrows.src = player.avEyebrows
+        front.src = player.avFront
+        beard.src = player.avBeard
+        // headband.src = 'images/player_avatars/headband.png'
+
+        college.innerText = player.college
+        height.innerText = player.height
+        jerseyNum.innerText = player.jerseyNumber
+        potential.innerText = player.potential
+        age.innerText = player.age
+        exp.innerText = player.yearsOfExp
+        peakAge.innerText = player.peakAge
+        retireAge.innerText = player.retirementAge
+        ovrRating.innerText = player.overall
+
+    };
+
 };
