@@ -2,7 +2,7 @@
 // import {homeTeamRoster} from "./app_launch.js"
 // import { leagueTeams } from "./player_generator.js"
 import {leagueTeamList} from "./app_game_data.js"
-import {loadLandingPage,launchSim,loadPlayerGenerator} from "./gp_functions.js"
+import {loadLandingPage,launchSim,loadPlayerGenerator} from "./screen_manager.js"
 
 
 const app = {

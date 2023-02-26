@@ -2,7 +2,7 @@
 // import{gameLength} from "./game_data.js"
 // export{simPos,setStarters,makeSubs,reload,testSim}
 // import{homeTeam,roadTeam,pos} from "./app_game_sim.js"
-export{testSim,freeThrows}
+export{testSim,freeThrows,createNewPlayer}
 
 
 function testSim(home,away){
