@@ -47,6 +47,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 800px;
+    min-width: 620px;
     width: 800px;
     border-radius: 15px;
     box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
@@ -89,13 +90,13 @@ body{
     flex-direction: column;
     align-items: left;
     justify-content: space-around;
-    width: 25%;
+    min-width: 300px;
     height: 50px;
 }
 
 #name{
     color:var(--home-s-color);
-    width: 300px;
+    min-width: 100%;
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
@@ -125,6 +126,7 @@ body{
 #position{
     color:var(--home-color-high);
     font-size: 1.5rem ;
+    min-width: 100%;
 }
 
 #logo{

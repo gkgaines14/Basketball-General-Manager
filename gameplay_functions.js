@@ -517,8 +517,8 @@ function freeThrows(foulType,shooter,shotSelection,offTeam){
 }
 
 //Function that creates new players based on number of years of experience
-function createNewPlayer(count,years){
-    
+function createNewPlayer(race){
+    console.log(race)
     function calcOverall(x){
         return Math.round((x.speed+x.closeShot+x.midshot)/3)
     }
@@ -540,13 +540,13 @@ function createNewPlayer(count,years){
         }
         
     }
-    function generateRace(){
-    if(Math.floor(Math.random()*(100-1)+0)<30){
-        return 'White'
-        }else{
-            return 'Black'
-        }
-    }
+    // function generateRace(){
+    // if(Math.floor(Math.random()*(100-1)+0)<30){
+    //     return 'White'
+    //     }else{
+    //         return 'Black'
+    //     }
+    // }
     function generateFirstName(race){
         if(race==='White'){
             return firstNamePool_Gen[Math.floor(Math.random()*(firstNamePool_Gen.length-1)+0)]
@@ -582,7 +582,7 @@ function createNewPlayer(count,years){
             return 0
         }else{
             return Math.floor(Math.random()*(15-1)+1)
-        }
+        }race
     }
     function generateAge(exp){
         if(exp===0){
@@ -593,9 +593,10 @@ function createNewPlayer(count,years){
     }
 
     let Player = class {
-        constructor(levelOfExp){
+        constructor(){
             this.pID=playerIdNumber++
-            this.race=generateRace()
+            this.race = race
+            // this.race=generateRace()
             this.position=generatePosition()
             this.firstName=generateFirstName(this.race)
             this.lastName=generateLastName()
@@ -609,8 +610,8 @@ function createNewPlayer(count,years){
             this.peakAge = Math.floor(Math.random()*(34-29)+29)
             this.retirementAge= this.peakAge +Math.floor(Math.random()*(8-3)+3)
             this.team = freeAgency
-            createdPlayerPool.push(this)
-            freeAgency.roster.push(this)
+            // createdPlayerPool.push(this)
+            // freeAgency.roster.push(this)
 
             this.speed = 95
             this.closeShot = 89
@@ -656,10 +657,11 @@ function createNewPlayer(count,years){
         this.overall = calcOverall(this)
     }
 
-    for(let i=0;i<count;i++){
-        let x = new Player(years)
-    }
+    // for(let i=0;i<count;i++){
+    //     let x = new Player(years)
+    // }
 
+    // return Player.this
 
 }
 

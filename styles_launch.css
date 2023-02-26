@@ -12,7 +12,9 @@ body{
 
 
 #roster-card{
-    display: flex;    
+    display: flex;
+    max-width: 1725px;    
+    min-width: 1725px;    
 }
 
 
