@@ -4,189 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles_global.css">
-    <link rel="stylesheet" href="styles_launch.css">
-    <script src="https://kit.fontawesome.com/662beca40c.js" crossorigin="anonymous"></script>
-    <title>BBall GM</title>
+    <link rel="stylesheet" href="styles_main_menu.css">
+    <title>Pro GM Basketball</title>
 </head>
-<body id="launch-page">
-    <main id="landing-page">
-        <h1>Pro League GM: Basketball Simulator</h1>
-
-
-        <div id="roster-card">
-            <div id="gm-roster" class="roster-box">
-                <div class="card-banner">
-                    <div class="card-header">Home Team</div>
-                    <div id="h-team-select-dropdown" class="dropdown">
-                        <div class="select">
-                            <span class="selected">Choose Home Team</span>
-                            <div class="caret"></div>
-                        </div>
-                        <ul class="dropdown-menu">
-                            <li data-tid="110" class="active">Boston Celtics</li>
-                            <li data-tid="102">Chicago Bulls</li>
-                            <li data-tid="108">Charlotte Bobcats</li>
-                            <li data-tid="107">Charlotte Hornets</li>
-                            <li data-tid="106">Matteson Mustangs</li>
-                            <li data-tid="104">Milwaukee Bucks</li>
-                            <li data-tid="101">New York Knicks</li>
-                            <li data-tid="109">Phoenix Suns</li>
-                            <li data-tid="103">San Antonio Spurs</li>
-                            <li data-tid="105">Somerset Spartans</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="card-sub-header">Starters</div>
-
-                <div id="gm-pg-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="pg" data-bench-status="court">
-                    <div class="b-pos-icon">PG</div>
-
-                </div>
-                <div id="gm-sg-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="sg" data-bench-status="court">
-                    <div class="b-pos-icon">SG</div>
-
-                </div>
-                <div id="gm-sf-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="sf" data-bench-status="court">
-                    <div class="b-pos-icon">SF</div>
-                </div>
-                <div id="gm-pf-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="pf" data-bench-status="court">
-                    <div class="b-pos-icon">PF</div>
-
-                </div>
-                <div id="gm-c-slot" class="position-tile home-s-tile empty" data-loc="homeOnCourt" data-pos="c" data-bench-status="court">
-                    <div class="b-pos-icon">C</div>
-                </div>
-                <div class="card-sub-header">Bench</div>
-
-                <div id="gm-b-one-slot" class="position-tile home-s-tile empty" data-pos="BenchOne" data-bench-status="bench">
-                    <div class="b-pos-icon">6</div>
-                </div>
-                <div id="gm-b-two-slot" class="position-tile home-s-tile empty" data-pos="BenchTwo" data-bench-status="bench">
-                    <div class="b-pos-icon">7</div>
-                </div>
-                <div id="gm-b-three-slot" class="position-tile home-s-tile empty" data-pos="BenchThree" data-bench-status="bench">
-                    <div class="b-pos-icon">8</div>
-                </div>
-                <div id="gm-b-four-slot" class="position-tile home-s-tile empty" data-pos="BenchFour" data-bench-status="bench">
-                    <div class="b-pos-icon">9</div>
-                </div>
-                <div id="gm-b-five-slot" class="position-tile home-s-tile empty" data-pos="BenchFive" data-bench-status="bench">
-                    <div class="b-pos-icon">10</div>
-                </div>
-                <div id="gm-b-six-slot" class="position-tile home-s-tile empty" data-pos="BenchSix" data-bench-status="bench">
-                    <div class="b-pos-icon">11</div>
-                </div>
-                <div id="gm-b-seven-slot" class="position-tile home-s-tile empty" data-pos="BenchSeven" data-bench-status="bench">
-                    <div class="b-pos-icon">12</div>
-                </div>
-                <div id="gm-b-eight-slot" class="position-tile home-s-tile empty" data-pos="BenchEight" data-bench-status="bench">
-                    <div class="b-pos-icon">13</div>
-                </div>
+<body id="main-menu">
+        <div id="menu-card">
+            <div id="menu-button" class="button">
+                <div id="menu">Menu</div>
+                <div class="caret"></div>
             </div>
-            <div id="free-agents" class="roster-box">
-                <div class="card-banner">
-                    <div class="card-header">Free Agents</div>
-                    <div id="h-team-select-dropdown" class="dropdown">
-                        <div class="select">
-                            <span class="selected">Filter</span>
-                            <div class="caret"></div>
-                        </div>
-                        <ul class="dropdown-menu">
-                            <li data-tid="102">Point Guard</li>
-                            <li data-tid="104">Shooting Guard</li>
-                            <li data-tid="101">Small Forward</li>
-                            <li data-tid="103">Power Forward</li>
-                            <li data-tid="105">Center</li>
-                        </ul>
-                    </div>
-                </div>                
-                <div id="free-agent-list"></div>
-            </div>
-            <div id="cpu-roster" class="roster-box">
-                <div class="card-banner">
-                    <div class="card-header">Away Team</div>
-                    <div id="a-team-select-dropdown" class="dropdown">
-                        <div class="select">
-                            <span class="selected">Choose Away Team</span>
-                            <div class="caret"></div>
-                        </div>
-                        <ul class="dropdown-menu">
-                            <li data-tid="110">Boston Celtics</li>
-                            <li data-tid="102" class="active">Chicago Bulls</li>
-                            <li data-tid="108">Charlotte Bobcats</li>
-                            <li data-tid="107">Charlotte Hornets</li>
-                            <li data-tid="106">Matteson Mustangs</li>
-                            <li data-tid="104">Milwaukee Bucks</li>
-                            <li data-tid="101">New York Knicks</li>
-                            <li data-tid="109">Phoenix Suns</li>
-                            <li data-tid="103">San Antonio Spurs</li>
-                            <li data-tid="105">Somerset Spartans</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-sub-header">Starters</div>
-
-                <div id="cpu-pg-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="pg" data-bench-status="court">
-                    <div class="b-pos-icon">PG</div>
-
-                </div>
-                <div id="cpu-sg-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="sg" data-bench-status="court">
-                    <div class="b-pos-icon">SG</div>
-
-                </div>
-                <div id="cpu-sf-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="sf" data-bench-status="court">
-                    <div class="b-pos-icon">SF</div>
-                </div>
-                <div id="cpu-pf-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="pf" data-bench-status="court">
-                    <div class="b-pos-icon">PF</div>
-
-                </div>
-                <div id="cpu-c-slot" class="position-tile away-s-tile empty" data-loc="homeOnCourt" data-pos="c" data-bench-status="court">
-                    <div class="b-pos-icon">C</div>
-                </div>
-                <div class="card-sub-header">Bench</div>
-
-                <div id="cpu-b-one-slot" class="position-tile away-s-tile empty" data-pos="BenchOne" data-bench-status="bench">
-                    <div class="b-pos-icon">6</div>
-                </div>
-                <div id="cpu-b-two-slot" class="position-tile away-s-tile empty" data-pos="BenchTwo" data-bench-status="bench">
-                    <div class="b-pos-icon">7</div>
-                </div>
-                <div id="cpu-b-three-slot" class="position-tile away-s-tile empty" data-pos="BenchThree" data-bench-status="bench">
-                    <div class="b-pos-icon">8</div>
-                </div>
-                <div id="cpu-b-four-slot" class="position-tile away-s-tile empty" data-pos="BenchFour" data-bench-status="bench">
-                    <div class="b-pos-icon">9</div>
-                </div>
-                <div id="cpu-b-five-slot" class="position-tile away-s-tile empty" data-pos="BenchFive" data-bench-status="bench">
-                    <div class="b-pos-icon">10</div>
-                </div>
-                <div id="cpu-b-six-slot" class="position-tile away-s-tile empty" data-pos="BenchSix" data-bench-status="bench">
-                    <div class="b-pos-icon">11</div>
-                </div>
-                <div id="cpu-b-seven-slot" class="position-tile away-s-tile empty" data-pos="BenchSeven" data-bench-status="bench">
-                    <div class="b-pos-icon">12</div>
-                </div>
-                <div id="cpu-b-eight-slot" class="position-tile away-s-tile empty" data-pos="BenchEight" data-bench-status="bench">
-                    <div class="b-pos-icon">13</div>
-                </div>
-            </div>
+            <ul>
+                <li><a href="player_generator.html">Player Generator</a></li>
+                <li><a href="sim_roster_page.html">Game Simulation</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+            </ul>
+            
         </div>
-        <div id="confirm-btn" class="button">Confirm</div>
-        <div id="player-gen-btn" class="button">Player Generator</div>
-    </main>
-
-
-    <!-- <script type="module" src="app_launch.js"></script> -->
-
     <script type="module" src="app_game_engine.js"></script>
-
-    <!-- <script type="module" src="game_sim.js"></script>
-    <script type="module" src="gameplay_functions.js"></script>
-    <script type="module" src="game_data.js"></script> -->
-    <!-- <script type ="module" src="player_generator.js"></script> -->
 </body>
 </html>
+

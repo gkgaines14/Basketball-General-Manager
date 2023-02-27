@@ -1,0 +1,86 @@
+body{
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+#menu-card{
+    background-color: red;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+}
+
+#menu-button{
+    position: relative;
+    padding: 8px 20px;
+    font-size: 18pt;
+    width: 150px;
+    /* line-height: 30px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: width .4s;
+
+}
+
+#menu-button:hover{
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+    position: absolute;
+    top: 65px;
+    display: block;
+    background-color: var(--gray-five);
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+ul li{
+    line-height: 35px;
+    padding: 8px 20px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--gray-four);
+}
+
+ul li:last-child{
+    border-bottom: none;
+}
+
+ul li:hover{
+    box-shadow: inset 0 0 5px #33ffff,
+                inset 0 0 5px #66ffff;
+
+    /* border: 1px solid hsl(105, 43%, 64%); */
+    /* box-shadow: inset 0 0 40px 10px hsla(106, 85%, 76%, 0.711),
+                inset 0 0 54px #a5a6a4; */
+}
+
+ul li:hover:first-child{
+    border-radius: 5px 5px 0 0;
+}
+
+ul li:hover:last-child{
+    border-radius: 0 0 5px 5px;
+}
+
+ul li a{
+    color: var(--pale-white);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+ul li:hover a{
+    color: cyan
+
+}

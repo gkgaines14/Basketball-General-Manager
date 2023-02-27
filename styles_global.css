@@ -1,11 +1,11 @@
 :root{
-    --wood-floor:rgb(222, 206, 154);
-    --header:rgb(149, 191, 223);
+    --wood-floor:#dece9a;
+    --header:#95bfdf;
     
     /* Home Team */
-    --home-p-color:rgba(143, 167, 232, 0.581);
-    --home-s-color:black;
-    --home-color-high:black;
+    --home-p-color:#8fa7e894;
+    --home-s-color:#000000;
+    --home-color-high:#000000;
     --home-logo:url("images/test.png");
     
     /* Away Team */
@@ -16,37 +16,41 @@
     
     
     /* System Colors */
-    --primary:gray;
-    --secondary:gray;
-    --highlight:gray;
+    --primary:#808080;
+    --secondary:#808080;
+    --highlight:#808080;
     
-    --gray-one: rgb(237, 237, 237);
-    --gray-two:rgb(209, 209, 209);
-    --gray-three:rgb(121, 121, 121);
-    --gray-four:rgb(68, 68, 68);
-    --gray-five:#2c313d;
+    --gray-one: #ededed;
+    --gray-two:#d1d1d1;
+    --gray-three:#a8a8b5;
+    --gray-four:#444444;
+    --gray-five:#323741;
+    --gray-six:#202228;
 
-    --pale-white:rgb(239, 242, 245);
-    --t1:rgb(0, 46, 255);
-    --t2:rgb(0, 46, 255);
-    --t3:rgb(110, 121, 168);
+
+    /* --button-dark:#2b303b; */
+
+    --pale-white:#eff2f5;
+    --t1:#002eff;
+    --t2:#002eff;
+    --t3:#6e79a8;
     /* --background: rgb(154, 63, 245); */
-    --background: rgb(215, 221, 232);
+    --background: #d7dde8;
 
-    --dark-red: rgb(91, 8, 15);
-    --prime-red:rgb(187, 7, 22, 0.927);
-    --blue-one:rgba(204, 215, 248, 0.886);
-    --blue-two: rgba(143, 167, 232, 0.581);
-    --blue-three:rgba(33, 54, 111, 0.791);
-    --blue-four:rgba(28, 42, 78, 0.938);
-    --highlight-blue:rgba(213, 228, 246, 0.657);
+    --dark-red: #5b080f;
+    --prime-red:#bb0716ec;
+    --blue-one:#ccd7f8e2;
+    --blue-two: #8fa7e894;
+    --blue-three:#21366fca;
+    --blue-four:#1c2a4eef;
+    --highlight-blue:#d5e4f6a8;
 
-    --gray:rgb(180, 180, 180);
+    --gray:#b4b4b4;
 
 
-    --test: rgb(0, 0, 0);
-    --test1: rgb(27, 65, 100);
-    --test2: rgb(249, 160, 27);
+    --test: #000000;
+    --test1: #1b4164;
+    --test2: #f9a01b;
 
 
 }
@@ -57,9 +61,8 @@ body{
 
 *{
     box-sizing: border-box;
-    /* font-family: 'Roboto', sans-serif; */
-    /* font-weight: 400; */
-    /* font-size: 11pt; */
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -72,7 +75,7 @@ body{
 }
 
 .button{
-    color: white;
+    color: var(--pale-white);
     background-color: var(--gray-five);
     width: 150px;
     height: 45px;
@@ -83,8 +86,8 @@ body{
 }
 
 .button:hover{
-    color: var(--gray-four);
-    background-color: var(--gray-one);
+    color: var(--pale-white);
+    background-color: var(--gray-three);
     font-size: 1.1rem;
     font-weight: 500;
     box-shadow:rgb(92, 90, 90) 0px 3px 10px;
@@ -207,7 +210,7 @@ body{
 
 /* Dragging elements -------------------------------------*/
 .dragging{
-    background-color: rgb(240, 133, 133);
+    background-color: var(--gray-four);
     opacity:.4;
 }
 
@@ -265,7 +268,7 @@ body{
 }
 
 .select{
-    background: #2b303b;
+    background: var(--gray-five);
     color:#fff;
     display: flex;
     justify-content: space-between;
@@ -285,7 +288,7 @@ body{
 }
 
 .select:hover{
-    background: rgb(168, 168, 181)
+    background: var(--gray-three)
 }
 
 .caret{
@@ -304,7 +307,7 @@ body{
 .dropdown-menu{
     list-style: none;
     padding: 0.2em 0.5em;
-    background: #323741;
+    background: var(--gray-five);
     border: 1px solid #363a43;
     box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
     border-radius: 0.5em;

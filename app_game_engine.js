@@ -12,17 +12,24 @@ const pageManager = {
         let page = document.body.id
 
         switch(page){
-            case 'launch-page': 
-            loadLandingPage();
-            console.log(page)
+            case 'sim-game-page': 
+            launchSim();
+            console.log(page);
             break;
+
+            case 'roster-page': 
+            loadRosterPage();
+            console.log(page);
+            break;
+            
             case 'player-generator': 
             loadPlayerGenerator();
-            console.log(page)
+            console.log(page);
             break;
+
             default: 
-            launchSim()
-            console.log(page)
+            loadMenu();
+            console.log(page);
         };
         
     },
@@ -32,7 +39,7 @@ pageManager.init();
 
 
 // Launch Landing Page
-function loadLandingPage(){
+function loadRosterPage(){
     const freeAgentList= document.getElementById('free-agent-list');
     let homeTeamRoster = [{
         pg:{},
@@ -930,5 +937,15 @@ function loadPlayerGenerator(){
         ovrRating.innerText = player.overall
 
     };
+
+};
+
+function loadMenu(){
+    console.log('this is the menu page')
+
+    const test = document.getElementById('menu')
+
+    test.addEventListener('click',()=>console.log(5))
+
 
 };
