@@ -5,7 +5,6 @@ body{
 
 
 #menu-card{
-    background-color: red;
     position: absolute;
     top: 20%;
     left: 50%;
@@ -17,7 +16,9 @@ body{
     /* flex-direction: column; */
 }
 
-#menu-button{
+.menu-button{
+    background-color: var(--gray-five);
+    color: var(--pale-white);
     position: relative;
     padding: 8px 20px;
     font-size: 18pt;
@@ -27,23 +28,39 @@ body{
     align-items: center;
     justify-content: space-between;
     transition: width .4s;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+
 
 }
 
-#menu-button:hover{
+.menu-button:hover{
+    background-color: var(--gray-three);
+    border: 1px solid var(--gray-five);
+}
+
+.menu-button-open{
     width: 100%;
+    border-radius: 10px 10px 0 0;
 }
 
-ul{
+.menu-list{
     list-style: none;
     position: absolute;
-    top: 65px;
-    display: block;
+    top: 45px;
+    display: none;
     background-color: var(--gray-five);
     width: 100%;
+    height: 0px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.menu-list-open{
+    display: block;
+    height:auto;
 }
 
 ul li{
@@ -67,7 +84,7 @@ ul li:hover{
 }
 
 ul li:hover:first-child{
-    border-radius: 5px 5px 0 0;
+    /* border-radius: 5px 5px 0 0; */
 }
 
 ul li:hover:last-child{
