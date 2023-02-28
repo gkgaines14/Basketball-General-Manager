@@ -918,12 +918,19 @@ function loadPlayerGenerator(){
 
 
 
-        back.src = player.avBack
+        back.src = player.avBack;
+        back.style.filter = player.avHairColor
         // head.src = player.head
+        console.log(head)
+        // document.querySelector('#head').style.top = 340
+        head.style.filter = player.avComplexion;
         // outline.src = player.outline
-        eyebrows.src = player.avEyebrows
-        front.src = player.avFront
-        beard.src = player.avBeard
+        eyebrows.src = player.avEyebrows;
+        eyebrows.style.filter = player.avHairColor
+        front.src = player.avFront;
+        front.style.filter = player.avHairColor
+        beard.src = player.avBeard;
+        beard.style.filter = player.avHairColor
         // headband.src = 'images/player_avatars/headband.png'
 
         college.innerText = player.college
@@ -943,20 +950,26 @@ function loadPlayerGenerator(){
 function loadMenu(){
     console.log('this is the menu page')
 
+    var audio = new Audio('drop-it-124014.mp3');
+    setTimeout(()=>audio.play(),100);
+    audio.volume = 0.4;
+    audio.loop=true;
+
     const test = document.querySelector('#menu')
     const menuButton = document.querySelector('.menu-button')
     const menuList = document.querySelector('.menu-list')
-
-
-    test.addEventListener('click',()=>console.log(5))
-
     const caret = document.querySelector('.caret');
 
     menuButton.addEventListener('click',()=>{
         caret.classList.toggle('caret-rotate');
-        menuButton.classList.toggle('menu-button-open')
-        setTimeout(()=>menuList.classList.toggle('menu-list-open'),300)
-        // menuList.classList.toggle('menu-list-open')
+        if(menuButton.classList.contains('menu-button-open')){
+            console.log('open')
+            menuList.classList.toggle('menu-list-open')
+            setTimeout(()=>menuButton.classList.toggle('menu-button-open'),700)
+        }else{
+            menuButton.classList.toggle('menu-button-open');
+            setTimeout(()=>menuList.classList.toggle('menu-list-open'),400);
+        }
 
     })
 

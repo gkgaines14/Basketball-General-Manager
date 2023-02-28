@@ -306,6 +306,8 @@ body{
     top: 0;
     left: 0;
     z-index: 2;
+    /* filter: 0; */
+    /* filter: invert(31%) sepia(11%) saturate(2569%) hue-rotate(341deg) brightness(97%) contrast(80%) */
 }
 
 #outline{

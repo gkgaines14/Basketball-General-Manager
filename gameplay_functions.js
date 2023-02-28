@@ -605,6 +605,39 @@ function createNewPlayer(race){
         }
     }
 
+    function generateComplexion(race){
+        var compRand = Math.floor(Math.random()*(3)+1)
+        if(race === 'white'){
+            return 'invert(67%) sepia(21%) saturate(750%) hue-rotate(353deg) brightness(103%) contrast(92%)';
+        }else{
+            switch(compRand){
+                case 1: return 'invert(60%) sepia(23%) saturate(827%) hue-rotate(356deg) brightness(94%) contrast(91%)';
+                break;
+                case 2: return 'invert(31%) sepia(11%) saturate(2569%) hue-rotate(341deg) brightness(97%) contrast(80%)';
+                break;
+                case 3: return 'invert(13%) sepia(12%) saturate(4757%) hue-rotate(351deg) brightness(100%) contrast(96%)';
+                break;
+                default: return 'invert(9%) sepia(51%) saturate(533%) hue-rotate(354deg) brightness(93%) contrast(92%)';
+            }
+        }
+    }
+    function generateHairColor(race){
+        var hairRand = Math.floor(Math.random()*(4)+1)
+        if(race === 'black'){
+            return '';
+        }else{
+            switch(hairRand){
+                case 1: return 'invert(71%) sepia(28%) saturate(1164%) hue-rotate(13deg) brightness(89%) contrast(91%)';
+                break;
+                case 2: return 'invert(23%) sepia(43%) saturate(845%) hue-rotate(2deg) brightness(98%) contrast(97%)';
+                break;
+                case 3: return 'invert(30%) sepia(79%) saturate(1273%) hue-rotate(359deg) brightness(90%) contrast(111%)';
+                break;
+                default: return '';
+            }
+        }
+    }
+
     let Player = class {
         constructor(race){
             this.pID=playerIdNumber++
@@ -628,6 +661,8 @@ function createNewPlayer(race){
             this.avBack = generateBack(this.avFrontNum);
             this.avBeard = `images/player_avatars/beard_${Math.floor(Math.random()*(12)+1)}.png`;
             this.avEyebrows = `images/player_avatars/eyebrows_${Math.floor(Math.random()*(3)+1)}.png`;
+            this.avComplexion = generateComplexion(this.race);
+            this.avHairColor = generateHairColor(this.race);
 
 
 
