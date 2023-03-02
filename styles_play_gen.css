@@ -13,7 +13,7 @@ body{
 #input-card{
     background-color: var(--pale-white);
     border-radius: 10px;
-    height: 200px;
+    height: 300px;
     width: 300px;
     margin: 40px;
     display: flex;
@@ -48,7 +48,7 @@ body{
     justify-content: center;
     height: 800px;
     min-width: 620px;
-    width: 800px;
+    width: 860px;
     border-radius: 15px;
     box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
     overflow: hidden;
@@ -173,7 +173,7 @@ body{
 .sd-box{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 46%;
 }
 
 .sd-item{
@@ -306,8 +306,6 @@ body{
     top: 0;
     left: 0;
     z-index: 2;
-    /* filter: 0; */
-    /* filter: invert(31%) sepia(11%) saturate(2569%) hue-rotate(341deg) brightness(97%) contrast(80%) */
 }
 
 #outline{

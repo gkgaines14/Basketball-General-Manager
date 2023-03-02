@@ -863,14 +863,16 @@ function loadPlayerGenerator(){
             });
         });
     });
-
-
-    submitButton.addEventListener('click',()=>{
-        // console.log(document.querySelectorAll('.active')[0].dataset.tid)
-        // console.log(document.querySelectorAll('.active')[0].innerText)
-        // console.log(leagueTeamList[0].tID)
-        let race = document.querySelectorAll('.active')[0].dataset.race;
-        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[1].dataset.tid);
+    
+    submitButton.addEventListener('click',()=>{        
+            
+        let playerRace = document.querySelectorAll('.active')[0].dataset.race;
+        // let playerExp = 9;
+        let playerExp = (document.querySelectorAll('.active')[1].dataset.exp==='rookie')?0:Math.floor(Math.random()*(15-1)+1);
+        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[2].dataset.tid);
+        console.log(playerExp)
+        console.log(playerRace)
+        console.log(team)
         
         root.setProperty('--home-p-color',team.primaryColor);
         root.setProperty('--home-s-color',team.secondaryColor);
@@ -881,18 +883,20 @@ function loadPlayerGenerator(){
         teamName.innerText = team.teamName;
         logo.src = team.logo;
 
-        let playerOne = createNewPlayer(race);
-        // console.log(playerOne);
+        let testa = {race:playerRace,exp:playerExp};
+        console.log(playerExp)
+        console.log(testa.exp)
+        console.log(testa.race)
+        let playerOne = createNewPlayer(testa);
 
         dataManager(playerOne);
+        // console.log(playerOne.describe())
+
+
     })
 
 
     function dataManager(player){
-        console.log(player)
-        console.log(player.avFront)
-        console.log(player.avBack)
-
         const name = document.querySelector('#name')
         const position = document.querySelector('#position')
 
@@ -921,14 +925,15 @@ function loadPlayerGenerator(){
         back.src = player.avBack;
         back.style.filter = player.avHairColor
         // head.src = player.head
-        console.log(head)
         // document.querySelector('#head').style.top = 340
-        head.style.filter = player.avComplexion;
-        // outline.src = player.outline
+        head.style.filter = player.avSkinTone;
+        console.log(player.avComplexion)
+        outline.style.filter = player.avOutline
         eyebrows.src = player.avEyebrows;
         eyebrows.style.filter = player.avHairColor
         front.src = player.avFront;
         front.style.filter = player.avHairColor
+        console.log(player.avHairColor)
         beard.src = player.avBeard;
         beard.style.filter = player.avHairColor
         // headband.src = 'images/player_avatars/headband.png'
@@ -938,13 +943,13 @@ function loadPlayerGenerator(){
         jerseyNum.innerText = player.jerseyNumber
         potential.innerText = player.potential
         age.innerText = player.age
-        exp.innerText = player.yearsOfExp
+        exp.innerText = (player.yearsOfExp===0)?'Rookie':player.yearsOfExp;
         peakAge.innerText = player.peakAge
         retireAge.innerText = player.retirementAge
         ovrRating.innerText = player.overall
-
+        
     };
-
+    
 };
 
 function loadMenu(){

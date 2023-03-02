@@ -509,8 +509,21 @@ function freeThrows(foulType,shooter,shotSelection,offTeam){
 }
 
 //Function that creates new players based on number of years of experience
+
+
+
 function createNewPlayer(race){
-    console.log(race)
+    //Skin tone and hair color shaders
+    const whiteSkinOne = 'invert(67%) sepia(21%) saturate(750%) hue-rotate(353deg) brightness(103%) contrast(92%)';
+    const blackSkinOne = 'invert(60%) sepia(23%) saturate(827%) hue-rotate(356deg) brightness(94%) contrast(91%)';
+    const blackSkinTwo = 'invert(31%) sepia(11%) saturate(2569%) hue-rotate(341deg) brightness(97%) contrast(80%)';
+    const blackSkinThree = 'invert(13%) sepia(12%) saturate(4757%) hue-rotate(351deg) brightness(100%) contrast(96%)';
+    const blackSkinFour = 'invert(9%) sepia(51%) saturate(533%) hue-rotate(354deg) brightness(93%) contrast(92%)';
+    
+    const whiteHairOne = 'invert(57%) sepia(41%) saturate(546%) hue-rotate(16deg) brightness(98%) contrast(89%)';
+    const whiteHairTwo = 'invert(23%) sepia(43%) saturate(845%) hue-rotate(2deg) brightness(98%) contrast(97%)';
+    const whiteHairThree = 'invert(30%) sepia(79%) saturate(1273%) hue-rotate(359deg) brightness(90%) contrast(111%)';
+
     function calcOverall(x){
         return Math.round((x.speed+x.closeShot+x.midshot)/3)
     }
@@ -518,6 +531,7 @@ function createNewPlayer(race){
     function generateCollege(){
         return collegeNamePool[Math.floor(Math.random()*(collegeNamePool.length-1)+0)]
     }
+
     function generatePosition(){
         switch(Math.floor(Math.random()*(5)+1)){
         case 1: return 'Point Guard'
@@ -532,13 +546,11 @@ function createNewPlayer(race){
         }
         
     }
+
     // function generateRace(){
-    // if(Math.floor(Math.random()*(100-1)+0)<30){
-    //     return 'White'
-    //     }else{
-    //         return 'Black'
-    //     }
+    //     return (Math.floor(Math.random()*(100-1)+0)<30)?'white':'black' ;
     // }
+
     function generateFirstName(race){
         if(race==='white'){
             return firstNamePool_Gen[Math.floor(Math.random()*(firstNamePool_Gen.length-1)+0)]
@@ -547,6 +559,7 @@ function createNewPlayer(race){
 
         }
     }
+
     function generateLastName(race){
         if(race==='white'){
             return lastNamePool_White[Math.floor(Math.random()*(lastNamePool_White.length-1)+0)]
@@ -554,6 +567,7 @@ function createNewPlayer(race){
             return lastNamePool_Black[Math.floor(Math.random()*(lastNamePool_Black.length-1)+0)]
         }
     }
+
     function generateInches(position){
         
         switch(position){
@@ -570,9 +584,16 @@ function createNewPlayer(race){
         }
         
     }
-    function generateExp(){
-            return Math.floor(Math.random()*(15-1)+1)
-    }
+
+    // function generateExp(exp){
+    //     if(exp==='rookie'){
+    //         return 0
+    //     }
+    //         let x = Math.floor(Math.random()*(15-1)+1)
+    //         return x
+    //         // return Math.floor(Math.random()*(15-1)+1)
+    // }
+
     // function generateExp(expLevel){
     //     if(expLevel===0){
     //         return 0
@@ -580,7 +601,9 @@ function createNewPlayer(race){
     //         return Math.floor(Math.random()*(15-1)+1)
     //     }
     // }
+
     function generateAge(exp){
+        console.log(exp)
         if(exp===0){
             return Math.floor(Math.random()*(23-19)+19)
         }else{
@@ -589,10 +612,8 @@ function createNewPlayer(race){
     }
 
     function generateBack(x){
-        console.log(x)
         if(x===6){
             let backRand = Math.floor(Math.random()*(3)+1)
-            console.log('front was a 6')
             switch(backRand){
             case 1: return 'images/player_avatars/back_1.png'
             break;
@@ -606,74 +627,105 @@ function createNewPlayer(race){
     }
 
     function generateComplexion(race){
-        var compRand = Math.floor(Math.random()*(3)+1)
         if(race === 'white'){
-            return 'invert(67%) sepia(21%) saturate(750%) hue-rotate(353deg) brightness(103%) contrast(92%)';
+            return 1;
         }else{
-            switch(compRand){
-                case 1: return 'invert(60%) sepia(23%) saturate(827%) hue-rotate(356deg) brightness(94%) contrast(91%)';
-                break;
-                case 2: return 'invert(31%) sepia(11%) saturate(2569%) hue-rotate(341deg) brightness(97%) contrast(80%)';
-                break;
-                case 3: return 'invert(13%) sepia(12%) saturate(4757%) hue-rotate(351deg) brightness(100%) contrast(96%)';
-                break;
-                default: return 'invert(9%) sepia(51%) saturate(533%) hue-rotate(354deg) brightness(93%) contrast(92%)';
-            }
-        }
-    }
-    function generateHairColor(race){
-        var hairRand = Math.floor(Math.random()*(4)+1)
-        if(race === 'black'){
-            return '';
-        }else{
-            switch(hairRand){
-                case 1: return 'invert(71%) sepia(28%) saturate(1164%) hue-rotate(13deg) brightness(89%) contrast(91%)';
-                break;
-                case 2: return 'invert(23%) sepia(43%) saturate(845%) hue-rotate(2deg) brightness(98%) contrast(97%)';
-                break;
-                case 3: return 'invert(30%) sepia(79%) saturate(1273%) hue-rotate(359deg) brightness(90%) contrast(111%)';
-                break;
-                default: return '';
-            }
+            return Math.floor(Math.random()*(5-2+1)+2)
         }
     }
 
+    function generateSkinTone(complexion){
+
+        switch(complexion){
+                case 1: return whiteSkinOne;
+                break;
+                case 2: return blackSkinOne;
+                break;
+                case 3: return blackSkinTwo;
+                break;
+                case 4: return blackSkinThree;
+                break;
+                default: return blackSkinFour;
+            }
+    }
+    function generateOutline(complexion){
+        switch(complexion){
+                case 1: return 'invert(54%) sepia(68%) saturate(260%) hue-rotate(353deg) brightness(92%) contrast(91%)';
+                break;
+                case 2: return 'invert(44%) sepia(24%) saturate(827%) hue-rotate(355deg) brightness(96%) contrast(88%)';
+                break;
+                case 3: return 'invert(26%) sepia(15%) saturate(1691%) hue-rotate(341deg) brightness(94%) contrast(91%)';
+                break;
+                case 4: return 'invert(11%) sepia(6%) saturate(6547%) hue-rotate(348deg) brightness(95%) contrast(98%)';
+                break;
+                default: return 'invert(7%) sepia(15%) saturate(1212%) hue-rotate(352deg) brightness(94%) contrast(99%)';
+            }
+    }
+    
+    function generateHairColor(complexion){
+        if(complexion === 1){
+            var hairRand = Math.floor(Math.random()*(4)+1)
+            switch(hairRand){
+                case 1: return whiteHairOne;
+                break;
+                case 2: return whiteHairTwo;
+                break;
+                case 3: return whiteHairThree;
+                break;
+                default: return '';
+            }
+        }else{
+            return '';
+        }
+    }
+
+    function generateArchetype(position){
+        console.log('archetype')
+    }
+
     let Player = class {
-        constructor(race){
+        // constructor(race,exp){
+        constructor(input){
             this.pID=playerIdNumber++
-            this.race = race
+            // this.race = race
+            this.race = input.race
             // this.race=generateRace()
             this.position=generatePosition();
             this.firstName=generateFirstName(this.race);
             this.lastName=generateLastName(this.race);
             this.inches = generateInches(this.position);
             this.height= (Math.floor(this.inches/12)).toString()+"'"+(this.inches%12).toString()+'"';
-            this.yearsOfExp = generateExp();
+            // this.yearsOfExp = exp;
+            this.yearsOfExp = input.exp;
             this.age= generateAge(this.yearsOfExp);
             this.jerseyNumber= Math.floor(Math.random()*(56)).toString();
             this.college= generateCollege();
             this.potential = Math.floor(Math.random()*(11)+1).toString();
             this.peakAge = Math.floor(Math.random()*(34-29)+29);
-            this.retirementAge= this.peakAge +Math.floor(Math.random()*(8-3)+3);
+            this.retirementAge= this.peakAge +Math.floor(Math.random()*(7-3+1)+3);
             this.team = leagueTeamList[0];
             this.avFrontNum = Math.floor(Math.random()*(6)+1);
             this.avFront = `images/player_avatars/front_${this.avFrontNum}.png`;
             this.avBack = generateBack(this.avFrontNum);
-            this.avBeard = `images/player_avatars/beard_${Math.floor(Math.random()*(12)+1)}.png`;
+            this.avBeard = `images/player_avatars/beard_${Math.floor(Math.random()*(14)+1)}.png`;
             this.avEyebrows = `images/player_avatars/eyebrows_${Math.floor(Math.random()*(3)+1)}.png`;
             this.avComplexion = generateComplexion(this.race);
-            this.avHairColor = generateHairColor(this.race);
-
-
+            this.avSkinTone = generateSkinTone(this.avComplexion);
+            this.avOutline = generateOutline(this.avComplexion);
+            this.avHairColor = generateHairColor(this.avComplexion);
+            // this.archetype = generateArchetype(this.position)
 
 
             // createdPlayerPool.push(this)
             // freeAgency.roster.push(this)
 
-            this.speed = 95
+            this.speed = 86
             this.closeShot = 89
             this.midshot = 83
             this.overall = calcOverall(this)
+
+
+
         }
     } 
 
