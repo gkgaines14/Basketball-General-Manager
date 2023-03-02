@@ -704,7 +704,7 @@ function createNewPlayer(race){
             this.peakAge = Math.floor(Math.random()*(34-29)+29);
             this.retirementAge= this.peakAge +Math.floor(Math.random()*(7-3+1)+3);
             this.team = leagueTeamList[0];
-            this.avFrontNum = Math.floor(Math.random()*(6)+1);
+            this.avFrontNum = Math.floor(Math.random()*(8)+1);
             this.avFront = `images/player_avatars/front_${this.avFrontNum}.png`;
             this.avBack = generateBack(this.avFrontNum);
             this.avBeard = `images/player_avatars/beard_${Math.floor(Math.random()*(14)+1)}.png`;
@@ -715,7 +715,6 @@ function createNewPlayer(race){
             this.avHairColor = generateHairColor(this.avComplexion);
             // this.archetype = generateArchetype(this.position)
 
-
             // createdPlayerPool.push(this)
             // freeAgency.roster.push(this)
 
@@ -723,11 +722,63 @@ function createNewPlayer(race){
             this.closeShot = 89
             this.midshot = 83
             this.overall = calcOverall(this)
-
-
-
         }
     } 
+
+    Player.prototype.postData = function(){
+            const name = document.querySelector('#name')
+            const position = document.querySelector('#position')
+    
+            const back= document.querySelector('#back')
+            const head = document.querySelector('#head')
+            const outline = document.querySelector('#outline')
+            const eyebrows = document.querySelector('#eyebrows')
+            const front = document.querySelector('#front') 
+            const beard = document.querySelector('#beard') 
+    
+            const college = document.querySelector('#college')
+            const height = document.querySelector('#height')
+            const jerseyNum = document.querySelector('#jersey-num')
+            const potential = document.querySelector('#potential')
+            const age = document.querySelector('#age')
+            const exp = document.querySelector('#exp')
+            const peakAge = document.querySelector('#peak-age')
+            const retireAge = document.querySelector('#retire-age')
+            const ovrRating = document.querySelector('#ovr-rating')
+    
+            //Post Header
+            name.innerText = `${this.firstName} ${this.lastName}`
+            position.innerText = this.position
+    
+            // Post Avatar
+            back.src = this.avBack;
+            back.style.filter = this.avHairColor
+            // head.src = player.head
+            head.style.filter = this.avSkinTone;
+            outline.style.filter = this.avOutline
+            eyebrows.src = this.avEyebrows;
+            eyebrows.style.filter = this.avHairColor
+            front.src = this.avFront;
+            front.style.filter = this.avHairColor
+            beard.src = this.avBeard;
+            beard.style.filter = this.avHairColor
+            // headband.src = 'images/player_avatars/headband.png'
+    
+            // Post Demographics
+            college.innerText = this.college
+            height.innerText = this.height
+            jerseyNum.innerText = this.jerseyNumber
+            potential.innerText = this.potential
+            age.innerText = this.age
+            exp.innerText = (this.yearsOfExp===0)?'Rookie':this.yearsOfExp;
+            peakAge.innerText = this.peakAge
+            retireAge.innerText = this.retirementAge
+            ovrRating.innerText = this.overall
+
+            // Post Attributes
+
+            
+    }
 
     Player.prototype.describe= function(){
         console.log("")

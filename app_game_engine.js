@@ -867,12 +867,8 @@ function loadPlayerGenerator(){
     submitButton.addEventListener('click',()=>{        
             
         let playerRace = document.querySelectorAll('.active')[0].dataset.race;
-        // let playerExp = 9;
         let playerExp = (document.querySelectorAll('.active')[1].dataset.exp==='rookie')?0:Math.floor(Math.random()*(15-1)+1);
         let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[2].dataset.tid);
-        console.log(playerExp)
-        console.log(playerRace)
-        console.log(team)
         
         root.setProperty('--home-p-color',team.primaryColor);
         root.setProperty('--home-s-color',team.secondaryColor);
@@ -883,72 +879,70 @@ function loadPlayerGenerator(){
         teamName.innerText = team.teamName;
         logo.src = team.logo;
 
-        let testa = {race:playerRace,exp:playerExp};
-        console.log(playerExp)
-        console.log(testa.exp)
-        console.log(testa.race)
-        let playerOne = createNewPlayer(testa);
+        let playerInput = {race:playerRace,exp:playerExp};
+        let playerOne = createNewPlayer(playerInput);
 
-        dataManager(playerOne);
-        // console.log(playerOne.describe())
+        playerOne.postData()
+        // dataManager(playerOne);
+        console.log(playerOne.describe())
 
 
     })
 
 
-    function dataManager(player){
-        const name = document.querySelector('#name')
-        const position = document.querySelector('#position')
+    // function dataManager(player){
+    //     const name = document.querySelector('#name')
+    //     const position = document.querySelector('#position')
 
-        const back= document.querySelector('#back')
-        const head = document.querySelector('#head')
-        const outline = document.querySelector('#outline')
-        const eyebrows = document.querySelector('#eyebrows')
-        const front = document.querySelector('#front') 
-        const beard = document.querySelector('#beard') 
+    //     const back= document.querySelector('#back')
+    //     const head = document.querySelector('#head')
+    //     const outline = document.querySelector('#outline')
+    //     const eyebrows = document.querySelector('#eyebrows')
+    //     const front = document.querySelector('#front') 
+    //     const beard = document.querySelector('#beard') 
 
-        const college = document.querySelector('#college')
-        const height = document.querySelector('#height')
-        const jerseyNum = document.querySelector('#jersey-num')
-        const potential = document.querySelector('#potential')
-        const age = document.querySelector('#age')
-        const exp = document.querySelector('#exp')
-        const peakAge = document.querySelector('#peak-age')
-        const retireAge = document.querySelector('#retire-age')
-        const ovrRating = document.querySelector('#ovr-rating')
+    //     const college = document.querySelector('#college')
+    //     const height = document.querySelector('#height')
+    //     const jerseyNum = document.querySelector('#jersey-num')
+    //     const potential = document.querySelector('#potential')
+    //     const age = document.querySelector('#age')
+    //     const exp = document.querySelector('#exp')
+    //     const peakAge = document.querySelector('#peak-age')
+    //     const retireAge = document.querySelector('#retire-age')
+    //     const ovrRating = document.querySelector('#ovr-rating')
 
-        name.innerText = `${player.firstName} ${player.lastName}`
-        position.innerText = player.position
+    //     name.innerText = `${player.firstName} ${player.lastName}`
+    //     position.innerText = player.position
 
 
 
-        back.src = player.avBack;
-        back.style.filter = player.avHairColor
-        // head.src = player.head
-        // document.querySelector('#head').style.top = 340
-        head.style.filter = player.avSkinTone;
-        console.log(player.avComplexion)
-        outline.style.filter = player.avOutline
-        eyebrows.src = player.avEyebrows;
-        eyebrows.style.filter = player.avHairColor
-        front.src = player.avFront;
-        front.style.filter = player.avHairColor
-        console.log(player.avHairColor)
-        beard.src = player.avBeard;
-        beard.style.filter = player.avHairColor
-        // headband.src = 'images/player_avatars/headband.png'
+    //     back.src = player.avBack;
+    //     back.style.filter = player.avHairColor
+    //     // head.src = player.head
+    //     // document.querySelector('#head').style.top = 340
+    //     head.style.filter = player.avSkinTone;
+    //     console.log(player.avComplexion)
+    //     outline.style.filter = player.avOutline
+    //     eyebrows.src = player.avEyebrows;
+    //     eyebrows.style.filter = player.avHairColor
+    //     front.src = player.avFront;
+    //     front.style.filter = player.avHairColor
+    //     console.log(player.avHairColor)
+    //     beard.src = player.avBeard;
+    //     beard.style.filter = player.avHairColor
+    //     // headband.src = 'images/player_avatars/headband.png'
 
-        college.innerText = player.college
-        height.innerText = player.height
-        jerseyNum.innerText = player.jerseyNumber
-        potential.innerText = player.potential
-        age.innerText = player.age
-        exp.innerText = (player.yearsOfExp===0)?'Rookie':player.yearsOfExp;
-        peakAge.innerText = player.peakAge
-        retireAge.innerText = player.retirementAge
-        ovrRating.innerText = player.overall
+    //     college.innerText = player.college
+    //     height.innerText = player.height
+    //     jerseyNum.innerText = player.jerseyNumber
+    //     potential.innerText = player.potential
+    //     age.innerText = player.age
+    //     exp.innerText = (player.yearsOfExp===0)?'Rookie':player.yearsOfExp;
+    //     peakAge.innerText = player.peakAge
+    //     retireAge.innerText = player.retirementAge
+    //     ovrRating.innerText = player.overall
         
-    };
+    // };
     
 };
 
