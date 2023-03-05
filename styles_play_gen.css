@@ -199,29 +199,45 @@ body{
 }
 
 .badge-icon{
-    border-radius: 50px;
-    height: 65px;
-    width: 65px;
+    /* border-radius: 50px; */
+    /* height: 80px;
+    width: 80px; */
+    /* box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px; */
+    box-shadow:rgb(92, 90, 90) 0px 6px 6px -1px;
+    border-radius: 60px;
+
 }
 
 #badge-one{
-    border: 5px solid orange;
-    background-color: gold;
+    /* border: 5px solid orange;
+    background-color: gold; */
+    /* width: 80px;
+    height: 80px;
     box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
+    border-radius: 40px; */
+    /* box-shadow:rgb(92, 90, 90) 0px 6px 6px -1px;
+    border-radius: 60px; */
 
 }
 
 #badge-two{
-    border: 5px solid orange;
-    background-color: gold;
+    /* border: 5px solid orange;
+    background-color: gold;*/
+    /* width: 80px;
+    height: 80px;
     box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
+    border-radius: 40px; */
 
 }
 
 #badge-three{
-    border: 5px solid orange;
-    background-color: gold;
-    box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
+    /* border: 5px solid orange;
+    background-color: gold; */
+    /* width: 80px;
+    height: 80px; */
+    box-shadow:rgb(92, 90, 90) 0px 6px 6px -1px;
+    border-radius: 60px;
+
 
 }
 
@@ -293,7 +309,7 @@ body{
     box-shadow: var(--home-p-color) 0px 2px 10px -2px;
     /* box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px; */
     margin-bottom: 15px;
-
+    display: none;
 }
 
 #back{

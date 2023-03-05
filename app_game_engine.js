@@ -196,7 +196,7 @@ function loadRosterPage(){
                 leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
                 homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
             }else{
-                homeTeamRoster[0][item.dataset.pos]={id:1001,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_longShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
+                homeTeamRoster[0][item.dataset.pos]={id:1001,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
@@ -215,7 +215,7 @@ function loadRosterPage(){
                 leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
                 awayTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
             }else{
-                awayTeamRoster[0][item.dataset.pos]={id:1002,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_longShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
+                awayTeamRoster[0][item.dataset.pos]={id:1002,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
@@ -508,7 +508,7 @@ function launchSim(){
                             default:'a 20-footer'
                         }
                     break
-                    case 'pRat_longShot': switch(Math.floor(Math.random()*(3)+1)){
+                    case 'pRat_threeShot': switch(Math.floor(Math.random()*(3)+1)){
                         case 1: return 'a jumper from beyond the arc'
                         break
                         case 2: return 'a 40-footer from the logo'
@@ -575,7 +575,7 @@ function launchSim(){
                     shooter.boxscore.FG++
                     shooter.boxscore.FGA++
 
-                    if(shot_selection==='pRat_longShot'){
+                    if(shot_selection==='pRat_threeShot'){
                         shooter.boxscore.TP++
                         shooter.boxscore.TPA++
                     }
@@ -586,7 +586,7 @@ function launchSim(){
                     shotDescription = (`Missed shot by ${shooter.lastName}`)
                     shooter.boxscore.FGA++
 
-                    if(shot_selection==='pRat_longShot'){
+                    if(shot_selection==='pRat_threeShot'){
                         shooter.boxscore.TPA++
                     }
                     return 'Miss'
@@ -688,7 +688,7 @@ function launchSim(){
             break
             case 2: shotSelection = 'pRat_midShot';pointValue = 2;
             break
-            default: shotSelection = 'pRat_longShot';pointValue = 3;
+            default: shotSelection = 'pRat_threeShot';pointValue = 3;
         }
 
         //4. Offense takes the shot or defense gets a steal
