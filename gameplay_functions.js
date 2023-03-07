@@ -618,7 +618,6 @@ function createNewPlayer(race){
     // }
 
     function generateAge(exp){
-        console.log(exp)
         if(exp===0){
             return Math.floor(Math.random()*(23-19)+19)
         }else{
@@ -695,7 +694,149 @@ function createNewPlayer(race){
     }
 
     function generateArchetype(position){
-        console.log('archetype')
+        let rand = Math.random();
+        let split = .11
+        console.log(rand)
+        switch(position){
+            case 'PG': 
+                if(rand<split){
+                    return 'Defensive Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Floor General'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Drive and Kick'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    console.log(rand)
+                    return 'Shoot First'
+                }else{
+                    console.log(rand)
+                    return 'Balanced'
+                };
+            break;
+            case 'SG': 
+                if(rand<split){
+                    return 'Defensive Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Long Range Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'ISO Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    console.log(rand)
+                    return 'Mid Range Specialist'
+                }else{
+                    console.log(rand)
+                    return 'Balanced'
+                };
+            break;
+            case 'SF': 
+                if(rand<split){
+                    return 'Defensive Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Long Range Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'ISO Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    console.log(rand)
+                    return 'Point Forward'
+                }else{
+                    console.log(rand)
+                    return 'Balanced'
+                };
+            break;
+            case 'PF': 
+                if(rand<split){
+                    return 'Rebound Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Rim Protector'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Stretch Four'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    console.log(rand)
+                    return 'Enforcer'
+                }else{
+                    console.log(rand)
+                    return 'Balanced'
+                };
+            break;
+            default: 
+                case 'C': 
+                if(rand<split){
+                    return 'Rebound Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Rim Protector'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    return 'Low Post Specialist'
+                }
+                rand-=split
+                console.log(rand)
+
+                if(rand<split){
+                    console.log(rand)
+                    return 'Euro Ball'
+                }else{
+                    console.log(rand)
+                    return 'Balanced'
+                };
+        }
+        
+        let archetype
+        return position
     }
 
     let Player = class {
@@ -715,7 +856,7 @@ function createNewPlayer(race){
             this.age= generateAge(this.yearsOfExp);
             this.jerseyNumber= Math.floor(Math.random()*(56)).toString();
             this.college= generateCollege();
-            this.potential = Math.floor(Math.random()*(11)+1).toString();
+            this.potential = Math.floor(Math.random()*(10)+1).toString();
             this.peakAge = Math.floor(Math.random()*(34-29)+29);
             this.retirementAge= this.peakAge +Math.floor(Math.random()*(7-3+1)+3);
             this.team = leagueTeamList[0];
@@ -728,7 +869,7 @@ function createNewPlayer(race){
             this.avSkinTone = generateSkinTone(this.avComplexion);
             this.avOutline = generateOutline(this.avComplexion);
             this.avHairColor = generateHairColor(this.avComplexion);
-            // this.archetype = generateArchetype(this.position)
+            this.archetype = generateArchetype(this.position)
 
             // createdPlayerPool.push(this)
             // freeAgency.roster.push(this)
@@ -781,6 +922,8 @@ function createNewPlayer(race){
     Player.prototype.postData = function(){
             const name = document.querySelector('#name');
             const position = document.querySelector('#position');
+            const acrhetype = document.querySelector('#archetype');
+
     
             const back= document.querySelector('#back');
             const head = document.querySelector('#head');
@@ -832,6 +975,7 @@ function createNewPlayer(race){
             //Post Header
             name.innerText = `${this.firstName} ${this.lastName}`
             position.innerText = this.position
+            archetype.innerText = this.archetype
     
             // Post Avatar
             back.src = this.avBack;

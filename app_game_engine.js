@@ -865,7 +865,8 @@ function loadPlayerGenerator(){
     });
     
     submitButton.addEventListener('click',()=>{        
-            
+        console.clear();
+
         let playerRace = document.querySelectorAll('.active')[0].dataset.race;
         let playerExp = (document.querySelectorAll('.active')[1].dataset.exp==='rookie')?0:Math.floor(Math.random()*(15-1)+1);
         let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[2].dataset.tid);
