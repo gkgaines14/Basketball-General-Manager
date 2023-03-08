@@ -21,22 +21,10 @@ body{
     align-items: center;
     justify-content: center;
     box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
-    /* position: relative; */
-
 }
 
 #input-card input{
     width:30px;
-}
-
-#input-card .button{
-    background-color: rgb(45, 125, 45);
-    /* background-color: rgb(143, 225, 143); */
-    border: 2px solid rgb(163, 225, 186);
-    color: white;
-    min-width: 220px;
-    height: 34px;
-    padding: 1em;
 }
 
 /* Player Card --------------------------------------------------------------------------------- */
@@ -219,17 +207,17 @@ body{
     
 }
 
-#badge-container-one{
-    /* display: none; */
+#badge-one-container{
+    display: none;
 }
-#badge-container-two{
-    /* display: none; */
+#badge-two-container{
+    display: none;
 }
-#badge-container-three{
-    /* display: none; */
+#badge-three-container{
+    display: none;
 }
-#badge-container-four{
-    /* display: none; */
+#badge-four-container{
+    display: none;
 }
 
 .shimmer{

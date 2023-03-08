@@ -830,9 +830,6 @@ function loadPlayerGenerator(){
 
 
     submitButton.addEventListener('click',()=>{
-        // console.log(document.querySelectorAll('.active')[0].dataset.tid)
-        // console.log(document.querySelectorAll('.active')[0].innerText)
-        // console.log(leagueTeamList[0].tID)
         let race = document.querySelectorAll('.active')[0].dataset.race;
         let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[1].dataset.tid);
         console.log(race)

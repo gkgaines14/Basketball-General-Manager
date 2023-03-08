@@ -73,13 +73,21 @@ function loadRosterPage(){
         BenchEight:{},
     }];
     
+    // add Created player to Free Agents
+    leagueTeamList[0].roster.push(createNewPlayer('black',0))
+    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)])
+    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-2)])
+    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].firstName)
+    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].benchStatus)
+    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].pID)
+
+
     setFreeAgents();
     
     const draggables = document.querySelectorAll('.name-box');
     const containers = document.querySelectorAll('.position-tile');
     const dropdowns = document.querySelectorAll('.dropdown');
     const confirmButton = document.querySelector('#confirm-btn');
-    const playerGenButton = document.querySelector('#player-gen-btn');
     const gmRoster = document.querySelector('#gm-roster')
     const cpuRoster = document.querySelector('#cpu-roster')
     
@@ -91,7 +99,7 @@ function loadRosterPage(){
             tile.classList.add('position-tile','filled')
             tile.dataset.arr="freeAgent"
             tile.innerHTML =`
-            <div class="name-box" data-pid="${item.id}" draggable=true>
+            <div class="name-box" data-pid="${item.pID}" draggable=true>
         
             <div class="name-box-player">
             <i class="fas fa-grip-lines"></i>
@@ -193,10 +201,10 @@ function loadRosterPage(){
         const gmArray = gmRoster.querySelectorAll('.home-s-tile')
         gmArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
-                leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
-                homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
+                leagueTeamList[0].roster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
+                homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid));
             }else{
-                homeTeamRoster[0][item.dataset.pos]={id:1001,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
+                homeTeamRoster[0][item.dataset.pos]={pID:1001,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
@@ -212,10 +220,10 @@ function loadRosterPage(){
 
         cpuArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
-                leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
-                awayTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
+                leagueTeamList[0].roster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
+                awayTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid));
             }else{
-                awayTeamRoster[0][item.dataset.pos]={id:1002,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
+                awayTeamRoster[0][item.dataset.pos]={pID:1002,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
@@ -225,14 +233,9 @@ function loadRosterPage(){
 
         // Validity Check
         
-        window.location.href = "sim_game_page.html";
+        // window.location.href = "sim_game_page.html";
 
     });
-    
-    playerGenButton.addEventListener('click',()=>{
-        window.location.href = "player_generator.html"
-    })
-
 };
 
 // Load Simulation Page and Simulate a Game
@@ -950,10 +953,10 @@ function loadPlayerGenerator(){
 function loadMenu(){
     console.log('this is the menu page')
 
-    var audio = new Audio('drop-it-124014.mp3');
-    setTimeout(()=>audio.play(),100);
-    audio.volume = 0.4;
-    audio.loop=true;
+    // var audio = new Audio('drop-it-124014.mp3');
+    // setTimeout(()=>audio.play(),100);
+    // audio.volume = 0.4;
+    // audio.loop=true;
 
     const test = document.querySelector('#menu')
     const menuButton = document.querySelector('.menu-button')
