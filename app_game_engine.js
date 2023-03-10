@@ -2,7 +2,7 @@
 // import {homeTeamRoster} from "./app_launch.js"
 // import { leagueTeams } from "./player_generator.js"
 import {leagueTeamList} from "./app_game_data.js"
-import {createNewPlayer, freeThrows} from "./gameplay_functions.js"
+import {createNewPlayer, freeThrows, postPlayerCardData} from "./gameplay_functions.js"
 
 
 // Launches the app and controls screen management
@@ -75,11 +75,12 @@ function loadRosterPage(){
     
     // add Created player to Free Agents
     leagueTeamList[0].roster.push(createNewPlayer({race:'white',exp:0}))
+    leagueTeamList[0].roster[leagueTeamList[0].roster.length-1].describe()
     console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)])
-    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-2)])
-    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].firstName)
-    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].benchStatus)
-    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].pID)
+    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-2)])
+    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].firstName)
+    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].benchStatus)
+    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].pID)
 
 
     setFreeAgents();
@@ -109,7 +110,7 @@ function loadRosterPage(){
             <div class="name-box-ratings">
             <p> Ovr: <span style="color:blue">${item.pRat_overall}</span></p>
             <p> Off: <span style="color:blue">${item.pRat_offOverall}</span></p>
-            <p> Def IQ: <span style="color:blue">${item.pRat_defIQ}</span></p>
+            <p> Def: <span style="color:blue">${item.pRat_defOverall}</span></p>
             </div>
 
             </div>
@@ -244,6 +245,11 @@ function launchSim(){
     let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"));
 
     console.log(homeTeam.roster[0].pg)
+    let y = homeTeam.roster[0].pg
+
+    // let y = createNewPlayer({race:'white',exp:0})
+    console.log(y)
+    // y.describe()
 
 
     const hpg = document.querySelector('#h-pg-name');
@@ -887,67 +893,9 @@ function loadPlayerGenerator(){
         let playerInput = {race:playerRace,exp:playerExp};
         let playerOne = createNewPlayer(playerInput);
 
-        playerOne.postData()
-        // dataManager(playerOne);
+        postPlayerCardData(playerOne)
         console.log(playerOne.describe())
-
-
     })
-
-
-    // function dataManager(player){
-    //     const name = document.querySelector('#name')
-    //     const position = document.querySelector('#position')
-
-    //     const back= document.querySelector('#back')
-    //     const head = document.querySelector('#head')
-    //     const outline = document.querySelector('#outline')
-    //     const eyebrows = document.querySelector('#eyebrows')
-    //     const front = document.querySelector('#front') 
-    //     const beard = document.querySelector('#beard') 
-
-    //     const college = document.querySelector('#college')
-    //     const height = document.querySelector('#height')
-    //     const jerseyNum = document.querySelector('#jersey-num')
-    //     const potential = document.querySelector('#potential')
-    //     const age = document.querySelector('#age')
-    //     const exp = document.querySelector('#exp')
-    //     const peakAge = document.querySelector('#peak-age')
-    //     const retireAge = document.querySelector('#retire-age')
-    //     const ovrRating = document.querySelector('#ovr-rating')
-
-    //     name.innerText = `${player.firstName} ${player.lastName}`
-    //     position.innerText = player.position
-
-
-
-    //     back.src = player.avBack;
-    //     back.style.filter = player.avHairColor
-    //     // head.src = player.head
-    //     // document.querySelector('#head').style.top = 340
-    //     head.style.filter = player.avSkinTone;
-    //     console.log(player.avComplexion)
-    //     outline.style.filter = player.avOutline
-    //     eyebrows.src = player.avEyebrows;
-    //     eyebrows.style.filter = player.avHairColor
-    //     front.src = player.avFront;
-    //     front.style.filter = player.avHairColor
-    //     console.log(player.avHairColor)
-    //     beard.src = player.avBeard;
-    //     beard.style.filter = player.avHairColor
-    //     // headband.src = 'images/player_avatars/headband.png'
-
-    //     college.innerText = player.college
-    //     height.innerText = player.height
-    //     jerseyNum.innerText = player.jerseyNumber
-    //     potential.innerText = player.potential
-    //     age.innerText = player.age
-    //     exp.innerText = (player.yearsOfExp===0)?'Rookie':player.yearsOfExp;
-    //     peakAge.innerText = player.peakAge
-    //     retireAge.innerText = player.retirementAge
-    //     ovrRating.innerText = player.overall
-        
-    // };
     
 };
 
