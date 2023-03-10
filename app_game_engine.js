@@ -74,7 +74,7 @@ function loadRosterPage(){
     }];
     
     // add Created player to Free Agents
-    leagueTeamList[0].roster.push(createNewPlayer('black',0))
+    leagueTeamList[0].roster.push(createNewPlayer({race:'white',exp:0}))
     console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)])
     console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-2)])
     console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].firstName)
@@ -209,8 +209,6 @@ function loadRosterPage(){
         })
 
         hTeam.roster = homeTeamRoster
-        console.log(hTeam)
-
         sessionStorage.setItem("hTeam",JSON.stringify(hTeam));
 
 
@@ -233,7 +231,7 @@ function loadRosterPage(){
 
         // Validity Check
         
-        // window.location.href = "sim_game_page.html";
+        window.location.href = "sim_game_page.html";
 
     });
 };
@@ -244,6 +242,9 @@ function launchSim(){
     
     let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"));
     let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"));
+
+    console.log(homeTeam.roster[0].pg)
+
 
     const hpg = document.querySelector('#h-pg-name');
     const hsg = document.querySelector('#h-sg-name');
@@ -977,5 +978,21 @@ function loadMenu(){
     })
 
 
+    // let Test = class{
+    //     constructor(a){
+    //         this.kone=2*a;
+    //         this.ktwo=this.kone+1;
+    //         this.kthree=this.ktwo+1;
+    //     }
+    // }
 
+
+    // let y = createNewPlayer({race:'black',exp:0})
+
+    // console.log(y)
+
+
+    // console.log(JSON.stringify(y))
+
+    // console.log(z)
 };

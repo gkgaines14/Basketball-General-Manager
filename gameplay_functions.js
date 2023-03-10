@@ -865,7 +865,7 @@ function createNewPlayer(race){
     }
 
     function generateArchetypeRange(archetype){
-        console.log(archetype)
+        console.log(archetype);
         switch(archetype){
             case 'PGBalanced':return [65,85,65,85,65,85,65,85,65,85,50,90,65,85,65,85,50,90,65,85,60,65,60,80,60,80,60,65,60,85,60,85,55,75,55,75,65,85,65,85,65,85,65,85,65,85];
             break;
@@ -877,39 +877,39 @@ function createNewPlayer(race){
             break;
             case 'PGDefensive Specialist':return [50,80,50,80,50,90,60,90,60,90,50,90,55,85,65,90,50,90,65,90,60,80,75,95,70,95,65,80,70,95,75,95,50,80,50,80,70,95,50,80,50,95,50,90,50,90];
             break;
-            default:return [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+            default:return [65,85,65,85,65,85,65,85,65,85,50,90,65,85,65,85,50,90,65,85,60,65,60,80,60,80,60,65,60,85,60,85,55,75,55,75,65,85,65,85,65,85,65,85,65,85];
         }
     }
 
     function generateRatings(player){
         //Variables for the player attribute assignment 
         let attList = ['pRat_closeShot', 'pRat_midShot', 'pRat_threeShot', 'pRat_freeThrow', 'pRat_dunking', 'pRat_andOne', 'pRat_passing', 'pRat_ballHandle', 'pRat_clutchness', 'pRat_offIQ', 'pRat_intDef', 'pRat_perDef', 'pRat_steal', 'pRat_block', 'pRat_helpDef', 'pRat_defIQ', 'pRat_offRebound', 'pRat_defRebound', 'pRat_speed', 'pRat_strength', 'pRat_jumping', 'pRat_stamina', 'pRat_durability'];
-        let attPos = 0
+        let attPos = 0;
 
-        console.log(player.archetypeRatingRange)
-        console.log(attList)
-        console.log(attPos)
+        console.log(player.archetypeRatingRange);
+        console.log(attList);
+        console.log(attPos);
         attList.forEach((item)=>{
         //     // this[item]=randRange[attPos]
-            player[item]=Math.floor(Math.random()*((player.archetypeRatingRange[attPos+1])-(player.archetypeRatingRange[attPos]))+player.archetypeRatingRange[attPos])
+            player[item]=Math.floor(Math.random()*((player.archetypeRatingRange[attPos+1])-(player.archetypeRatingRange[attPos]))+player.archetypeRatingRange[attPos]);
             // player[item]=player.archetypeRatingRange[attPos]
-            console.log(player.archetypeRatingRange[attPos])
-            console.log(player.archetypeRatingRange[attPos+1])
+            console.log(player.archetypeRatingRange[attPos]);
+            console.log(player.archetypeRatingRange[attPos+1]);
             console.log(item,player[item]);    
-            console.log(attPos)
-            attPos+=2
-            console.log(attPos)
+            console.log(attPos);
+            attPos+=2;
+            console.log(attPos);
         });
     }
 
     let Player = class {
         // constructor(race,exp){
         constructor(input){
-            this.pID=playerIdNumber++
-            this.race = input.race
+            this.pID=playerIdNumber++;
+            this.race = input.race;
             // this.race=generateRace()
             this.positionName=generatePositionName();
-            this.position=generatePosition(this.positionName)
+            this.position=generatePosition(this.positionName);
             this.firstName=generateFirstName(this.race);
             this.lastName=generateLastName(this.race);
             this.inches = generateInches(this.positionName);
@@ -922,7 +922,7 @@ function createNewPlayer(race){
             this.potential = Math.floor(Math.random()*(5)+1);
             this.peakAge = Math.floor(Math.random()*(34-29)+29);
             this.retirementAge= this.peakAge +Math.floor(Math.random()*(7-3+1)+3);
-            this.team = leagueTeamList[0];
+            // this.team = leagueTeamList[0];
             this.avFrontNum = Math.floor(Math.random()*(8)+1);
             this.avFront = `images/player_avatars/front_${this.avFrontNum}.png`;
             this.avBack = generateBack(this.avFrontNum);
@@ -932,8 +932,8 @@ function createNewPlayer(race){
             this.avSkinTone = generateSkinTone(this.avComplexion);
             this.avOutline = generateOutline(this.avComplexion);
             this.avHairColor = generateHairColor(this.avComplexion);
-            this.archetype = generateArchetype(this.position)
-            this.archetypeRatingRange = generateArchetypeRange(this.position+this.archetype)
+            this.archetype = generateArchetype(this.position);
+            this.archetypeRatingRange = generateArchetypeRange(this.position+this.archetype);
             this.pRat_personality = Math.floor(Math.random()*(99-60)+60);
 
             // createdPlayerPool.push(this)
@@ -944,44 +944,19 @@ function createNewPlayer(race){
             this.benchStatus='bench';
             this.inactive='n';
 
-            // Player Ratings
-         
-            // this.pRat_closeShot=95;
-            // this.pRat_midShot=83;
-            // this.pRat_threeShot=75;
-            // this.pRat_freeThrow=68;
-            // this.pRat_dunking=95;
-            // this.pRat_andOne=97;
-            // this.pRat_passing=84;
-            // this.pRat_ballHandle=87;
-            // this.pRat_clutchness=97;
-            // this.pRat_offIQ=91;
-            // this.pRat_intDef=92;
-            // this.pRat_perDef=92;
-            // this.pRat_steal=80;
-            // this.pRat_block=82;
-            // this.pRat_helpDef=96;
-            // this.pRat_defIQ=90;
-            // this.pRat_offRebound=75;
-            // this.pRat_defRebound=92;
-            // this.pRat_speed=90;
-            // this.pRat_strength=94;
-            // this.pRat_jumping=85;
-            // this.pRat_stamina=98;
-            // this.pRat_durability=91;
-
             // Generate ratings based on archetype
-            generateRatings(this)
+            generateRatings(this);
+            
+            this.overall = calcOverall(this);
+            this.pRat_offOverall = Math.floor((this.pRat_closeShot+this.pRat_midShot+this.pRat_threeShot+this.pRat_freeThrow+this.pRat_dunking+this.pRat_andOne+this.pRat_passing+this.pRat_ballHandle+this.pRat_clutchness+this.pRat_offIQ)/10);
+            this.pRat_defOverall = Math.floor((this.intDef+this.pRat_perDef+this.pRat_steal+this.pRat_block+this.pRat_helpDef+this.pRat_defIQ)/6);
+            this.pRat_overall=Math.floor((this.pRat_offOverall+this.pRat_defOverall+this.pRat_offRebound+this.pRat_defRebound+this.pRat_speed+this.pRat_strength+this.pRat_jumping+this.pRat_stamina+this.pRat_durability)/9);
 
             // Player Badges
-            this.badgeOne = 'images/medals/gold_lockdown.png'
-            this.badgeTwo = 'images/medals/gold_shooter4.png'
-            this.badgeThree = 'images/medals/gold_stamina.png'
-            this.badgeFour = 'images/medals/gold_iron_man.png'
-
-            this.overall = calcOverall(this)
-            // this.pRat_overall=95;
-            // this.pRat_offOverall=86;
+            this.badgeOne = 'images/medals/gold_lockdown.png';
+            this.badgeTwo = 'images/medals/gold_shooter4.png';
+            this.badgeThree = 'images/medals/gold_stamina.png';
+            this.badgeFour = 'images/medals/gold_iron_man.png';
         }
     } 
 
@@ -1018,63 +993,63 @@ function createNewPlayer(race){
 
 
             // Player attribute elements
-            const ovrRating = document.querySelector('#att-ovr-rating')
-            const closeShot = document.querySelector('#att-close-shot')
-            const midShot = document.querySelector('#att-mid-range')
-            const threeShot = document.querySelector('#att-three-shot')
-            const freeThrow = document.querySelector('#att-free-throw')
-            const dunking = document.querySelector('#att-dunking')
-            const andOne = document.querySelector('#att-and-one')
-            const passing = document.querySelector('#att-passing')
-            const ballHandle = document.querySelector('#att-ball-handle')
-            const clutchness = document.querySelector('#att-clutchness')
-            const offIq = document.querySelector('#att-off-iq')
-            const intDef = document.querySelector('#att-int-def')
-            const perDef = document.querySelector('#att-per-def')
-            const steal = document.querySelector('#att-steal')
-            const block = document.querySelector('#att-block')
-            const helpDef = document.querySelector('#att-help-def')
-            const defIq = document.querySelector('#att-def-iq')
-            const offReb = document.querySelector('#att-off-reb')
-            const defReb = document.querySelector('#att-def-reb')
-            const speed = document.querySelector('#att-speed')
-            const strength = document.querySelector('#att-strength')
-            const jumping = document.querySelector('#att-jumping')
-            const stamina = document.querySelector('#att-stamina')
-            const durability = document.querySelector('#att-durability')
-            const personality = document.querySelector('#att-personality')
+            const ovrRating = document.querySelector('#att-ovr-rating');
+            const closeShot = document.querySelector('#att-close-shot');
+            const midShot = document.querySelector('#att-mid-range');
+            const threeShot = document.querySelector('#att-three-shot');
+            const freeThrow = document.querySelector('#att-free-throw');
+            const dunking = document.querySelector('#att-dunking');
+            const andOne = document.querySelector('#att-and-one');
+            const passing = document.querySelector('#att-passing');
+            const ballHandle = document.querySelector('#att-ball-handle');
+            const clutchness = document.querySelector('#att-clutchness');
+            const offIq = document.querySelector('#att-off-iq');
+            const intDef = document.querySelector('#att-int-def');
+            const perDef = document.querySelector('#att-per-def');
+            const steal = document.querySelector('#att-steal');
+            const block = document.querySelector('#att-block');
+            const helpDef = document.querySelector('#att-help-def');
+            const defIq = document.querySelector('#att-def-iq');
+            const offReb = document.querySelector('#att-off-reb');
+            const defReb = document.querySelector('#att-def-reb');
+            const speed = document.querySelector('#att-speed');
+            const strength = document.querySelector('#att-strength');
+            const jumping = document.querySelector('#att-jumping');
+            const stamina = document.querySelector('#att-stamina');
+            const durability = document.querySelector('#att-durability');
+            const personality = document.querySelector('#att-personality');
     
             //Post Header
-            name.innerText = `${this.firstName} ${this.lastName}`
-            position.innerText = this.position
-            archetype.innerText = this.archetype
+            name.innerText = `${this.firstName} ${this.lastName}`;
+            position.innerText = this.position;
+            archetype.innerText = this.archetype;
     
             // Post Avatar
             back.src = this.avBack;
-            back.style.filter = this.avHairColor
+            back.style.filter = this.avHairColor;
             // head.src = player.head
             head.style.filter = this.avSkinTone;
-            outline.style.filter = this.avOutline
+            outline.style.filter = this.avOutline;
             eyebrows.src = this.avEyebrows;
-            eyebrows.style.filter = this.avHairColor
+            eyebrows.style.filter = this.avHairColor;
             front.src = this.avFront;
-            front.style.filter = this.avHairColor
+            front.style.filter = this.avHairColor;
             beard.src = this.avBeard;
-            beard.style.filter = this.avHairColor
+            beard.style.filter = this.avHairColor;
             // headband.src = 'images/player_avatars/headband.png'
     
             // Post Demographics
-            college.innerText = this.college
-            height.innerText = this.height
-            jerseyNum.innerText = this.jerseyNumber
-            potential.innerText = this.potential
-            age.innerText = this.age
+            college.innerText = this.college;
+            height.innerText = this.height;
+            jerseyNum.innerText = this.jerseyNumber;
+            potential.innerText = this.potential;
+            age.innerText = this.age;
             exp.innerText = (this.yearsOfExp===0)?'Rookie':this.yearsOfExp;
-            peakAge.innerText = this.peakAge
-            retireAge.innerText = this.retirementAge
+            peakAge.innerText = this.peakAge;
+            retireAge.innerText = this.retirementAge;
             
             // Post Attributes
-            ovrRating.innerText = this.overall
+            ovrRating.innerText = this.overall;
             closeShot.innerText = this.pRat_closeShot;
             midShot.innerText = this.pRat_midShot;
             threeShot.innerText = this.pRat_threeShot;
@@ -1101,56 +1076,57 @@ function createNewPlayer(race){
             personality.innerText = this.pRat_personality;
 
             // Post Badges
-            badgeOne.src = this.badgeOne
-            badgeOneContainer.style.display = 'block'
-            badgeTwo.src = this.badgeTwo
-            badgeTwoContainer.style.display = 'block'
-            badgeThree.src = this.badgeThree
-            badgeThreeContainer.style.display = 'block'
-            badgeFour.src = this.badgeFour
-            badgeFourContainer.style.display = 'block'
+            badgeOne.src = this.badgeOne;
+            badgeOneContainer.style.display = 'block';
+            badgeTwo.src = this.badgeTwo;
+            badgeTwoContainer.style.display = 'block';
+            badgeThree.src = this.badgeThree;
+            badgeThreeContainer.style.display = 'block';
+            badgeFour.src = this.badgeFour;
+            badgeFourContainer.style.display = 'block';
     }
+
     Player.prototype.describe= function(){
-        console.log("")
-        console.log('Player ID - ',this.pID)
-        console.log('------------------')
-        console.log('Name:',this.firstName,this.lastName)
-        console.log('Race:',this.race)
-        console.log('Age: ',this.age)
-        console.log('Height: ',this.height)
-        console.log('College: ',this.college)
-        console.log('Position: ',this.position)
-        console.log('Jersey Number: ',this.jerseyNumber)
-        console.log('Experience: ',(this.yearsOfExp===0)?'Rookie':this.yearsOfExp)
-        console.log('Potential: ',this.potential)
-        console.log('Peak at Age: ',this.peakAge)
-        console.log('Retirement at Age: ',this.retirementAge)
-        console.log('Team: ',this.team.teamName)
+        console.log("");
+        console.log('Player ID - ',this.pID);
+        console.log('------------------');
+        console.log('Name:',this.firstName,this.lastName);
+        console.log('Race:',this.race);
+        console.log('Age: ',this.age);
+        console.log('Height: ',this.height);
+        console.log('College: ',this.college);
+        console.log('Position: ',this.position);
+        console.log('Jersey Number: ',this.jerseyNumber);
+        console.log('Experience: ',(this.yearsOfExp===0)?'Rookie':this.yearsOfExp);
+        console.log('Potential: ',this.potential);
+        console.log('Peak at Age: ',this.peakAge);
+        console.log('Retirement at Age: ',this.retirementAge);
+        console.log('Team: ',this.team.teamName);
     }
     Player.prototype.signToTeam= function(team){
-        team.roster.push(this)
-        this.team = team
+        team.roster.push(this);
+        this.team = team;
     }
     Player.prototype.cutFromTeam= function(){
-        createdPlayerPool.push(this)
-        oldTeam.roster.splice()
+        createdPlayerPool.push(this);
+        oldTeam.roster.splice();
     }
 
     Player.prototype.trade= function(oldTeam,newTeam){
-        oldTeam.roster.splice(oldTeam.roster.indexOf(this),1)
-        newTeam.roster.push(this)
-        this.team = newTeam
+        oldTeam.roster.splice(oldTeam.roster.indexOf(this),1);
+        newTeam.roster.push(this);
+        this.team = newTeam;
     }
     
     Player.prototype.developPlayer= function(attribute,val){
-        this[attribute] += val
-        this.overall = calcOverall(this)
+        this[attribute] += val;
+        this.overall = calcOverall(this);
     }
 
-    let x = new Player(race)
-    console.log(x.boxscore)
-
-    return x
+    let x = new Player(race);
+    // console.log(x.boxscore)
+    console.log(x)
+    return x;
 
 }
 
