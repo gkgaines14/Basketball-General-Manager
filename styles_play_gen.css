@@ -4,7 +4,36 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100%;
     /* overflow: hidden; */
     font-size: 12pt;
     font-family: 'Roboto', sans-serif;
+}
+
+/* Input Card--------------------------------------------------------------------------------------- */
+#input-card{
+    background-color: var(--pale-white);
+    border-radius: 10px;
+    height: 550px;
+    width: 300px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow:var(--home-p-color) 0px 0px 3px 2px;
+    box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
+}
+
+#input-card input{
+    width:30px;
+}
+
+#create-controls{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 280px;
+    margin-bottom: 10px;
 }

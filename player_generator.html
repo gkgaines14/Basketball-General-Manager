@@ -10,51 +10,65 @@
     <title>GM Player Generator</title>
 </head>
 <body id="player-generator">
-    <div id="input-card">
-        <div>Create a Random Player</div>
-        <div id="race-select-dropdown" class="dropdown">
-            <div class="select">
-                <span class="selected">Choose a Race</span>
-                <div class="caret"></div>
+
+    <div id="player-management-card">
+        <div id="input-card">
+            <div id="create-controls">
+                <div class="title">Create a Random Player</div>
+                <div id="race-select-dropdown" class="dropdown">
+                    <div class="select">
+                        <span class="selected">Choose a Race</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li data-race="black" class="active">Black</li>
+                        <li data-race="white">White</li>
+                    </ul>
+                </div>
+                <div id="exp-select-dropdown" class="dropdown">
+                    <div class="select">
+                        <span class="selected">Choose Exp Level</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li data-exp="rookie" class="active">Rookie</li>
+                        <li data-exp="random">Random</li>
+                    </ul>
+                </div>
+                <div id="a-team-select-dropdown" class="dropdown">
+                    <div class="select">
+                        <span class="selected">Choose Home Team</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li data-tid="100" class="active">Free Agents</li>
+                        <li data-tid="110">Boston Celtics</li>
+                        <li data-tid="102">Chicago Bulls</li>
+                        <li data-tid="108">Charlotte Bobcats</li>
+                        <li data-tid="107">Charlotte Hornets</li>
+                        <li data-tid="106">Matteson Mustangs</li>
+                        <li data-tid="104">Milwaukee Bucks</li>
+                        <li data-tid="101">New York Knicks</li>
+                        <li data-tid="109">Phoenix Suns</li>
+                        <li data-tid="103">San Antonio Spurs</li>
+                        <li data-tid="105">Somerset Spartans</li>
+                    </ul>
+                </div>
+                <div>
+                    <div id="submit-btn" class="button submit-button">Submit</div>
+                </div>
             </div>
-            <ul class="dropdown-menu">
-                <li data-race="black" class="active">Black</li>
-                <li data-race="white">White</li>
-            </ul>
-        </div>
-        <div id="exp-select-dropdown" class="dropdown">
-            <div class="select">
-                <span class="selected">Choose Exp Level</span>
-                <div class="caret"></div>
+            
+            <div class="button-section">
+                <div class="center title">Modify player attributes</div>
+                <div id="modify-btn" class="button submit-button">Modify Player</div>
             </div>
-            <ul class="dropdown-menu">
-                <li data-exp="rookie" class="active">Rookie</li>
-                <li data-exp="random">Random</li>
-            </ul>
-        </div>
-        <div id="a-team-select-dropdown" class="dropdown">
-            <div class="select">
-                <span class="selected">Choose Home Team</span>
-                <div class="caret"></div>
+
+            <div class="button-section">
+                <div class="center title">Save the player to the simulation roster</div>
+                <div id="save-btn" class="button submit-button">Save Player</div>
             </div>
-            <ul class="dropdown-menu">
-                <li data-tid="100" class="active">Free Agents</li>
-                <li data-tid="110">Boston Celtics</li>
-                <li data-tid="102">Chicago Bulls</li>
-                <li data-tid="108">Charlotte Bobcats</li>
-                <li data-tid="107">Charlotte Hornets</li>
-                <li data-tid="106">Matteson Mustangs</li>
-                <li data-tid="104">Milwaukee Bucks</li>
-                <li data-tid="101">New York Knicks</li>
-                <li data-tid="109">Phoenix Suns</li>
-                <li data-tid="103">San Antonio Spurs</li>
-                <li data-tid="105">Somerset Spartans</li>
-            </ul>
         </div>
-        <div>
-            <div id="submit-btn" class="button submit-button">Submit</div>
-        </div>
-        
     </div>
 
     <div id="player-card">

@@ -34,6 +34,8 @@
     --t1:#002eff;
     --t2:#002eff;
     --t3:#6e79a8;
+    --t4: rgb(0, 46, 255);
+    --t5: rgba(143, 167, 232);
     /* --background: rgb(154, 63, 245); */
     /* --background: #d7dde8; */
     --background: #303030;
@@ -79,6 +81,15 @@ body{
     font-weight: 600;
 }
 
+.title{
+    font-size: 1.2rem;
+    /* font-weight: 600; */
+}
+
+.center{
+    text-align: center;
+}
+
 /* Buttons---------------------------------------------------------------------------------------------------- */
 
 .button{
@@ -96,6 +107,7 @@ body{
 .button:hover{
     color: var(--pale-white);
     background-color: var(--gray-three);
+    border: 1px solid var(--gray-four);
     font-size: 1.1rem;
     font-weight: 500;
     box-shadow:rgb(92, 90, 90) 0px 3px 10px;
@@ -118,6 +130,18 @@ body{
     font-weight: 500;
     box-shadow:rgb(92, 90, 90) 0px 3px 10px;
     cursor: pointer;
+}
+
+.button-section{
+    border-top: var(--gray-two) 1px solid;
+    /* margin: 10px 0 10px 0; */
+    /* padding: 20px 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 120px;
+    width: 240px;
 }
 
 /* Boxscore tiles------------------------------------------------------------------------------------------- */
@@ -359,30 +383,11 @@ body{
     opacity: 1;
 }
 
-
-/* Player Card------------------------------------------------------------------------------------------------------------------------ */
-
-/* Input Card--------------------------------------------------------------------------------------- */
-#input-card{
-    background-color: var(--pale-white);
-    border-radius: 10px;
-    height: 300px;
-    width: 300px;
-    margin: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
-}
-
-#input-card input{
-    width:30px;
-}
-
 /* Player Card --------------------------------------------------------------------------------- */
 #player-card{
-    background-color:var(--pale-white);
+    /* background-color:var(--pale-white); */
+    /* border: var(--home-s-color) solid 3px; */
+    /* border: var(--home-s-color) solid 3px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -390,8 +395,10 @@ body{
     height: 800px;
     min-width: 620px;
     width: 860px;
-    border-radius: 17px 17px 15px 15px;
-    box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
+    /* border-radius: 20px 20px 15px 15px; */
+    /* border-radius: 15px 15px 15px 15px; */
+    /* box-shadow: var(--home-s-color) 0px 4px 8px -2px; */
+    /* box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px; */
     /* overflow: hidden; */
 }
 
@@ -405,6 +412,7 @@ body{
     padding: 10px 20px;
     border-bottom: 3px solid var(--home-s-color);
     border-radius: 15px 15px 0 0 ;
+    /* display:none */
 
 }
 
@@ -414,7 +422,7 @@ body{
     justify-content: space-between;
     border-bottom: 1px solid var(--home-p-color);
     height: 10%;
-    box-shadow:var(--home-p-color) 2px 2px 6px -2px;
+    box-shadow:var(--home-p-color) 0px 2px 6px -2px;
 
 }
 
@@ -423,6 +431,7 @@ body{
     align-items: center;
     justify-content: space-between;
     width: 120px;
+    height: 100%;
     padding: 20px;
     font-size: 1.5rem;
     margin-right: 8px;
@@ -487,9 +496,12 @@ body{
 }
 
 #player-data{
+    background-color:var(--pale-white);
     display: flex;
     height: 85%;
     width: 100%;
+    border-radius: 0px 0px 15px 15px;
+
 }
 
 #player-demo{

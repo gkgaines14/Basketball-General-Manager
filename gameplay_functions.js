@@ -504,9 +504,6 @@ function freeThrows(foulType,shooter,shotSelection,offTeam){
 }
 
 //Function that creates new players based on number of years of experience
-
-
-
 function createNewPlayer(race){
     //Skin tone and hair color shaders
     const whiteSkinOne = 'invert(67%) sepia(21%) saturate(750%) hue-rotate(353deg) brightness(103%) contrast(92%)';
@@ -657,6 +654,7 @@ function createNewPlayer(race){
                 default: return blackSkinFour;
             }
     }
+
     function generateOutline(complexion){
         switch(complexion){
                 case 1: return 'invert(54%) sepia(68%) saturate(260%) hue-rotate(353deg) brightness(92%) contrast(91%)';
@@ -905,6 +903,23 @@ function createNewPlayer(race){
             this.archetype = generateArchetype(this.position);
             this.archetypeRatingRange = generateArchetypeRange(this.position+this.archetype);
             this.pRat_personality = Math.floor(Math.random()*(99-60)+60);
+            this.playerDetails = function (){
+                console.log('');
+                console.log('Player ID - ',this.pID);
+                console.log('------------------');
+                console.log('Name:',this.firstName,this.lastName);
+                console.log('Race:',this.race);
+                console.log('Age: ',this.age);
+                console.log('Height: ',this.height);
+                console.log('College: ',this.college);
+                console.log('Position: ',this.position);
+                console.log('Position Archetype: ',this.archetype);
+                console.log('Jersey Number: ',this.jerseyNumber);
+                console.log('Experience: ',(this.yearsOfExp===0)?'Rookie':this.yearsOfExp);
+                console.log('Potential: ',this.potential);
+                console.log('Peak at Age: ',this.peakAge);
+                console.log('Retirement at Age: ',this.retirementAge);
+            }
 
             // createdPlayerPool.push(this)
             // freeAgency.roster.push(this)
@@ -1074,10 +1089,12 @@ function createNewPlayer(race){
         console.log('Retirement at Age: ',this.retirementAge);
         // console.log('Team: ',this.team.teamName);
     }
+
     Player.prototype.signToTeam= function(team){
         team.roster.push(this);
         this.team = team;
     }
+
     Player.prototype.cutFromTeam= function(){
         createdPlayerPool.push(this);
         oldTeam.roster.splice();
@@ -1101,6 +1118,7 @@ function createNewPlayer(race){
 
 }
 
+// 
 function postPlayerCardData(player){
     const name = document.querySelector('#name');
     const position = document.querySelector('#position');

@@ -1,47 +1,10 @@
-// import * as gamePlay from "./gameplay_functions.js" 
-// import {homeTeamRoster} from "./app_launch.js"
-// import { leagueTeams } from "./player_generator.js"
-import {leagueTeamList} from "./app_game_data.js"
-import {createNewPlayer, freeThrows, postPlayerCardData} from "./gameplay_functions.js"
-
-
-// Launches the app and controls screen management
-const pageManager = {
-    
-    init: ()=>{
-        let page = document.body.id
-
-        switch(page){
-            case 'sim-game-page': 
-            launchSim();
-            console.log(page);
-            break;
-
-            case 'roster-page': 
-            loadRosterPage();
-            console.log(page);
-            break;
-            
-            case 'player-generator': 
-            loadPlayerGenerator();
-            console.log(page);
-            break;
-
-            default: 
-            loadMenu();
-            console.log(page);
-        };
-        
-    },
-}
-
-pageManager.init();
-
+export {loadLandingPage,launchSim,loadPlayerGenerator}
+import {leagueTeamList} from "./app_game_data.js";
+import {freeThrows} from "./gameplay_functions.js";
 
 // Launch Landing Page
-function loadRosterPage(){
-    let freeAgentList= document.getElementById('free-agent-list');
-    let freeAgentRoster = leagueTeamList[0].roster
+function loadLandingPage(){
+    const freeAgentList= document.getElementById('free-agent-list');
     let homeTeamRoster = [{
         pg:{},
         sg:{},
@@ -74,40 +37,25 @@ function loadRosterPage(){
         BenchEight:{},
     }];
     
-    // add Created player to Free Agents
-    leagueTeamList[0].roster.push(createNewPlayer({race:'white',exp:0}))
-    leagueTeamList[0].roster[leagueTeamList[0].roster.length-1].describe()
-    console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)])
-    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-2)])
-    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].firstName)
-    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].benchStatus)
-    // console.log(leagueTeamList[0].roster[(leagueTeamList[0].roster.length-1)].pID)
-
-
     setFreeAgents();
     
     const draggables = document.querySelectorAll('.name-box');
     const containers = document.querySelectorAll('.position-tile');
     const dropdowns = document.querySelectorAll('.dropdown');
     const confirmButton = document.querySelector('#confirm-btn');
+    const playerGenButton = document.querySelector('#player-gen-btn');
     const gmRoster = document.querySelector('#gm-roster')
     const cpuRoster = document.querySelector('#cpu-roster')
     
 
     function setFreeAgents(){
 
-        if(1===1){
-            freeAgentRoster = JSON.parse(sessionStorage.getItem('fAList'))
-        }else{
-            
-        }
-
-        freeAgentRoster.forEach(item=>{
+        leagueTeamList[0].roster.forEach(item=>{
             const tile = document.createElement('div')
             tile.classList.add('position-tile','filled')
             tile.dataset.arr="freeAgent"
             tile.innerHTML =`
-            <div class="name-box" data-pid="${item.pID}" draggable=true>
+            <div class="name-box" data-pid="${item.id}" draggable=true>
         
             <div class="name-box-player">
             <i class="fas fa-grip-lines"></i>
@@ -117,7 +65,7 @@ function loadRosterPage(){
             <div class="name-box-ratings">
             <p> Ovr: <span style="color:blue">${item.pRat_overall}</span></p>
             <p> Off: <span style="color:blue">${item.pRat_offOverall}</span></p>
-            <p> Def: <span style="color:blue">${item.pRat_defOverall}</span></p>
+            <p> Def IQ: <span style="color:blue">${item.pRat_defIQ}</span></p>
             </div>
 
             </div>
@@ -203,19 +151,22 @@ function loadRosterPage(){
         var gameTeams = document.querySelectorAll('.active');
         let hTeam = leagueTeamList.find(item=>item.tID===gameTeams[0].dataset.tid)
         let aTeam = leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)
+        // sessionStorage.setItem("aTeam",JSON.stringify(leagueTeamList.find(item=>item.tID===gameTeams[1].dataset.tid)));
 
         //Set Home Team Roster
         const gmArray = gmRoster.querySelectorAll('.home-s-tile')
         gmArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
-                freeAgentRoster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
-                homeTeamRoster[0][item.dataset.pos]=freeAgentRoster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid));
+                leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
+                homeTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
             }else{
-                homeTeamRoster[0][item.dataset.pos]={pID:1001,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
+                homeTeamRoster[0][item.dataset.pos]={id:1001,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
         hTeam.roster = homeTeamRoster
+        console.log(hTeam)
+
         sessionStorage.setItem("hTeam",JSON.stringify(hTeam));
 
 
@@ -225,10 +176,10 @@ function loadRosterPage(){
 
         cpuArray.forEach(item=>{
             if(item.lastElementChild.dataset.pid){
-                freeAgentRoster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
-                awayTeamRoster[0][item.dataset.pos]=freeAgentRoster.find(slot=>slot.pID===Number(item.lastElementChild.dataset.pid));
+                leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid)).benchStatus = item.dataset.benchStatus;
+                awayTeamRoster[0][item.dataset.pos]=leagueTeamList[0].roster.find(slot=>slot.id===Number(item.lastElementChild.dataset.pid));
             }else{
-                awayTeamRoster[0][item.dataset.pos]={pID:1002,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
+                awayTeamRoster[0][item.dataset.pos]={id:1002,firstName:'',lastName:'',position:'',positionName:'Power Forward',boxscore:{points:0,assists:0,rebounds:0,steals:0,blocks:0,FG:0,FGA:0,fouls:0,FT:0,FTA:0,TP:0,TPA:0,TO:0,minutes:0,fatigue:99},benchStatus:'',inactive:'n',pRat_overall:95,pRat_offOverall:86,pRat_closeShot:95, pRat_midShot:83, pRat_threeShot:75, pRat_freeThrow:68, pRat_offIQ:91, pRat_speed:90, pRat_strength:94, pRat_jumping:85, pRat_stamina:98, pRat_durability:91, pRat_dunking:95, pRat_andOne:97, pRat_passing:84, pRat_ballHandle:87, pRat_defIQ:90, pRat_intDef:92, pRat_perDef:92, pRat_steal:80, pRat_block:82, pRat_helpDef:96, pRat_offRebound:75, pRat_defRebound:92}
             }
         })
 
@@ -241,6 +192,11 @@ function loadRosterPage(){
         window.location.href = "sim_game_page.html";
 
     });
+    
+    playerGenButton.addEventListener('click',()=>{
+        window.location.href = "player_generator.html"
+    })
+
 };
 
 // Load Simulation Page and Simulate a Game
@@ -249,15 +205,6 @@ function launchSim(){
     
     let homeTeam = JSON.parse(sessionStorage.getItem("hTeam"));
     let awayTeam = JSON.parse(sessionStorage.getItem("aTeam"));
-
-    console.log(homeTeam.roster[0].pg)
-    console.log(homeTeam.roster[0].pg.playerDetails)
-
-    // let y = createNewPlayer({race:'white',exp:0})
-    // y.describe()
-    // y.playerDetails()
-    // console.log(y)
-
 
     const hpg = document.querySelector('#h-pg-name');
     const hsg = document.querySelector('#h-sg-name');
@@ -548,7 +495,7 @@ function launchSim(){
                 let dPlayer
                 let posArr = ['pg','sg','sf','pf','c']
                 posArr.forEach(item=>{
-                    if(offense.roster[0][item].pID===shooter.pID){
+                    if(offense.roster[0][item].id===shooter.id){
                         dPlayer = defense.roster[0][item]
                     }
                 })
@@ -830,6 +777,10 @@ function launchSim(){
 function loadPlayerGenerator(){
 
     console.log('hi player gen');
+    console.log('test');
+    console.log(modifyButton)
+    console.log(saveButton)
+    console.log(submitButton)
 
 
     const submitButton = document.querySelector('#submit-btn');
@@ -840,7 +791,7 @@ function loadPlayerGenerator(){
     const city = document.querySelector('#city');
     let logo = document.querySelector('#logo');
     let root = document.documentElement.style;
-    let createdPlayer;
+
 
     root.setProperty('--home-p-color',leagueTeamList[0].primaryColor);
     root.setProperty('--home-s-color',leagueTeamList[0].secondaryColor);
@@ -883,85 +834,29 @@ function loadPlayerGenerator(){
             });
         });
     });
-    
-    submitButton.addEventListener('click',()=>{        
-        console.clear();
 
-        let playerRace = document.querySelectorAll('.active')[0].dataset.race;
-        let playerExp = (document.querySelectorAll('.active')[1].dataset.exp==='rookie')?0:Math.floor(Math.random()*(15-1)+1);
-        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[2].dataset.tid);
+
+    submitButton.addEventListener('click',()=>{
+        let race = document.querySelectorAll('.active')[0].dataset.race;
+        let team = leagueTeamList.find(team=>team.tID===document.querySelectorAll('.active')[1].dataset.tid);
+        console.log(race)
+        console.log(team)
         
         root.setProperty('--home-p-color',team.primaryColor);
         root.setProperty('--home-s-color',team.secondaryColor);
         root.setProperty('--home-color-high',team.highColor);
         root.setProperty('--home-logo',team.logo);
 
-        city.innerText = team.city;
-        teamName.innerText = team.teamName;
-        logo.src = team.logo;
+        city.innerText = team.city
+        teamName.innerText = team.teamName
+        logo.src = team.logo 
 
-        let playerInput = {race:playerRace,exp:playerExp};
-        createdPlayer = createNewPlayer(playerInput);
 
-        postPlayerCardData(createdPlayer)
-        console.log(createdPlayer.describe())
-        console.log(createdPlayer)
-    })
-    
-    modifyButton.addEventListener('click',()=>{
-        console.log('Modify')
+
     });
+
     saveButton.addEventListener('click',()=>{
-        leagueTeamList[0].roster.push(createdPlayer)
-        console.log(
-        leagueTeamList[0].roster)
-        sessionStorage.setItem('fAList',JSON.stringify(leagueTeamList[0].roster))
+        console.log('hello')
     });
-
 };
 
-function loadMenu(){
-    console.log('this is the menu page')
-
-    // var audio = new Audio('drop-it-124014.mp3');
-    // setTimeout(()=>audio.play(),100);
-    // audio.volume = 0.4;
-    // audio.loop=true;
-
-    const test = document.querySelector('#menu')
-    const menuButton = document.querySelector('.menu-button')
-    const menuList = document.querySelector('.menu-list')
-    const caret = document.querySelector('.caret');
-
-    menuButton.addEventListener('click',()=>{
-        caret.classList.toggle('caret-rotate');
-        if(menuButton.classList.contains('menu-button-open')){
-            console.log('open')
-            menuList.classList.toggle('menu-list-open')
-            setTimeout(()=>menuButton.classList.toggle('menu-button-open'),700)
-        }else{
-            menuButton.classList.toggle('menu-button-open');
-            setTimeout(()=>menuList.classList.toggle('menu-list-open'),400);
-        }
-
-    })
-
-
-    // let Test = class{
-    //     constructor(a){
-    //         this.kone=2*a;
-    //         this.ktwo=this.kone+1;
-    //         this.kthree=this.ktwo+1;
-    //     }
-    // }
-
-
-    // let y = createNewPlayer({race:'black',exp:0})
-
-    // console.log(y)
-
-
-    // console.log(JSON.stringify(y))
-
-    // console.log(z)
-};
