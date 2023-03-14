@@ -838,6 +838,11 @@ function loadPlayerGenerator(){
     const dropdowns = document.querySelectorAll('.dropdown');
     const teamName = document.querySelector('#team-name');
     const city = document.querySelector('#city');
+
+    const modScreen = document.querySelector('#mod-screen');
+    const modSave = document.querySelector('#mod-save-btn');
+    const counters = document.querySelectorAll('.counter-box');
+
     let logo = document.querySelector('#logo');
     let root = document.documentElement.style;
     let createdPlayer;
@@ -909,14 +914,94 @@ function loadPlayerGenerator(){
     })
     
     modifyButton.addEventListener('click',()=>{
+
+        const ovrRating = document.querySelector('#mod-ovr-rating');
+        const closeShot = document.querySelector('#mod-close-shot');
+        const midShot = document.querySelector('#mod-mid-shot');
+        const threeShot = document.querySelector('#mod-three-shot');
+        const freeThrow = document.querySelector('#mod-free-throw');
+        const dunking = document.querySelector('#mod-dunking');
+        const andOne = document.querySelector('#mod-and-one');
+        const passing = document.querySelector('#mod-passing');
+        const ballHandle = document.querySelector('#mod-handle');
+        const clutchness = document.querySelector('#mod-clutch');
+        const offIq = document.querySelector('#mod-off-iq');
+        const intDef = document.querySelector('#mod-int-def');
+        const perDef = document.querySelector('#mod-per-def');
+        const steal = document.querySelector('#mod-steal');
+        const block = document.querySelector('#mod-block');
+        const helpDef = document.querySelector('#mod-help-def');
+        const defIq = document.querySelector('#mod-def-iq');
+        const offReb = document.querySelector('#mod-off-reb');
+        const defReb = document.querySelector('#mod-def-reb');
+        const speed = document.querySelector('#mod-speed');
+        const strength = document.querySelector('#mod-strength');
+        const jumping = document.querySelector('#mod-jumping');
+        const stamina = document.querySelector('#mod-stamina');
+        const durability = document.querySelector('#mod-durability');
+        const personality = document.querySelector('#mod-personality');
+
+
+
+        // firstName.defaultValue = createdPlayer.firstName
+        // lastName.defaultValue = createdPlayer.lastName
+        // ovrRating.defaultValue = createdPlayer.pRat_overall
+        closeShot.defaultValue = createdPlayer.pRat_closeShot
+        midShot.defaultValue = createdPlayer.pRat_midShot
+        threeShot.defaultValue = createdPlayer.pRat_threeShot
+        freeThrow.defaultValue = createdPlayer.pRat_freeThrow
+        dunking.defaultValue = createdPlayer.pRat_dunking
+        andOne.defaultValue = createdPlayer.pRat_andOne
+        passing.defaultValue = createdPlayer.pRat_passing
+        ballHandle.defaultValue = createdPlayer.pRat_ballHandle
+        clutchness.defaultValue = createdPlayer.pRat_clutchness
+        offIq.defaultValue = createdPlayer.pRat_offIQ
         console.log('Modify')
+        modScreen.style.display='flex'
+        console.log(passing)
+        console.log(createdPlayer.lastName)
+
+
     });
+
+
+
     saveButton.addEventListener('click',()=>{
         leagueTeamList[0].roster.push(createdPlayer)
         console.log(
         leagueTeamList[0].roster)
         sessionStorage.setItem('fAList',JSON.stringify(leagueTeamList[0].roster))
     });
+
+
+    modSave.addEventListener('click',()=>{
+        modScreen.style.display='none'
+
+
+
+
+
+
+
+
+    })
+
+    counters.forEach(counter=>{
+        counter.addEventListener('click',(event)=>{
+            console.log(event.target.classList[0])
+            switch(event.target.classList[0]){
+                case 'minus':
+                    (counter.childNodes[3].value>counter.childNodes[3].dataset.min)?counter.childNodes[3].value--:
+                    counter.childNodes[3].value=counter.childNodes[3].dataset.min;
+                break;
+                case 'plus':
+                    (counter.childNodes[3].value===counter.childNodes[3].dataset.max)?'':counter.childNodes[3].value++;
+                break;
+                default:;
+            }
+        })
+    })
+
 
 };
 

@@ -4,7 +4,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     /* overflow: hidden; */
     font-size: 12pt;
     font-family: 'Roboto', sans-serif;
@@ -36,4 +36,102 @@ body{
     justify-content: space-evenly;
     height: 280px;
     margin-bottom: 10px;
+}
+
+/* Player Mod Screen-------------------------------------------------------------------------------------------------------------------------------------------------- */
+#mod-screen{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    height: 100vh;
+    width: 100vw;
+}
+
+#back-drop{
+    background-color: black;
+    position: absolute;
+    z-index: 20;
+    height: 100vh;
+    width: 100vw;
+    opacity: .85;
+    z-index: 11;
+
+}
+
+#mod-card{
+    /* background-color: var(--pale-white); */
+    width: 400px;
+    height: 800px;
+    border-radius:20px;
+    opacity: 1;
+    z-index: 11;
+    /* padding: 20px; */
+    overflow: hidden;
+}
+
+#mod-card .header-box{
+    background-color: var(--home-p-color);
+    box-shadow:var(--home-s-color) 0px 2px 8px -2px;
+    border-radius: 20px 20px 0 0;
+}
+
+#mod-card .header-box .label{
+    color: var(--home-s-color);
+}
+
+#att-ovr-rating{
+    color: var(--pale-white);
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+
+#save-btn{
+    width: 75px;
+}
+
+#att-list{
+    background-color: var(--pale-white);
+    height: 90%;
+    width: 100%;
+    padding: 0 20px 20px 20px;
+    overflow: auto;
+}
+
+#att-list .card-header{
+    color: var(--home-p-color);
+    padding: 35px 0 15px 0;
+}
+
+#att-list #rat-off-ovr,#rat-def-ovr{
+    color: var(--gray-five);
+}
+
+.gamelog-tile .input-text{
+    background-color: var(--pale-white);
+    height: 90%;
+    width: 200px;
+    border: solid 1px var(--gray-two);
+    border-radius: 10px;
+    border: none;
+    text-align: right;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding-right:5px;
+}
+
+
+/* .gamelog-tile input:hover{
+    color: blue;
+    font-size: 1.1rem;
+} */
+
+.counter input:focus{
+    /* background-color: var(--gray-one);
+    color: var(--gray-five);
+    outline: none;
+    outline-color:var(--gray-three) ; */
+    background-color: var(--gray-two);
+    border-top: solid 1px var(--gray-three);
+    border-bottom: solid 1px var(--gray-three);
 }

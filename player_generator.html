@@ -55,18 +55,18 @@
                     </ul>
                 </div>
                 <div>
-                    <div id="submit-btn" class="button submit-button">Submit</div>
+                    <div id="submit-btn" class="submit-button-long">Submit</div>
                 </div>
             </div>
             
             <div class="button-section">
                 <div class="center title">Modify player attributes</div>
-                <div id="modify-btn" class="button submit-button">Modify Player</div>
+                <div id="modify-btn" class="submit-button-long">Modify Player</div>
             </div>
 
             <div class="button-section">
                 <div class="center title">Save the player to the simulation roster</div>
-                <div id="save-btn" class="button submit-button">Save Player</div>
+                <div id="save-btn" class="submit-button-long">Save Player</div>
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div id="player-attributes">
-                <div id="header-box">
+                <div class="header-box">
                     <div id="att-label" class="card-header label">Player Attibutes</div>
                     <div id="ovr-box">
                         <div class="label">Ovr: </div>
@@ -270,7 +270,217 @@
             </div>
         </div>
     </div>
+    <div id="mod-screen">
+        <div id="back-drop"></div>
+        <div id="mod-card">
+            <div class="header-box space-between-box">
+                <!-- <div id="att-label" class="card-header label">Overall</div> -->
+                    <div class="space-between-box">
+                        <div class="ovr-box">
+                            <div class="label">Overall: </div>
+                            <div id="att-ovr-rating">00</div>
+                        </div>
+                        <div id="mod-save-btn" class="submit-button">Save</div>
+                    </div>
+            </div>
+            
+            <div id="att-list" class="scrollbar1">
+                <div class="card-header">Demographics</div>
+                <div class="gamelog-tile space-between-box">
+                    <div>First Name</div>
+                    <input id="mod-first-name" class="input-text" value="Greg">
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Last Name</div>
+                    <input id="mod-last-name" class="input-text" value="Gaines">
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>College</div>
+                    <input id="mod-college" class="input-text" value="Umass">
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Height</div>
+                    <input id="mod-height"  class="input-text" value=00>
+                </div>
 
+                <div class="gamelog-tile space-between-box">
+                    <div>Jersey Number</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-jersey" class="counter input-num" data-max="60" data-min="0"value="14">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Age</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-age" class="counter input-num" data-max="39" data-min="19" value="21">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Years of Exp</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-exp" class="counter input-num" data-max="10" data-min="0" value="1">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+               
+                <div class="card-header">Intangibles</div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Potential</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-potential" class="counter input-num" data-max="5" data-min="1" value="3">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Peak Age</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-peak-age" class="counter input-num" data-max="39" data-min="20" value="36">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Retirement Age</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-ret-age" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                
+                <div class="card-header space-between-box">
+                    <div>Offense</div>
+                    <div class="ovr-box space-between-box">
+                        <div>Off Rating:</div>
+                        <div id="rat-off-ovr">00</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Close Shot</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-close-shot" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Midrange Shot</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-mid-shot" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Three Shot</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-three-shot" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Free Throws</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-free-throw" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Dunking</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-dunking" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>And One</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-and-one" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Passing</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-passing" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Ball Handling</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-handle" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Clutchness</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-clutch" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Offensive IQ</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-off-iq" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+
+                <div class="card-header space-between-box">
+                    <div>Defense</div>
+                    <div class="ovr-box space-between-box">
+                        <div>Def Rating:</div>
+                        <div id="rat-def-ovr">00</div>
+                    </div>
+
+                </div>
+                <div class="gamelog-tile space-between-box">
+                    <div>Ball Handling</div>
+                    <div class="counter-box">
+                        <div class="minus inc-widget">-</div>
+                        <input id="mod-handle" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <div class="plus inc-widget">+</div>
+                    </div>
+                </div>
+                <div class="gamelog-tile">
+                    <div class="class"></div>
+                    <div id="prat-ovr">Overall</div>
+                </div>
+                <div class="gamelog-tile">
+                    <div class="class"></div>
+                    <div id="prat-ovr">Overall</div>
+                </div>
+                <div class="gamelog-tile">
+                    <div class="class"></div>
+                    <div id="prat-ovr">Overall</div>
+                </div>
+                <div class="gamelog-tile">
+                    <div class="class"></div>
+                    <div id="prat-ovr">Overall</div>
+                </div>
+                <div class="gamelog-tile">
+                    <div class="class"></div>
+                    <div id="prat-ovr">Overall</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="module" src="app_game_engine.js"></script>
 </body>
 </html>
