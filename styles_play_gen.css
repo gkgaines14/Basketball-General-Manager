@@ -25,10 +25,6 @@ body{
     box-shadow:rgb(92, 90, 90) 0px 4px 8px -2px;
 }
 
-#input-card input{
-    width:30px;
-}
-
 #create-controls{
     display: flex;
     flex-direction: column;
@@ -80,7 +76,7 @@ body{
     color: var(--home-s-color);
 }
 
-#att-ovr-rating{
+#mod-ovr-rating{
     color: var(--pale-white);
     font-size: 1.8rem;
     margin-left: 10px;
@@ -121,17 +117,30 @@ body{
 }
 
 
-/* .gamelog-tile input:hover{
-    color: blue;
-    font-size: 1.1rem;
-} */
+.input-text:hover{
+    color: var(--home-p-color);
+    /* font-size: 1.1rem; */
+}
 
-.counter input:focus{
-    /* background-color: var(--gray-one);
+.input-text:focus{
     color: var(--gray-five);
-    outline: none;
-    outline-color:var(--gray-three) ; */
-    background-color: var(--gray-two);
-    border-top: solid 1px var(--gray-three);
-    border-bottom: solid 1px var(--gray-three);
+    outline: 1px solid var(--home-p-color);
+    box-shadow: var(--gray-five) 0px 2px 6px -1px;
+
+}
+
+/* -------------------------------------------------------------------- */
+
+#player-attributes .ovr-box{
+    width: 90px;
+    margin-right: 5px;
+}
+
+#player-attributes #att-ovr-rating{
+    color: var(--gray-five);
+    /* margin-left: 10px; */
+}
+
+#att-label{
+    padding: 0;
 }

@@ -1034,7 +1034,7 @@ function createNewPlayer(race){
             retireAge.innerText = this.retirementAge;
             
             // Post Attributes
-            ovrRating.innerText = this.overall;
+            ovrRating.innerText = this.pRat_Overall;
             closeShot.innerText = this.pRat_closeShot;
             midShot.innerText = this.pRat_midShot;
             threeShot.innerText = this.pRat_threeShot;
@@ -1207,7 +1207,7 @@ function postPlayerCardData(player){
     retireAge.innerText = player.retirementAge;
     
     // Post Attributes
-    ovrRating.innerText = player.overall;
+    ovrRating.innerText = player.pRat_overall;
     closeShot.innerText = player.pRat_closeShot;
     midShot.innerText = player.pRat_midShot;
     threeShot.innerText = player.pRat_threeShot;

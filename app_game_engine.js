@@ -915,6 +915,12 @@ function loadPlayerGenerator(){
     
     modifyButton.addEventListener('click',()=>{
 
+        const overall = document.querySelector('#mod-ovr-rating');
+        const offOverall = document.querySelector('#mod-off-ovr');
+        const defOverall = document.querySelector('#mod-def-ovr');
+        const firstName = document.querySelector('#mod-first-name');
+        const lastName = document.querySelector('#mod-last-name');
+        const college = document.querySelector('#mod-college');
         const ovrRating = document.querySelector('#mod-ovr-rating');
         const closeShot = document.querySelector('#mod-close-shot');
         const midShot = document.querySelector('#mod-mid-shot');
@@ -934,6 +940,9 @@ function loadPlayerGenerator(){
         const defIq = document.querySelector('#mod-def-iq');
         const offReb = document.querySelector('#mod-off-reb');
         const defReb = document.querySelector('#mod-def-reb');
+        const potential = document.querySelector('#mod-potential');
+        const peak = document.querySelector('#mod-peak-age');
+        const retire = document.querySelector('#mod-ret-age');
         const speed = document.querySelector('#mod-speed');
         const strength = document.querySelector('#mod-strength');
         const jumping = document.querySelector('#mod-jumping');
@@ -941,21 +950,44 @@ function loadPlayerGenerator(){
         const durability = document.querySelector('#mod-durability');
         const personality = document.querySelector('#mod-personality');
 
+        overall.innerText = createdPlayer.pRat_overall
+        offOverall.innerText = createdPlayer.pRat_offOverall
+        defOverall.innerText = createdPlayer.pRat_defOverall
+        firstName.defaultValue = createdPlayer.firstName
+        lastName.defaultValue = createdPlayer.lastName
+        college.defaultValue = createdPlayer.college
+        ovrRating.defaultValue = createdPlayer.pRat_overall
+        closeShot.defaultValue = createdPlayer.pRat_closeShot;
+        midShot.defaultValue = createdPlayer.pRat_midShot;
+        threeShot.defaultValue = createdPlayer.pRat_threeShot;
+        freeThrow.defaultValue = createdPlayer.pRat_freeThrow;
+        dunking.defaultValue = createdPlayer.pRat_dunking;
+        andOne.defaultValue = createdPlayer.pRat_andOne;
+        passing.defaultValue = createdPlayer.pRat_passing;
+        ballHandle.defaultValue = createdPlayer.pRat_ballHandle;
+        clutchness.defaultValue = createdPlayer.pRat_clutchness;
+        offIq.defaultValue = createdPlayer.pRat_offIQ;
+        intDef.defaultValue = createdPlayer.pRat_intDef;
+        perDef.defaultValue = createdPlayer.pRat_perDef;
+        steal.defaultValue = createdPlayer.pRat_steal;
+        block.defaultValue = createdPlayer.pRat_block;
+        helpDef.defaultValue = createdPlayer.pRat_helpDef;
+        defIq.defaultValue = createdPlayer.pRat_defIQ;
+        offReb.defaultValue = createdPlayer.pRat_offRebound;
+        defReb.defaultValue = createdPlayer.pRat_defRebound;
+        potential.defaultValue = createdPlayer.potential;
+        peak.defaultValue = createdPlayer.peakAge;
+        retire.defaultValue = createdPlayer.retirementAge;
+        speed.defaultValue = createdPlayer.pRat_speed;
+        strength.defaultValue = createdPlayer.pRat_strength;
+        jumping.defaultValue = createdPlayer.pRat_jumping;
+        stamina.defaultValue = createdPlayer.pRat_stamina;
+        durability.defaultValue = createdPlayer.pRat_durability;
+        personality.defaultValue = createdPlayer.pRat_personality;
 
 
-        // firstName.defaultValue = createdPlayer.firstName
-        // lastName.defaultValue = createdPlayer.lastName
-        // ovrRating.defaultValue = createdPlayer.pRat_overall
-        closeShot.defaultValue = createdPlayer.pRat_closeShot
-        midShot.defaultValue = createdPlayer.pRat_midShot
-        threeShot.defaultValue = createdPlayer.pRat_threeShot
-        freeThrow.defaultValue = createdPlayer.pRat_freeThrow
-        dunking.defaultValue = createdPlayer.pRat_dunking
-        andOne.defaultValue = createdPlayer.pRat_andOne
-        passing.defaultValue = createdPlayer.pRat_passing
-        ballHandle.defaultValue = createdPlayer.pRat_ballHandle
-        clutchness.defaultValue = createdPlayer.pRat_clutchness
-        offIq.defaultValue = createdPlayer.pRat_offIQ
+
+
         console.log('Modify')
         modScreen.style.display='flex'
         console.log(passing)
