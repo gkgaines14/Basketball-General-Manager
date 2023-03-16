@@ -2,7 +2,7 @@
 // import {homeTeamRoster} from "./app_launch.js"
 // import { leagueTeams } from "./player_generator.js"
 import {leagueTeamList} from "./app_game_data.js"
-import {createNewPlayer, freeThrows, postPlayerCardData} from "./gameplay_functions.js"
+import {calcOverallRatings, createNewPlayer, freeThrows, postPlayerCardData} from "./gameplay_functions.js"
 
 
 // Launches the app and controls screen management
@@ -36,7 +36,6 @@ const pageManager = {
 }
 
 pageManager.init();
-
 
 // Launch Landing Page
 function loadRosterPage(){
@@ -831,6 +830,42 @@ function loadPlayerGenerator(){
 
     console.log('hi player gen');
 
+    const overall = document.querySelector('#mod-ovr-rating');
+    const offOverall = document.querySelector('#mod-off-ovr');
+    const defOverall = document.querySelector('#mod-def-ovr');
+    const firstName = document.querySelector('#mod-first-name');
+    const lastName = document.querySelector('#mod-last-name');
+    const college = document.querySelector('#mod-college');
+    const jersey = document.querySelector('#mod-jersey');
+    const age = document.querySelector('#mod-age');
+    const ovrRating = document.querySelector('#mod-ovr-rating');
+    const closeShot = document.querySelector('#mod-close-shot');
+    const midShot = document.querySelector('#mod-mid-shot');
+    const threeShot = document.querySelector('#mod-three-shot');
+    const freeThrow = document.querySelector('#mod-free-throw');
+    const dunking = document.querySelector('#mod-dunking');
+    const andOne = document.querySelector('#mod-and-one');
+    const passing = document.querySelector('#mod-passing');
+    const ballHandle = document.querySelector('#mod-handle');
+    const clutchness = document.querySelector('#mod-clutch');
+    const offIq = document.querySelector('#mod-off-iq');
+    const intDef = document.querySelector('#mod-int-def');
+    const perDef = document.querySelector('#mod-per-def');
+    const steal = document.querySelector('#mod-steal');
+    const block = document.querySelector('#mod-block');
+    const helpDef = document.querySelector('#mod-help-def');
+    const defIq = document.querySelector('#mod-def-iq');
+    const offReb = document.querySelector('#mod-off-reb');
+    const defReb = document.querySelector('#mod-def-reb');
+    const potential = document.querySelector('#mod-potential');
+    const peak = document.querySelector('#mod-peak-age');
+    const retire = document.querySelector('#mod-ret-age');
+    const speed = document.querySelector('#mod-speed');
+    const strength = document.querySelector('#mod-strength');
+    const jumping = document.querySelector('#mod-jumping');
+    const stamina = document.querySelector('#mod-stamina');
+    const durability = document.querySelector('#mod-durability');
+    const personality = document.querySelector('#mod-personality');
 
     const submitButton = document.querySelector('#submit-btn');
     const modifyButton = document.querySelector('#modify-btn');
@@ -909,90 +944,195 @@ function loadPlayerGenerator(){
         createdPlayer = createNewPlayer(playerInput);
 
         postPlayerCardData(createdPlayer)
-        console.log(createdPlayer.describe())
-        console.log(createdPlayer)
-    })
-    
-    modifyButton.addEventListener('click',()=>{
-
-        const overall = document.querySelector('#mod-ovr-rating');
-        const offOverall = document.querySelector('#mod-off-ovr');
-        const defOverall = document.querySelector('#mod-def-ovr');
-        const firstName = document.querySelector('#mod-first-name');
-        const lastName = document.querySelector('#mod-last-name');
-        const college = document.querySelector('#mod-college');
-        const ovrRating = document.querySelector('#mod-ovr-rating');
-        const closeShot = document.querySelector('#mod-close-shot');
-        const midShot = document.querySelector('#mod-mid-shot');
-        const threeShot = document.querySelector('#mod-three-shot');
-        const freeThrow = document.querySelector('#mod-free-throw');
-        const dunking = document.querySelector('#mod-dunking');
-        const andOne = document.querySelector('#mod-and-one');
-        const passing = document.querySelector('#mod-passing');
-        const ballHandle = document.querySelector('#mod-handle');
-        const clutchness = document.querySelector('#mod-clutch');
-        const offIq = document.querySelector('#mod-off-iq');
-        const intDef = document.querySelector('#mod-int-def');
-        const perDef = document.querySelector('#mod-per-def');
-        const steal = document.querySelector('#mod-steal');
-        const block = document.querySelector('#mod-block');
-        const helpDef = document.querySelector('#mod-help-def');
-        const defIq = document.querySelector('#mod-def-iq');
-        const offReb = document.querySelector('#mod-off-reb');
-        const defReb = document.querySelector('#mod-def-reb');
-        const potential = document.querySelector('#mod-potential');
-        const peak = document.querySelector('#mod-peak-age');
-        const retire = document.querySelector('#mod-ret-age');
-        const speed = document.querySelector('#mod-speed');
-        const strength = document.querySelector('#mod-strength');
-        const jumping = document.querySelector('#mod-jumping');
-        const stamina = document.querySelector('#mod-stamina');
-        const durability = document.querySelector('#mod-durability');
-        const personality = document.querySelector('#mod-personality');
+        console.log(createdPlayer.firstName)
 
         overall.innerText = createdPlayer.pRat_overall
         offOverall.innerText = createdPlayer.pRat_offOverall
         defOverall.innerText = createdPlayer.pRat_defOverall
-        firstName.defaultValue = createdPlayer.firstName
-        lastName.defaultValue = createdPlayer.lastName
-        college.defaultValue = createdPlayer.college
-        ovrRating.defaultValue = createdPlayer.pRat_overall
-        closeShot.defaultValue = createdPlayer.pRat_closeShot;
-        midShot.defaultValue = createdPlayer.pRat_midShot;
-        threeShot.defaultValue = createdPlayer.pRat_threeShot;
-        freeThrow.defaultValue = createdPlayer.pRat_freeThrow;
-        dunking.defaultValue = createdPlayer.pRat_dunking;
-        andOne.defaultValue = createdPlayer.pRat_andOne;
-        passing.defaultValue = createdPlayer.pRat_passing;
-        ballHandle.defaultValue = createdPlayer.pRat_ballHandle;
-        clutchness.defaultValue = createdPlayer.pRat_clutchness;
-        offIq.defaultValue = createdPlayer.pRat_offIQ;
-        intDef.defaultValue = createdPlayer.pRat_intDef;
-        perDef.defaultValue = createdPlayer.pRat_perDef;
-        steal.defaultValue = createdPlayer.pRat_steal;
-        block.defaultValue = createdPlayer.pRat_block;
-        helpDef.defaultValue = createdPlayer.pRat_helpDef;
-        defIq.defaultValue = createdPlayer.pRat_defIQ;
-        offReb.defaultValue = createdPlayer.pRat_offRebound;
-        defReb.defaultValue = createdPlayer.pRat_defRebound;
-        potential.defaultValue = createdPlayer.potential;
-        peak.defaultValue = createdPlayer.peakAge;
-        retire.defaultValue = createdPlayer.retirementAge;
-        speed.defaultValue = createdPlayer.pRat_speed;
-        strength.defaultValue = createdPlayer.pRat_strength;
-        jumping.defaultValue = createdPlayer.pRat_jumping;
-        stamina.defaultValue = createdPlayer.pRat_stamina;
-        durability.defaultValue = createdPlayer.pRat_durability;
-        personality.defaultValue = createdPlayer.pRat_personality;
+        firstName.value = createdPlayer.firstName
+        lastName.value = createdPlayer.lastName
+        college.value = createdPlayer.college
+        jersey.value = createdPlayer.jerseyNumber
+        age.value = createdPlayer.age
+        ovrRating.value = createdPlayer.pRat_overall
+        closeShot.value = createdPlayer.pRat_closeShot;
+        midShot.value = createdPlayer.pRat_midShot;
+        threeShot.value = createdPlayer.pRat_threeShot;
+        freeThrow.value = createdPlayer.pRat_freeThrow;
+        dunking.value = createdPlayer.pRat_dunking;
+        andOne.value = createdPlayer.pRat_andOne;
+        passing.value = createdPlayer.pRat_passing;
+        ballHandle.value = createdPlayer.pRat_ballHandle;
+        clutchness.value = createdPlayer.pRat_clutchness;
+        offIq.value = createdPlayer.pRat_offIQ;
+        intDef.value = createdPlayer.pRat_intDef;
+        perDef.value = createdPlayer.pRat_perDef;
+        steal.value = createdPlayer.pRat_steal;
+        block.value = createdPlayer.pRat_block;
+        helpDef.value = createdPlayer.pRat_helpDef;
+        defIq.value = createdPlayer.pRat_defIQ;
+        offReb.value = createdPlayer.pRat_offRebound;
+        defReb.value = createdPlayer.pRat_defRebound;
+        potential.value = createdPlayer.potential;
+        peak.value = createdPlayer.peakAge;
+        retire.value = createdPlayer.retirementAge;
+        speed.value = createdPlayer.pRat_speed;
+        strength.value = createdPlayer.pRat_strength;
+        jumping.value = createdPlayer.pRat_jumping;
+        stamina.value = createdPlayer.pRat_stamina;
+        durability.value = createdPlayer.pRat_durability;
+        personality.value = createdPlayer.pRat_personality;
 
-
-
-
+    })
+    
+    modifyButton.addEventListener('click',()=>{
         console.log('Modify')
         modScreen.style.display='flex'
+
+        // Captures document objects
+        // const overall = document.querySelector('#mod-ovr-rating');
+        // const offOverall = document.querySelector('#mod-off-ovr');
+        // const defOverall = document.querySelector('#mod-def-ovr');
+        // const firstName = document.querySelector('#mod-first-name');
+        // const lastName = document.querySelector('#mod-last-name');
+        // const college = document.querySelector('#mod-college');
+        // const jersey = document.querySelector('#mod-jersey');
+        // const age = document.querySelector('#mod-age');
+        // const ovrRating = document.querySelector('#mod-ovr-rating');
+        // const closeShot = document.querySelector('#mod-close-shot');
+        // const midShot = document.querySelector('#mod-mid-shot');
+        // const threeShot = document.querySelector('#mod-three-shot');
+        // const freeThrow = document.querySelector('#mod-free-throw');
+        // const dunking = document.querySelector('#mod-dunking');
+        // const andOne = document.querySelector('#mod-and-one');
+        // const passing = document.querySelector('#mod-passing');
+        // const ballHandle = document.querySelector('#mod-handle');
+        // const clutchness = document.querySelector('#mod-clutch');
+        // const offIq = document.querySelector('#mod-off-iq');
+        // const intDef = document.querySelector('#mod-int-def');
+        // const perDef = document.querySelector('#mod-per-def');
+        // const steal = document.querySelector('#mod-steal');
+        // const block = document.querySelector('#mod-block');
+        // const helpDef = document.querySelector('#mod-help-def');
+        // const defIq = document.querySelector('#mod-def-iq');
+        // const offReb = document.querySelector('#mod-off-reb');
+        // const defReb = document.querySelector('#mod-def-reb');
+        // const potential = document.querySelector('#mod-potential');
+        // const peak = document.querySelector('#mod-peak-age');
+        // const retire = document.querySelector('#mod-ret-age');
+        // const speed = document.querySelector('#mod-speed');
+        // const strength = document.querySelector('#mod-strength');
+        // const jumping = document.querySelector('#mod-jumping');
+        // const stamina = document.querySelector('#mod-stamina');
+        // const durability = document.querySelector('#mod-durability');
+        // const personality = document.querySelector('#mod-personality');
+
+        // Sets form element data to player's current ratings
+        // overall.innerText = createdPlayer.pRat_overall
+        // offOverall.innerText = createdPlayer.pRat_offOverall
+        // defOverall.innerText = createdPlayer.pRat_defOverall
+        // firstName.defaultValue = createdPlayer.firstName
+        // lastName.defaultValue = createdPlayer.lastName
+        // college.defaultValue = createdPlayer.college
+        // jersey.defaultValue = createdPlayer.jerseyNumber
+        // age.defaultValue = createdPlayer.age
+        // ovrRating.defaultValue = createdPlayer.pRat_overall
+        // closeShot.defaultValue = createdPlayer.pRat_closeShot;
+        // midShot.defaultValue = createdPlayer.pRat_midShot;
+        // threeShot.defaultValue = createdPlayer.pRat_threeShot;
+        // freeThrow.defaultValue = createdPlayer.pRat_freeThrow;
+        // dunking.defaultValue = createdPlayer.pRat_dunking;
+        // andOne.defaultValue = createdPlayer.pRat_andOne;
+        // passing.defaultValue = createdPlayer.pRat_passing;
+        // ballHandle.defaultValue = createdPlayer.pRat_ballHandle;
+        // clutchness.defaultValue = createdPlayer.pRat_clutchness;
+        // offIq.defaultValue = createdPlayer.pRat_offIQ;
+        // intDef.defaultValue = createdPlayer.pRat_intDef;
+        // perDef.defaultValue = createdPlayer.pRat_perDef;
+        // steal.defaultValue = createdPlayer.pRat_steal;
+        // block.defaultValue = createdPlayer.pRat_block;
+        // helpDef.defaultValue = createdPlayer.pRat_helpDef;
+        // defIq.defaultValue = createdPlayer.pRat_defIQ;
+        // offReb.defaultValue = createdPlayer.pRat_offRebound;
+        // defReb.defaultValue = createdPlayer.pRat_defRebound;
+        // potential.defaultValue = createdPlayer.potential;
+        // peak.defaultValue = createdPlayer.peakAge;
+        // retire.defaultValue = createdPlayer.retirementAge;
+        // speed.defaultValue = createdPlayer.pRat_speed;
+        // strength.defaultValue = createdPlayer.pRat_strength;
+        // jumping.defaultValue = createdPlayer.pRat_jumping;
+        // stamina.defaultValue = createdPlayer.pRat_stamina;
+        // durability.defaultValue = createdPlayer.pRat_durability;
+        // personality.defaultValue = createdPlayer.pRat_personality;
+
+
         console.log(passing)
         console.log(createdPlayer.lastName)
 
+
+        modSave.addEventListener('click',()=>{
+        
+            createdPlayer.firstName = firstName.value
+            createdPlayer.lastName = lastName.value
+            createdPlayer.college = college.value
+            // createdPlayer.positionName=generatePositionName();
+            // createdPlayer.position=generatePosition(createdPlayer.positionName);
+            // createdPlayer.inches = generateInches(createdPlayer.positionName);
+            // createdPlayer.height= (Math.floor(createdPlayer.inches/12)).toString()+"'"+(createdPlayer.inches%12).toString()+'"';
+            createdPlayer.jerseyNumber = jersey.value;
+            createdPlayer.age = age.value;
+            // createdPlayer.yearsOfExp = exp;
+            // createdPlayer.yearsOfExp = input.exp;
+
+
+            createdPlayer.pRat_closeShot = Number(closeShot.value)
+            createdPlayer.pRat_midShot = Number(midShot.value);
+            createdPlayer.pRat_threeShot = Number(threeShot.value);
+            createdPlayer.pRat_freeThrow = Number(freeThrow.value);
+            createdPlayer.pRat_dunking = Number(dunking.value);
+            createdPlayer.pRat_andOne = Number(andOne.value);
+            createdPlayer.pRat_passing = Number(passing.value);
+            createdPlayer.pRat_ballHandle = Number(ballHandle.value);
+            createdPlayer.pRat_clutchness = Number(clutchness.value);
+            createdPlayer.pRat_offIQ = Number(offIq.value);
+
+            createdPlayer.pRat_intDef = Number(intDef.value);
+            createdPlayer.pRat_perDef = Number(perDef.value);
+            createdPlayer.pRat_steal = Number(steal.value);
+            createdPlayer.pRat_block = Number(block.value);
+            createdPlayer.pRat_helpDef = Number(helpDef.value);
+            createdPlayer.pRat_defIQ = Number(defIq.value);
+
+            createdPlayer.pRat_offRebound = Number(offReb.value);
+            createdPlayer.pRat_defRebound = Number(defReb.value);
+
+            createdPlayer.potential = Number(potential.value);
+            createdPlayer.peakAge = Number(peak.value);
+            createdPlayer.pRat_speed = Number(speed.value);
+            createdPlayer.pRat_strength = Number(strength.value);
+            createdPlayer.pRat_jumping = Number(jumping.value);
+            createdPlayer.pRat_stamina = Number(stamina.value);
+            createdPlayer.pRat_durability = Number(durability.value);
+            createdPlayer.pRat_personality = Number(personality.value);
+
+            // createdPlayer.potential = Math.floor(Math.random()*(5)+1);
+            // createdPlayer.peakAge = Math.floor(Math.random()*(34-29)+29);
+            // createdPlayer.retirementAge= createdPlayer.peakAge +Math.floor(Math.random()*(7-3+1)+3);
+
+            // createdPlayer.archetype = generateArchetype(createdPlayer.position);
+            // createdPlayer.pRat_personality
+            
+            
+            calcOverallRatings(createdPlayer);
+            overall.innerText = createdPlayer.pRat_overall
+            offOverall.innerText = createdPlayer.pRat_offOverall
+            defOverall.innerText = createdPlayer.pRat_defOverall
+            
+            postPlayerCardData(createdPlayer)
+            
+            modScreen.style.display='none'
+    
+        })
 
     });
 
@@ -1004,19 +1144,6 @@ function loadPlayerGenerator(){
         leagueTeamList[0].roster)
         sessionStorage.setItem('fAList',JSON.stringify(leagueTeamList[0].roster))
     });
-
-
-    modSave.addEventListener('click',()=>{
-        modScreen.style.display='none'
-
-
-
-
-
-
-
-
-    })
 
     counters.forEach(counter=>{
         counter.addEventListener('click',(event)=>{
@@ -1037,6 +1164,7 @@ function loadPlayerGenerator(){
 
 };
 
+// Load the main menu
 function loadMenu(){
     console.log('this is the menu page')
 

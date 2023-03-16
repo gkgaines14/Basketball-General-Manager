@@ -367,7 +367,7 @@ function simPos(home,road,posCount){
 //Set starting line-up
 function setStarters(team){
  
-    team.roster.sort((a, b)=> b.overall-a.overall)
+    team.roster.sort((a, b)=> b.pRat_Overall-a.pRat_Overall)
 
     //Set players into starting positions
     for(let j = 0;j<homeTeam_inGame.length;j++){
@@ -407,7 +407,7 @@ function makeSubs(){
     }
 
 
-    roster.sort((a, b)=> (b.overall*b.fatigue)-(a.overall*a.fatigue))  //Sorts players by overall effectiveness considering fatigue
+    roster.sort((a, b)=> (b.pRat_overall*b.fatigue)-(a.pRat_overall*a.fatigue))  //Sorts players by overall effectiveness considering fatigue
     
    
     // roster.forEach(item=>console.log(`${item.name}(${item.position}) - ${item.overall*item.fatigue}`))
@@ -516,9 +516,9 @@ function createNewPlayer(race){
     const whiteHairTwo = 'invert(23%) sepia(43%) saturate(845%) hue-rotate(2deg) brightness(98%) contrast(97%)';
     const whiteHairThree = 'invert(30%) sepia(79%) saturate(1273%) hue-rotate(359deg) brightness(90%) contrast(111%)';
 
-    function calcOverall(player){
-        return Math.round((player.pRat_speed+player.pRat_closeShot+player.pRat_midShot)/3)
-    }
+    // function calcOverall(player){
+    //     return Math.round((player.pRat_speed+player.pRat_closeShot+player.pRat_midShot)/3)
+    // }
     
     function generateCollege(){
         return collegeNamePool[Math.floor(Math.random()*(collegeNamePool.length-1)+0)]
@@ -858,7 +858,7 @@ function createNewPlayer(race){
         console.log(attList);
         console.log(attPos);
         attList.forEach((item)=>{
-        //     // this[item]=randRange[attPos]
+        //     // player[item]=randRange[attPos]
             player[item]=Math.floor(Math.random()*((player.archetypeRatingRange[attPos+1])-(player.archetypeRatingRange[attPos]))+player.archetypeRatingRange[attPos]);
             // player[item]=player.archetypeRatingRange[attPos]
             console.log(player.archetypeRatingRange[attPos]);
@@ -932,7 +932,7 @@ function createNewPlayer(race){
             // Generate ratings based on archetype
             generateRatings(this);
             
-            this.overall = calcOverall(this);
+            // this.overall = calcOverall(this);
             this.pRat_offOverall = Math.floor((this.pRat_closeShot+this.pRat_midShot+this.pRat_threeShot+this.pRat_freeThrow+this.pRat_dunking+this.pRat_andOne+this.pRat_passing+this.pRat_ballHandle+this.pRat_clutchness+this.pRat_offIQ)/10);
             this.pRat_defOverall = Math.floor((this.pRat_intDef+this.pRat_perDef+this.pRat_steal+this.pRat_block+this.pRat_helpDef+this.pRat_defIQ)/6);
             this.pRat_overall=Math.floor((this.pRat_offOverall+this.pRat_defOverall+this.pRat_offRebound+this.pRat_defRebound+this.pRat_speed+this.pRat_strength+this.pRat_jumping+this.pRat_stamina+this.pRat_durability)/9);
@@ -945,131 +945,131 @@ function createNewPlayer(race){
         }
     } 
 
-    Player.prototype.postData = function(){
-            const name = document.querySelector('#name');
-            const position = document.querySelector('#position');
-            const acrhetype = document.querySelector('#archetype');
+    // Player.prototype.postData = function(){
+    //         const name = document.querySelector('#name');
+    //         const position = document.querySelector('#position');
+    //         const acrhetype = document.querySelector('#archetype');
 
     
-            const back= document.querySelector('#back');
-            const head = document.querySelector('#head');
-            const outline = document.querySelector('#outline');
-            const eyebrows = document.querySelector('#eyebrows');
-            const front = document.querySelector('#front'); 
-            const beard = document.querySelector('#beard'); 
+    //         const back= document.querySelector('#back');
+    //         const head = document.querySelector('#head');
+    //         const outline = document.querySelector('#outline');
+    //         const eyebrows = document.querySelector('#eyebrows');
+    //         const front = document.querySelector('#front'); 
+    //         const beard = document.querySelector('#beard'); 
     
-            const college = document.querySelector('#college');
-            const height = document.querySelector('#height');
-            const jerseyNum = document.querySelector('#jersey-num');
-            const potential = document.querySelector('#potential');
-            const age = document.querySelector('#age');
-            const exp = document.querySelector('#exp');
-            const peakAge = document.querySelector('#peak-age');
-            const retireAge = document.querySelector('#retire-age');
+    //         const college = document.querySelector('#college');
+    //         const height = document.querySelector('#height');
+    //         const jerseyNum = document.querySelector('#jersey-num');
+    //         const potential = document.querySelector('#potential');
+    //         const age = document.querySelector('#age');
+    //         const exp = document.querySelector('#exp');
+    //         const peakAge = document.querySelector('#peak-age');
+    //         const retireAge = document.querySelector('#retire-age');
 
-            const badgeOne = document.querySelector('#badge-one');
-            const badgeOneContainer = document.querySelector('#badge-one-container');
-            const badgeTwo = document.querySelector('#badge-two');
-            const badgeTwoContainer = document.querySelector('#badge-two-container');
-            const badgeThree = document.querySelector('#badge-three');
-            const badgeThreeContainer = document.querySelector('#badge-three-container');
-            const badgeFour = document.querySelector('#badge-four');
-            const badgeFourContainer = document.querySelector('#badge-four-container');
+    //         const badgeOne = document.querySelector('#badge-one');
+    //         const badgeOneContainer = document.querySelector('#badge-one-container');
+    //         const badgeTwo = document.querySelector('#badge-two');
+    //         const badgeTwoContainer = document.querySelector('#badge-two-container');
+    //         const badgeThree = document.querySelector('#badge-three');
+    //         const badgeThreeContainer = document.querySelector('#badge-three-container');
+    //         const badgeFour = document.querySelector('#badge-four');
+    //         const badgeFourContainer = document.querySelector('#badge-four-container');
 
 
-            // Player attribute elements
-            const ovrRating = document.querySelector('#att-ovr-rating');
-            const closeShot = document.querySelector('#att-close-shot');
-            const midShot = document.querySelector('#att-mid-range');
-            const threeShot = document.querySelector('#att-three-shot');
-            const freeThrow = document.querySelector('#att-free-throw');
-            const dunking = document.querySelector('#att-dunking');
-            const andOne = document.querySelector('#att-and-one');
-            const passing = document.querySelector('#att-passing');
-            const ballHandle = document.querySelector('#att-ball-handle');
-            const clutchness = document.querySelector('#att-clutchness');
-            const offIq = document.querySelector('#att-off-iq');
-            const intDef = document.querySelector('#att-int-def');
-            const perDef = document.querySelector('#att-per-def');
-            const steal = document.querySelector('#att-steal');
-            const block = document.querySelector('#att-block');
-            const helpDef = document.querySelector('#att-help-def');
-            const defIq = document.querySelector('#att-def-iq');
-            const offReb = document.querySelector('#att-off-reb');
-            const defReb = document.querySelector('#att-def-reb');
-            const speed = document.querySelector('#att-speed');
-            const strength = document.querySelector('#att-strength');
-            const jumping = document.querySelector('#att-jumping');
-            const stamina = document.querySelector('#att-stamina');
-            const durability = document.querySelector('#att-durability');
-            const personality = document.querySelector('#att-personality');
+    //         // Player attribute elements
+    //         const ovrRating = document.querySelector('#att-ovr-rating');
+    //         const closeShot = document.querySelector('#att-close-shot');
+    //         const midShot = document.querySelector('#att-mid-range');
+    //         const threeShot = document.querySelector('#att-three-shot');
+    //         const freeThrow = document.querySelector('#att-free-throw');
+    //         const dunking = document.querySelector('#att-dunking');
+    //         const andOne = document.querySelector('#att-and-one');
+    //         const passing = document.querySelector('#att-passing');
+    //         const ballHandle = document.querySelector('#att-ball-handle');
+    //         const clutchness = document.querySelector('#att-clutchness');
+    //         const offIq = document.querySelector('#att-off-iq');
+    //         const intDef = document.querySelector('#att-int-def');
+    //         const perDef = document.querySelector('#att-per-def');
+    //         const steal = document.querySelector('#att-steal');
+    //         const block = document.querySelector('#att-block');
+    //         const helpDef = document.querySelector('#att-help-def');
+    //         const defIq = document.querySelector('#att-def-iq');
+    //         const offReb = document.querySelector('#att-off-reb');
+    //         const defReb = document.querySelector('#att-def-reb');
+    //         const speed = document.querySelector('#att-speed');
+    //         const strength = document.querySelector('#att-strength');
+    //         const jumping = document.querySelector('#att-jumping');
+    //         const stamina = document.querySelector('#att-stamina');
+    //         const durability = document.querySelector('#att-durability');
+    //         const personality = document.querySelector('#att-personality');
     
-            //Post Header
-            name.innerText = `${this.firstName} ${this.lastName}`;
-            position.innerText = this.position;
-            archetype.innerText = this.archetype;
+    //         //Post Header
+    //         name.innerText = `${this.firstName} ${this.lastName}`;
+    //         position.innerText = this.position;
+    //         archetype.innerText = this.archetype;
     
-            // Post Avatar
-            back.src = this.avBack;
-            back.style.filter = this.avHairColor;
-            // head.src = player.head
-            head.style.filter = this.avSkinTone;
-            outline.style.filter = this.avOutline;
-            eyebrows.src = this.avEyebrows;
-            eyebrows.style.filter = this.avHairColor;
-            front.src = this.avFront;
-            front.style.filter = this.avHairColor;
-            beard.src = this.avBeard;
-            beard.style.filter = this.avHairColor;
-            // headband.src = 'images/player_avatars/headband.png'
+    //         // Post Avatar
+    //         back.src = this.avBack;
+    //         back.style.filter = this.avHairColor;
+    //         // head.src = player.head
+    //         head.style.filter = this.avSkinTone;
+    //         outline.style.filter = this.avOutline;
+    //         eyebrows.src = this.avEyebrows;
+    //         eyebrows.style.filter = this.avHairColor;
+    //         front.src = this.avFront;
+    //         front.style.filter = this.avHairColor;
+    //         beard.src = this.avBeard;
+    //         beard.style.filter = this.avHairColor;
+    //         // headband.src = 'images/player_avatars/headband.png'
     
-            // Post Demographics
-            college.innerText = this.college;
-            height.innerText = this.height;
-            jerseyNum.innerText = this.jerseyNumber;
-            potential.innerText = this.potential;
-            age.innerText = this.age;
-            exp.innerText = (this.yearsOfExp===0)?'Rookie':this.yearsOfExp;
-            peakAge.innerText = this.peakAge;
-            retireAge.innerText = this.retirementAge;
+    //         // Post Demographics
+    //         college.innerText = this.college;
+    //         height.innerText = this.height;
+    //         jerseyNum.innerText = this.jerseyNumber;
+    //         potential.innerText = this.potential;
+    //         age.innerText = this.age;
+    //         exp.innerText = (this.yearsOfExp===0)?'Rookie':this.yearsOfExp;
+    //         peakAge.innerText = this.peakAge;
+    //         retireAge.innerText = this.retirementAge;
             
-            // Post Attributes
-            ovrRating.innerText = this.pRat_Overall;
-            closeShot.innerText = this.pRat_closeShot;
-            midShot.innerText = this.pRat_midShot;
-            threeShot.innerText = this.pRat_threeShot;
-            freeThrow.innerText = this.pRat_freeThrow;
-            dunking.innerText = this.pRat_dunking;
-            andOne.innerText = this.pRat_andOne;
-            passing.innerText = this.pRat_passing;
-            ballHandle.innerText = this.pRat_ballHandle;
-            clutchness.innerText = this.pRat_clutchness;
-            offIq.innerText = this.pRat_offIQ;
-            intDef.innerText = this.pRat_intDef;
-            perDef.innerText = this.pRat_perDef;
-            steal.innerText = this.pRat_steal;
-            block.innerText = this.pRat_block;
-            helpDef.innerText = this.pRat_helpDef;
-            defIq.innerText = this.pRat_defIQ;
-            offReb.innerText = this.pRat_offRebound;
-            defReb.innerText = this.pRat_defRebound;
-            speed.innerText = this.pRat_speed;
-            strength.innerText = this.pRat_strength;
-            jumping.innerText = this.pRat_jumping;
-            stamina.innerText = this.pRat_stamina;
-            durability.innerText = this.pRat_durability;
-            personality.innerText = this.pRat_personality;
+    //         // Post Attributes
+    //         ovrRating.innerText = this.pRat_Overall;
+    //         closeShot.innerText = this.pRat_closeShot;
+    //         midShot.innerText = this.pRat_midShot;
+    //         threeShot.innerText = this.pRat_threeShot;
+    //         freeThrow.innerText = this.pRat_freeThrow;
+    //         dunking.innerText = this.pRat_dunking;
+    //         andOne.innerText = this.pRat_andOne;
+    //         passing.innerText = this.pRat_passing;
+    //         ballHandle.innerText = this.pRat_ballHandle;
+    //         clutchness.innerText = this.pRat_clutchness;
+    //         offIq.innerText = this.pRat_offIQ;
+    //         intDef.innerText = this.pRat_intDef;
+    //         perDef.innerText = this.pRat_perDef;
+    //         steal.innerText = this.pRat_steal;
+    //         block.innerText = this.pRat_block;
+    //         helpDef.innerText = this.pRat_helpDef;
+    //         defIq.innerText = this.pRat_defIQ;
+    //         offReb.innerText = this.pRat_offRebound;
+    //         defReb.innerText = this.pRat_defRebound;
+    //         speed.innerText = this.pRat_speed;
+    //         strength.innerText = this.pRat_strength;
+    //         jumping.innerText = this.pRat_jumping;
+    //         stamina.innerText = this.pRat_stamina;
+    //         durability.innerText = this.pRat_durability;
+    //         personality.innerText = this.pRat_personality;
 
-            // Post Badges
-            badgeOne.src = this.badgeOne;
-            badgeOneContainer.style.display = 'block';
-            badgeTwo.src = this.badgeTwo;
-            badgeTwoContainer.style.display = 'block';
-            badgeThree.src = this.badgeThree;
-            badgeThreeContainer.style.display = 'block';
-            badgeFour.src = this.badgeFour;
-            badgeFourContainer.style.display = 'block';
-    }
+    //         // Post Badges
+    //         badgeOne.src = this.badgeOne;
+    //         badgeOneContainer.style.display = 'block';
+    //         badgeTwo.src = this.badgeTwo;
+    //         badgeTwoContainer.style.display = 'block';
+    //         badgeThree.src = this.badgeThree;
+    //         badgeThreeContainer.style.display = 'block';
+    //         badgeFour.src = this.badgeFour;
+    //         badgeFourContainer.style.display = 'block';
+    // }
 
     Player.prototype.describe= function(){
         console.log("");
@@ -1108,7 +1108,7 @@ function createNewPlayer(race){
     
     Player.prototype.developPlayer= function(attribute,val){
         this[attribute] += val;
-        this.overall = calcOverall(this);
+        this.pRat_overall = calcOverall(this);
     }
 
     let x = new Player(race);
@@ -1242,4 +1242,24 @@ function postPlayerCardData(player){
     badgeThreeContainer.style.display = 'block';
     badgeFour.src = player.badgeFour;
     badgeFourContainer.style.display = 'block';
+}
+
+export function calcOverallRatings(player){
+    console.log('Ratings')
+    player.pRat_overall=Math.round(
+        (
+            (player.pRat_offOverall*3)+
+            (player.pRat_defOverall*3)+
+            (player.pRat_offRebound*2)+
+            (player.pRat_defRebound*2)+
+            player.pRat_speed+
+            player.pRat_strength+
+            player.pRat_jumping+
+            player.pRat_stamina+
+            player.pRat_durability
+        )
+        /15);
+    player.pRat_offOverall = Math.round((player.pRat_closeShot+player.pRat_midShot+player.pRat_threeShot+player.pRat_freeThrow+player.pRat_dunking+player.pRat_andOne+player.pRat_passing+player.pRat_ballHandle+player.pRat_clutchness+player.pRat_offIQ)/10);
+    player.pRat_defOverall = Math.round((player.pRat_intDef+player.pRat_perDef+player.pRat_steal+player.pRat_block+player.pRat_helpDef+player.pRat_defIQ)/6);
+
 }
