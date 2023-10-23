@@ -7,11 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles_global.css">
     <link rel="stylesheet" href="styles_play_gen.css">
+    <script src="https://kit.fontawesome.com/662beca40c.js" crossorigin="anonymous"></script>
     <title>GM Player Generator</title>
 </head>
 <body id="player-generator">
-
     <div id="player-management-card">
+            <a id="back-btn" href="index.html"><i class="fa-solid fa-arrow-left"></i>Back</a>
+
+        
         <div id="input-card">
             <div id="create-controls">
                 <div class="title">Create a Random Player</div>
@@ -55,7 +58,7 @@
                     </ul>
                 </div>
                 <div>
-                    <div id="submit-btn" class="submit-button-long">Submit</div>
+                    <div id="submit-btn" class="submit-button-long">Create Player</div>
                 </div>
             </div>
             
@@ -310,7 +313,7 @@
                     <div>Height</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-height" class="counter input-num" data-max="60" data-min="0"value="14">
+                        <input id="mod-height" class="counter input-num" max="60" min="0"value="14">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -327,7 +330,7 @@
                     <div>Age</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-age" class="counter input-num" data-max="39" data-min="19" value="21">
+                        <input id="mod-age" class="counter input-num" value="21" max="39" min="19">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -335,7 +338,7 @@
                     <div>Years of Exp</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-exp" class="counter input-num" data-max="10" data-min="0" value="1">
+                        <input id="mod-exp" class="counter input-num" value="1" max="10" min="0">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -352,7 +355,7 @@
                     <div>Close Shot</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-close-shot" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-close-shot" class="counter input-num" value="75" max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -360,7 +363,7 @@
                     <div>Midrange Shot</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-mid-shot" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-mid-shot" class="counter input-num" value="75" max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -368,7 +371,7 @@
                     <div>Three Shot</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-three-shot" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-three-shot" class="counter input-num" value="75" max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -376,7 +379,7 @@
                     <div>Free Throws</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-free-throw" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-free-throw" class="counter input-num" value="75" max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -384,7 +387,7 @@
                     <div>Dunking</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-dunking" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-dunking" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -392,7 +395,7 @@
                     <div>And One</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-and-one" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-and-one" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -400,7 +403,7 @@
                     <div>Passing</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-passing" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-passing" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -408,7 +411,7 @@
                     <div>Ball Handling</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-handle" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-handle" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -416,7 +419,7 @@
                     <div>Clutchness</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-clutch" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-clutch" class="counter input-num" value="75" max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -424,7 +427,7 @@
                     <div>Offensive IQ</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-off-iq" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-off-iq" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -441,7 +444,7 @@
                     <div>Interior Defense</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-int-def" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-int-def" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -449,7 +452,7 @@
                     <div>Perimeter Defense</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-per-def" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-per-def" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -457,7 +460,7 @@
                     <div>Steals</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-steal" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-steal" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -465,7 +468,7 @@
                     <div>Shot Blocking</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-block" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-block" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -473,7 +476,7 @@
                     <div>Help Defense</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-help-def" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-help-def" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -481,7 +484,7 @@
                     <div>Defensive IQ</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-def-iq" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-def-iq" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -491,7 +494,7 @@
                     <div>Offensive Rebounding</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-off-reb" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-off-reb" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -499,7 +502,7 @@
                     <div>Defensive Rebounding</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-def-reb" class="counter input-num" data-max="99" data-min="60" value="75">
+                        <input id="mod-def-reb" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -508,7 +511,7 @@
                     <div>Potential</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-potential" class="counter input-num" data-max="5" data-min="1" value="3">
+                        <input id="mod-potential" class="counter input-num" value="3"  max="5" min="1">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -516,7 +519,7 @@
                     <div>Peak Age</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-peak-age" class="counter input-num" data-max="39" data-min="20" value="36">
+                        <input id="mod-peak-age" class="counter input-num" value="36" max="39" min="20">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -524,7 +527,7 @@
                     <div>Retirement Age</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-ret-age" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-ret-age" class="counter input-num" value="38"  max="40" min="25">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -532,7 +535,7 @@
                     <div>Speed</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-speed" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-speed" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -540,7 +543,7 @@
                     <div>Strength</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-strength" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-strength" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -548,7 +551,7 @@
                     <div>Jumping</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-jumping" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-jumping" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -556,7 +559,7 @@
                     <div>Stamina</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-stamina" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-stamina" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -564,7 +567,7 @@
                     <div>Durability</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-durability" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-durability" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
@@ -572,7 +575,7 @@
                     <div>Personality</div>
                     <div class="counter-box">
                         <div class="minus inc-widget">-</div>
-                        <input id="mod-personality" class="counter input-num" data-max="40" data-min="25" value="38">
+                        <input id="mod-personality" class="counter input-num" value="75"  max="99" min="60">
                         <div class="plus inc-widget">+</div>
                     </div>
                 </div>
