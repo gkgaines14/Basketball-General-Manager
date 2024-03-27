@@ -35,7 +35,8 @@
   --t4: rgb(0, 46, 255);
   --t5: rgba(143, 167, 232);
   /* --background: #1e1e1e; */
-  --background: #2b2b2c;
+  /* --background: #2b2b2c; */
+  --background: hsl(230, 43%, 13%);
 
   --dark-red: #5b080f;
   --prime-red: #bb0716ec;
